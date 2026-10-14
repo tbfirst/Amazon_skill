@@ -1,0 +1,6 @@
+interface:
+  display_name: "Lovart Plant Product Images"
+  short_description: "Faithful plant product images and edits in Lovart"
+  default_prompt: "Use $lovart-plant-product-images to turn my plant product photos and request into a faithful Lovart image."
+policy:
+  allow_implicit_invocation: true
