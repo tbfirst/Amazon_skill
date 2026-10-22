@@ -1,0 +1,26 @@
+{
+  "version": "2026-10-22-portable-1",
+  "scope": "Representative variants from reviewed source series, plus reviewed full-size dimension/detail references. Source review status is inherited, not a new generation-quality guarantee.",
+  "seriesIds": [
+    "SET-B0C42XHLS7-B0HBQ4HL4M",
+    "SET-B0CDH12X3Z-B0B9JWTGLJ",
+    "SET-B0D5HKDBDN-B0D5HKDBDN",
+    "SET-B0FNBSD73T-B0FNBSD73T",
+    "SET-B0H4G2PXX5-B0FZJ5SS76",
+    "SET-B0H5J4K825-B0H5J4K825"
+  ],
+  "seriesMetadata": {
+    "SET-B0C42XHLS7-B0HBQ4HL4M": {"titleZh": "仿真花束：整套场景与信息节奏", "tags": ["仿真花", "花束", "套图", "场景", "组合"]},
+    "SET-B0CDH12X3Z-B0B9JWTGLJ": {"titleZh": "仿真天竺葵：场景与数量说明", "tags": ["仿真花", "天竺葵", "花束", "套图", "数量"]},
+    "SET-B0D5HKDBDN-B0D5HKDBDN": {"titleZh": "黄色雏菊：尺寸、细节、场景与A+", "tags": ["仿真花", "雏菊", "尺寸", "细节", "场景", "A+", "套图"]},
+    "SET-B0FNBSD73T-B0FNBSD73T": {"titleZh": "发光桦树：尺寸、功能与A+叙事", "tags": ["灯树", "桦树", "圣诞", "尺寸", "功能", "A+", "套图"]},
+    "SET-B0H4G2PXX5-B0FZJ5SS76": {"titleZh": "秋季仿真花：场景组合与A+", "tags": ["仿真花", "秋季", "场景", "组合", "A+", "套图"]},
+    "SET-B0H5J4K825-B0H5J4K825": {"titleZh": "橙色秋菊：全貌、细节、尺寸与场景", "tags": ["仿真花", "菊花", "秋季", "尺寸", "细节", "场景", "A+", "套图"]}
+  },
+  "imageIds": [
+    "IMG-0c12e4ba653335d6", "IMG-16a79e92d281f95e", "IMG-28ebbdcdd97e3cff",
+    "IMG-69f14805b060bc7f", "IMG-880f4592b15af043", "IMG-91283c92626a4018",
+    "IMG-bd05aa0023fa8671", "IMG-351eb8f5b26f3848", "IMG-c1c290d66153f453",
+    "IMG-790e47f059ff8912", "IMG-12bd9ce6297e93e0", "IMG-fdda56544443ca93"
+  ]
+}

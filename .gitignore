@@ -1,3 +1,20 @@
 __pycache__/
 *.py[cod]
 /dist/
+
+# 本地发布候选产物与临时目录，不入库（避免仓库重复携带 90MB+ 压缩包）
+/outputs/
+/tmp/
+
+# 本地加载副本，与 skills/ 源码重复，不入库
+/.agents/skills/
+
+# 编辑器/工具本地状态
+/.claudian/
+/.obsidian/
+/.pytest_cache/
+*.base
+
+# 本地上线/迭代说明，不纳入版本控制
+/online.md
+/future.md
