@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "private-plant-library",
+  "channelUrl": "https://api.github.com/repos/OWNER/PRIVATE_LIBRARY/contents/channels/private-test.json?ref=main",
+  "allowedOrigins": [
+    "https://api.github.com",
+    "https://library-media.example.invalid"
+  ],
+  "requestHeaders": {
+    "https://api.github.com": {
+      "Accept": "application/vnd.github.raw+json"
+    }
+  },
+  "credentials": [
+    {
+      "origin": "https://api.github.com",
+      "env": "AMAZON_LIBRARY_GITHUB_TOKEN",
+      "header": "Authorization",
+      "prefix": "Bearer "
+    },
+    {
+      "origin": "https://library-media.example.invalid",
+      "env": "AMAZON_LIBRARY_MEDIA_TOKEN",
+      "header": "Authorization",
+      "prefix": "Bearer "
+    }
+  ],
+  "mediaBaseUrl": "https://library-media.example.invalid/versions/{libraryVersion}/",
+  "allowCandidate": true,
+  "timeoutSeconds": 20,
+  "maxJsonBytes": 33554432,
+  "maxAssetBytes": 41943040,
+  "maxSessionBytes": 167772160,
+  "maxCacheBytes": 1073741824,
+  "maxBatchImages": 32
+}

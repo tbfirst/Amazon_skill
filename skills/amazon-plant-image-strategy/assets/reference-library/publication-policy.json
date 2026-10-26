@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "description": "Initial text publication policy. Visual approval does not grant permission to redistribute source images. Add preview/original scopes only for records cleared for that distribution.",
+  "defaults": {
+    "status": "published",
+    "scopes": ["text"]
+  },
+  "images": {},
+  "cards": {},
+  "recipes": {}
+}

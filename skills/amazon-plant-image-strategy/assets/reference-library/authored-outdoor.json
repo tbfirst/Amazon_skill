@@ -1,0 +1,1580 @@
+{
+  "schemaVersion": 1,
+  "revision": "outdoor-authored-20261023-r1",
+  "scope": "Original agent-adaptation text; no new image evidence or generated previews.",
+  "cards": [
+    {
+      "id": "OUT-S01",
+      "title": "室外单场景｜美式入户门廊",
+      "category": "室外原创提示词",
+      "description": "确认该SKU适用的门廊暴露范围、承托/容器及实际件数；不默认双盆。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "门廊",
+        "porch",
+        "entry"
+      ],
+      "productTypes": [
+        "盆栽",
+        "落地树",
+        "花材"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nCreate one American residential entry porch with painted lap siding, a paneled door and a visible stone threshold. Place one supported product arrangement on the right beside the door, outside its swing and the walking route. Use a near eye-level three-quarter camera; keep the whole merchandise and its support readable. Let the doorway recede into the middle ground and a subdued front path into the distance. Reserve the upper-left siding for copy; retain real door-to-product scale rather than enlarging the plant to fill the frame.\n\nLIGHT AND SHADOW\nMorning sun arrives from upper left, moderated by the porch roof. The product has a soft bright left face, readable right-side shade and a short cast shadow to the right on the porch floor. Keep ambient sky fill neutral.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜美式入户门廊。适配前提：确认该SKU适用的门廊暴露范围、承托/容器及实际件数；不默认双盆。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认该SKU适用的门廊暴露范围、承托/容器及实际件数；不默认双盆。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-S02",
+      "title": "室外单场景｜后院铺石露台",
+      "category": "室外原创提示词",
+      "description": "确认室外陈列范围和盆/花瓶支撑；保留可通行空间。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "后院",
+        "露台",
+        "patio",
+        "terrace"
+      ],
+      "productTypes": [
+        "盆栽",
+        "花材",
+        "落地树"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nBuild a backyard paved patio adjoining a modest American house: rear sliding doors, limestone paving joints and one quiet outdoor chair establish scale. Set the actual supported product to the left of the chair, fully visible in the left-center foreground, with its base firmly on the paving. Use a slightly lowered three-quarter view and leave the right-hand wall visually quiet for copy. Keep the lawn and boundary planting distant and lower in contrast than the merchandise; background flowers must not merge with its outline.\n\nLIGHT AND SHADOW\nClear afternoon sunlight comes from camera-right, with a defined cast shadow toward lower left across the paving. Gentle sky fill reveals the shaded leaves; retain actual petal and container texture without clipped highlights.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜后院铺石露台。适配前提：确认室外陈列范围和盆/花瓶支撑；保留可通行空间。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认室外陈列范围和盆/花瓶支撑；保留可通行空间。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-S03",
+      "title": "室外单场景｜城市公寓阳台",
+      "category": "室外原创提示词",
+      "description": "确认阳台用途、可用落地/桌面承托及空间；不凭空增加栏杆夹具。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "阳台",
+        "balcony",
+        "urban"
+      ],
+      "productTypes": [
+        "盆栽",
+        "花材"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nShow a compact apartment balcony with a metal railing, an exterior brick wall and a clear balcony doorway. Put the product in its approved container on a stable low table at the right, entirely inside the railing. Photograph from the doorway looking diagonally outward; include the tabletop edge and floor so the support and dimensions are legible. Leave a quiet upper-left brick area for the selected copy. Distant residential facades create depth without readable signs. Keep the balcony compact and believable; never perch the container on a narrow railing.\n\nLIGHT AND SHADOW\nUse bright overcast daylight with broad sky illumination from front left. Shadows under the container and table are soft but attached. Preserve modest contrast and natural color, with no sunset tint.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜城市公寓阳台。适配前提：确认阳台用途、可用落地/桌面承托及空间；不凭空增加栏杆夹具。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认阳台用途、可用落地/桌面承托及空间；不凭空增加栏杆夹具。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-S04",
+      "title": "室外单场景｜外窗花箱",
+      "category": "室外原创提示词",
+      "description": "确认实际可用花箱方法、插入深度、枝数及窗户开合；活体与仿真分开。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "窗箱",
+        "window",
+        "box",
+        "exterior"
+      ],
+      "productTypes": [
+        "散枝花材",
+        "花箱植株"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nFrame an exterior residential window with painted trim, horizontal siding and one supported window box below the sill. Arrange only the confirmed number of actual product stems or plants in the box using the documented insertion or planting method. Use a front three-quarter view with the full product spread and the box visible; show real clearance beneath the window. Reserve a small quiet patch of siding above and to the left for copy. Keep window mullions straight and product-to-sill scale consistent. Additional background vegetation stays clearly separate.\n\nLIGHT AND SHADOW\nUse early afternoon side light from upper right. The window trim and foliage cast directionally consistent shadows on the siding. Preserve visible darker contact at the box rim and source-supported stem insertion, without painting decorative shadows onto unsupported surfaces.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜外窗花箱。适配前提：确认实际可用花箱方法、插入深度、枝数及窗户开合；活体与仿真分开。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认实际可用花箱方法、插入深度、枝数及窗户开合；活体与仿真分开。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-S05",
+      "title": "室外单场景｜檐下吊篮",
+      "category": "室外原创提示词",
+      "description": "确认户外范围、实际挂链/挂绳、挂点和支架是否随货；不凭空改成吊篮。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "吊篮",
+        "hanging",
+        "basket",
+        "eaves"
+      ],
+      "productTypes": [
+        "吊篮",
+        "垂挂植株"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nShow one genuine hanging product below the eave of a cottage porch, with a visible beam, supporting post and railing. Position the hanging product in the left-center field, showing its complete basket, foliage and source-supported suspension. The attachment point must connect plausibly to the approved support. Keep a quiet siding region to the right for copy, and a softly distant garden beyond the railing. Use a level camera near the basket height; keep hanging length consistent with the actual object and leave clear space beneath it.\n\nLIGHT AND SHADOW\nOpen shade under the eave is lit by bright garden daylight from front right. Use soft foliage depth shadows and a restrained wall shadow only where the wall distance allows it. Do not add a pot-bottom ground contact shadow to a suspended basket.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜檐下吊篮。适配前提：确认户外范围、实际挂链/挂绳、挂点和支架是否随货；不凭空改成吊篮。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认户外范围、实际挂链/挂绳、挂点和支架是否随货；不凭空改成吊篮。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-S06",
+      "title": "室外单场景｜花园长椅旁",
+      "category": "室外原创提示词",
+      "description": "确认户外用途与实际容器；商品置于稳固铺地，不因布景改为地栽。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "花园",
+        "长椅",
+        "garden",
+        "bench"
+      ],
+      "productTypes": [
+        "盆栽",
+        "花材"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nCompose a cottage garden seating corner with a weathered wooden bench, a low picket fence and a gravel path edged with stone. Place one actual product arrangement on a stable flat paving slab beside the bench, in the right foreground. Keep its full silhouette isolated from distant garden planting. Show the bench seat edge as a scale cue and leave a quiet upper-left fence section for copy. A slightly offset camera creates depth along the path; do not surround the merchandise with equally vivid competing blooms.\n\nLIGHT AND SHADOW\nFiltered afternoon light falls from upper left through distant trees. Keep the merchandise mainly in coherent open shade, with occasional broad soft sun patches on the path rather than stripes across fine petals. Include a short contact shadow at the base.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜花园长椅旁。适配前提：确认户外用途与实际容器；商品置于稳固铺地，不因布景改为地栽。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认户外用途与实际容器；商品置于稳固铺地，不因布景改为地栽。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-S07",
+      "title": "室外单场景｜前院步道迎宾",
+      "category": "室外原创提示词",
+      "description": "先锁定盆栽、地插或真实种植三者之一；需对应SKU支持，不把盆栽自动种地。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "前院",
+        "步道",
+        "front",
+        "yard",
+        "walkway"
+      ],
+      "productTypes": [
+        "盆栽",
+        "地插装饰",
+        "活体植株"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nShow a front-yard walkway leading toward a modest residential facade, with a low boundary wall and a visible path edge. Place the product at one near corner of the path using the single confirmed mounting or planting mode. Keep the complete foliage and any included container visible; a ground stake may enter soil only as documented. Use the path as a diagonal depth cue while leaving pedestrian width clear. Put copy on a quiet upper-right wall area. Repeated product instances are allowed only when the approved quantity map explicitly includes them.\n\nLIGHT AND SHADOW\nUse neutral late-morning sunlight from front left. Cast a consistent short shadow onto the actual supporting plane, with darker local contact at the base or insertion point. Keep foliage highlights controlled and the far facade slightly softer.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜前院步道迎宾。适配前提：先锁定盆栽、地插或真实种植三者之一；需对应SKU支持，不把盆栽自动种地。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "先锁定盆栽、地插或真实种植三者之一；需对应SKU支持，不把盆栽自动种地。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-S08",
+      "title": "室外单场景｜露天餐桌中心装饰",
+      "category": "室外原创提示词",
+      "description": "确认临时/长期室外用途、容器适配与数量；道具餐具不暗示随货。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "餐桌",
+        "聚会",
+        "outdoor",
+        "dining",
+        "alfresco"
+      ],
+      "productTypes": [
+        "花材",
+        "桌面盆栽"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nCreate an outdoor dining table on a residential patio, with the house doors, table edge and two understated chairs visible. Put the actual arrangement on the middle-right tabletop, entirely supported by its approved vessel. Use a seated-eye three-quarter view with the whole flower silhouette clear of the background chairs. Keep place settings sparse and subordinate; leave the upper-left plain house wall as the copy zone. Use tabletop dimensions for scale and retain sufficient usable dining space. Do not add loose matching flowers to suggest extra sale contents.\n\nLIGHT AND SHADOW\nLate-afternoon light arrives from back left with gentle frontal sky fill. Give petal edges a restrained rim light while preserving front-face color and detail. The vessel and tableware cast compatible diagonal shadows across the same tabletop.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜露天餐桌中心装饰。适配前提：确认临时/长期室外用途、容器适配与数量；道具餐具不暗示随货。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认临时/长期室外用途、容器适配与数量；道具餐具不暗示随货。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-S09",
+      "title": "室外单场景｜欧式石墙庭院",
+      "category": "室外原创提示词",
+      "description": "确认户外范围；欧式为可选建筑风格，不能改商品或强制覆盖美国站偏好。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "石墙",
+        "庭院",
+        "courtyard",
+        "stone"
+      ],
+      "productTypes": [
+        "盆栽",
+        "花材",
+        "小型树"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nBuild a small European-inspired residential courtyard with limewashed stone, a shallow arched doorway and pale paving. Place the actual product in its approved vessel at left-center near the doorway, without blocking passage. Use a frontal three-quarter camera and keep the full merchandise separated from wall joints. The right wall provides calm negative space for copy. Include only one subdued seating prop and a distant architectural recess; avoid grand palace scale, extra decorative plants or a replacement terracotta pot unless that prop is explicitly selected.\n\nLIGHT AND SHADOW\nStrong high sun comes from upper right, producing a crisp doorway shadow and a coherent product shadow toward lower left. Bounce from the pale paving opens the shaded foliage. Keep the darkest architectural recess separate from the product silhouette.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜欧式石墙庭院。适配前提：确认户外范围；欧式为可选建筑风格，不能改商品或强制覆盖美国站偏好。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认户外范围；欧式为可选建筑风格，不能改商品或强制覆盖美国站偏好。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-S10",
+      "title": "室外单场景｜木平台休闲角",
+      "category": "室外原创提示词",
+      "description": "确认室外范围与支撑；不演示抗风稳定性，不给商品添加固定装置。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "木平台",
+        "deck",
+        "pergola",
+        "lounge"
+      ],
+      "productTypes": [
+        "盆栽",
+        "花材",
+        "立式植株"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nShow a residential timber deck with horizontal boards, a simple railing and one outdoor lounge chair. Set the actual product at the left-front corner beside the chair, supported on the deck or its confirmed table. Use deck-board lines to lead toward the rear doorway. Keep the merchandise complete with clear air around its silhouette; allocate upper-right neutral siding for copy. A partial pergola may establish overhead structure, but do not let beams, furniture or railings intersect the product or imply unprovided anchoring hardware.\n\nLIGHT AND SHADOW\nLow afternoon side light comes from camera-left. Project elongated but plausible shadows along the deck; any pergola shadow agrees with the same source direction. Use soft sky fill to preserve actual dark-green details.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜木平台休闲角。适配前提：确认室外范围与支撑；不演示抗风稳定性，不给商品添加固定装置。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认室外范围与支撑；不演示抗风稳定性，不给商品添加固定装置。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-S11",
+      "title": "室外单场景｜门外挂花环",
+      "category": "室外原创提示词",
+      "description": "确认门外暴露范围、尺寸、真实挂法与五金范围；不能新增蝴蝶结/花叶。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "花环",
+        "门外",
+        "wreath",
+        "front",
+        "door"
+      ],
+      "productTypes": [
+        "花环",
+        "门挂装饰"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nShow the exterior of a paneled residential front door with its trim, handle and a narrow strip of adjacent siding. Hang the actual wreath at the confirmed position using its documented suspension method. Use a nearly frontal view with a subtle side angle so wreath thickness and the door surface remain legible. Keep the entire outer edge visible and preserve actual branch density and ornaments. Place copy in a quiet upper-side area of siding, never through the ring opening or across foliage. Do not create a second wreath or decorative ribbon.\n\nLIGHT AND SHADOW\nUse calm bright-overcast daylight from the open porch front. A small, soft shadow behind the wreath reflects its real separation from the door. Keep recesses natural and retain source-supported surface detail.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜门外挂花环。适配前提：确认门外暴露范围、尺寸、真实挂法与五金范围；不能新增蝴蝶结/花叶。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认门外暴露范围、尺寸、真实挂法与五金范围；不能新增蝴蝶结/花叶。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-S12",
+      "title": "室外单场景｜庭院傍晚氛围",
+      "category": "室外原创提示词",
+      "description": "确认户外摆放范围；普通商品靠壁灯照明，灯树须另确认真实灯位与电源条件。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "single",
+        "傍晚",
+        "夜景",
+        "blue",
+        "hour",
+        "dusk",
+        "garden"
+      ],
+      "productTypes": [
+        "盆栽",
+        "花材",
+        "灯树"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "single",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nCreate a blue-hour residential patio with a rear door, wall sconce and visible paving. Position the actual product right of the doorway in the foreground, with its full silhouette and base readable against a quieter wall. Leave upper-left wall space for copy. Keep background seating understated and use a distant fence to establish depth. State a single resolved product light state: ordinary plants receive external light only; a verified illuminated SKU retains only its documented emitters. Do not wrap an unlit product in newly invented fairy lights.\n\nLIGHT AND SHADOW\nCombine cool residual sky light with warm illumination from one wall sconce at upper right. Keep product color recognizable with balanced exposure, a plausible shadow to lower left, and limited bloom only around genuine light sources.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外单场景｜庭院傍晚氛围。适配前提：确认户外摆放范围；普通商品靠壁灯照明，灯树须另确认真实灯位与电源条件。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认户外摆放范围；普通商品靠壁灯照明，灯树须另确认真实灯位与电源条件。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-G01",
+      "title": "室外四宫格｜四种住宅风格",
+      "category": "室外原创提示词",
+      "description": "四处用途/支撑均适配；四格是替代场景，同款同数量，不能暗示四包。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "four-grid",
+        "四宫格",
+        "风格",
+        "outdoor",
+        "four",
+        "styles"
+      ],
+      "productTypes": [
+        "盆栽",
+        "花材"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "four-grid",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nMake one 2-by-2 lifestyle grid. Use a 5% outer margin, a 2% central gutter and equal 44%-wide panels. Panel A at upper left: traditional American porch with lap siding and a paneled door. B upper right: modern compact balcony with brick and metal railing. C lower left: country garden bench with a pale picket fence. D lower right: limewashed stone courtyard with an arched recess. Each panel contains the same actual SKU arrangement in its approved support, at its real scale and fully readable. Adjust camera distance per panel, not merchandise dimensions. Treat the four appearances as alternative uses. Reserve each panel’s quiet upper background for a short selected label.\n\nLIGHT AND SHADOW\nA uses soft morning side light; B bright overcast sky light; C filtered garden daylight; D defined courtyard side light. Keep each panel physically coherent while matching overall exposure and consistent product color across all four.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外四宫格｜四种住宅风格。适配前提：四处用途/支撑均适配；四格是替代场景，同款同数量，不能暗示四包。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "四处用途/支撑均适配；四格是替代场景，同款同数量，不能暗示四包。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-G02",
+      "title": "室外四宫格｜四种悬挂空间",
+      "category": "室外原创提示词",
+      "description": "只选一种实际悬挂SKU，逐格确认挂点、支撑承重和用途；不在花环与吊篮间变形。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "four-grid",
+        "四宫格",
+        "悬挂",
+        "hanging",
+        "locations"
+      ],
+      "productTypes": [
+        "花环",
+        "吊篮",
+        "垂挂装饰"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "four-grid",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nCreate one four-panel 2-by-2 image with 5% outer margins and a 2% gutter. Keep the same confirmed hanging SKU in all panels. A: traditional entry porch with paneled trim. B: brick balcony with a verified wall support. C: rustic timber veranda with a verified beam or wall attachment appropriate to this SKU. D: pale stucco courtyard with a supported entry recess. Resolve the exact attachment in each panel before writing the final instruction; do not turn a wreath into a basket or invent a new hanging system. Show complete merchandise and enough connection context to understand its placement. Place concise labels in quiet architecture outside the product silhouette.\n\nLIGHT AND SHADOW\nUse diffuse front daylight in A, side sky illumination in B, soft shade in C and reflected courtyard daylight in D. Any wall shadow reflects the actual wall distance. Do not add ground-contact shadows to suspended objects.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外四宫格｜四种悬挂空间。适配前提：只选一种实际悬挂SKU，逐格确认挂点、支撑承重和用途；不在花环与吊篮间变形。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "只选一种实际悬挂SKU，逐格确认挂点、支撑承重和用途；不在花环与吊篮间变形。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-G03",
+      "title": "室外四宫格｜四种桌面用途",
+      "category": "室外原创提示词",
+      "description": "实际适用室外桌面且容器稳固；临时使用不暗示长期耐候，各格不混款。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "four-grid",
+        "四宫格",
+        "桌面",
+        "tabletop",
+        "occasions"
+      ],
+      "productTypes": [
+        "桌面盆栽",
+        "花材"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "four-grid",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nMake a 2-by-2 grid with 5% outer margins, a 2% gutter and equal panels. A: American farmhouse porch breakfast table with painted wood. B: modern balcony bistro table with a metal railing. C: country garden tea table near a picket fence. D: restrained stone-courtyard gathering table beside limewash. Place the same actual arrangement on each table using its confirmed vessel. Keep tableware sparse, the complete product legible and each setting stylistically distinct. Show enough table edge and seating to establish real scale. All panels depict alternative uses; do not imply four supplied arrangements. Give each a short optional label in quiet background.\n\nLIGHT AND SHADOW\nUse morning side light for A, broad overcast light for B, filtered daylight for C and low evening sun with sky fill for D. Preserve the same intrinsic product colors, avoiding four unrelated color grades.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外四宫格｜四种桌面用途。适配前提：实际适用室外桌面且容器稳固；临时使用不暗示长期耐候，各格不混款。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "实际适用室外桌面且容器稳固；临时使用不暗示长期耐候，各格不混款。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-I01",
+      "title": "室外安装图｜花箱摆放与完成",
+      "category": "室外原创提示词",
+      "description": "必须取得真实操作方法、实际步数、工具/固定件、插入或种植深度；不默认使用泡沫胶水。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "installation",
+        "安装",
+        "花箱",
+        "window",
+        "box",
+        "setup"
+      ],
+      "productTypes": [
+        "散枝花材",
+        "花箱植株"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "installation",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nDesign one instructional image on a consistent exterior window-box work area. Use a 10% top heading zone, 5% outer margins and a clearly ordered sequence beneath it. Derive the panel count and exact actions from the supplied SKU instructions before finalizing. Emphasize the actual connection or insertion point during action views, then end with a complete finished arrangement showing window clearance and the box support. Number steps in reading order and use short selected captions. Keep hands anatomically plausible and away from the essential joint. Include only documented tools and parts; separate purchased supports from sale contents. This is one process in one setting, not four different lifestyles.\n\nLIGHT AND SHADOW\nUse bright open shade with light from upper left throughout the sequence. Keep the work surface, product color and shadows consistent so the change in each panel comes from the documented action.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外安装图｜花箱摆放与完成。适配前提：必须取得真实操作方法、实际步数、工具/固定件、插入或种植深度；不默认使用泡沫胶水。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "必须取得真实操作方法、实际步数、工具/固定件、插入或种植深度；不默认使用泡沫胶水。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-I02",
+      "title": "室外安装图｜花环或吊篮真实固定",
+      "category": "室外原创提示词",
+      "description": "花环与吊篮二选一锁定真实商品；需要实际支撑、安装顺序、承重方式及另购件依据。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "installation",
+        "安装",
+        "挂点",
+        "mounting",
+        "hook",
+        "hanger"
+      ],
+      "productTypes": [
+        "花环",
+        "吊篮"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "installation",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nCreate a mounting guide for the one confirmed hanging SKU at its approved porch or exterior-door location. Reserve a modest top heading, then use an ordered sequence of the exact documented steps. Include a close connection view, an action view only where supported by the instructions, and a final full-product view with its mounting context. Resolve step count and geometry from actual evidence before producing the final prompt. Keep the same door, beam or wall and the same product across panels. Show the real hook, loop or bracket only if documented; never replace a physical connection with an invisible floating attachment. Use numbered captions and distinguish separately purchased hardware in the approved copy.\n\nLIGHT AND SHADOW\nUse broad daylight from the porch opening with restrained shadows. The connection close-up stays crisp while the distant garden softens; keep shadow direction unchanged between process panels.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外安装图｜花环或吊篮真实固定。适配前提：花环与吊篮二选一锁定真实商品；需要实际支撑、安装顺序、承重方式及另购件依据。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "花环与吊篮二选一锁定真实商品；需要实际支撑、安装顺序、承重方式及另购件依据。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-I03",
+      "title": "室外维护图｜清洁与收纳流程",
+      "category": "室外原创提示词",
+      "description": "需当前SKU清洁和收纳说明；不能由户外用途推出水洗、暴晒或可压扁。活体另按真实养护任务适配。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "installation",
+        "维护",
+        "清洁",
+        "收纳",
+        "care",
+        "storage"
+      ],
+      "productTypes": [
+        "仿真植株",
+        "花环",
+        "盆栽"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "installation",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nDesign one care-and-storage instruction image at a sheltered residential worktable. Establish a compact heading area and the evidence-based number of numbered action panels. Write the exact approved cleaning method, handling points and storage state into the final direction; do not prescribe water, solvents, folding or compressed packing without support. Keep the product identical across steps. Use close views for the actual hand-to-product contact and a final wider view showing the documented storage result. Include a storage container only when its type and role are confirmed, and distinguish it from included packaging. Keep captions brief and tied to visible actions.\n\nLIGHT AND SHADOW\nUse soft daylight from the left with neutral color and consistent tabletop contact shadows. Preserve the actual texture before and after cleaning; remove only evidenced dirt or handling effects, without upgrading materials or adding bloom density.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外维护图｜清洁与收纳流程。适配前提：需当前SKU清洁和收纳说明；不能由户外用途推出水洗、暴晒或可压扁。活体另按真实养护任务适配。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "需当前SKU清洁和收纳说明；不能由户外用途推出水洗、暴晒或可压扁。活体另按真实养护任务适配。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-C01",
+      "title": "室外对比图｜同地点白天与夜晚",
+      "category": "室外原创提示词",
+      "description": "同款/同地点/同机位/同数量；无灯商品夜间靠外部灯，灯款的发光状态需事实依据。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "comparison",
+        "对比",
+        "昼夜",
+        "day",
+        "night"
+      ],
+      "productTypes": [
+        "盆栽",
+        "花材",
+        "灯树"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "comparison",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nCreate one equal left/right comparison with a narrow 2% central gutter and 5% outer margins. Show the same approved residential patio placement, exact camera position, product scale, intrinsic color and quantity on both sides. Left is daytime, right is evening. Keep the support, house architecture and furniture unchanged; only ambient conditions and the explicitly supported lighting state vary. The full merchandise remains readable in each half. Place short selected day/night labels in corresponding quiet upper background zones. Do not introduce added lights into an ordinary plant or use different product colors as a dramatic effect.\n\nLIGHT AND SHADOW\nLeft: neutral daylight from upper left with a short floor shadow. Right: cool sky fill plus an existing warm wall lamp, with a plausible lamp-directed shadow. A verified lit SKU may use only its documented lighting state. Balance exposure to retain visible shape on both sides.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外对比图｜同地点白天与夜晚。适配前提：同款/同地点/同机位/同数量；无灯商品夜间靠外部灯，灯款的发光状态需事实依据。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "同款/同地点/同机位/同数量；无灯商品夜间靠外部灯，灯款的发光状态需事实依据。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-C02",
+      "title": "室外对比图｜同地点晴天与雨天",
+      "category": "室外原创提示词",
+      "description": "仅在SKU及相关电气连接具备所画淋雨条件依据时执行；未知时先问，不能仅凭屋檐或室外字样批准。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "comparison",
+        "对比",
+        "晴雨",
+        "sunny",
+        "rainy",
+        "weather"
+      ],
+      "productTypes": [
+        "已确认可承受所示淋雨条件的植株/装饰"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "comparison",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nDesign an equal left/right weather comparison at one confirmed exterior placement, with 5% outer margins and a 2% central gutter. Lock camera, product identity, quantity, geometry, support and surrounding architecture. Left shows clear dry weather; right shows the specifically supported rain-exposure condition. Keep all merchandise completely visible and unchanged in intrinsic color and shape. Show wet paving and restrained environmental rain cues only as appropriate to that condition; do not invent test equipment, performance scores, certification icons or before/after damage. Use only the selected condition labels. This picture illustrates conditions, not an independently verified durability experiment.\n\nLIGHT AND SHADOW\nUse defined sunlight from upper left on the dry side and broad overcast sky light on the rain side. Wet paving reflections follow the camera and light geometry; avoid plastic-looking wet gloss on the product or invented coating effects.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外对比图｜同地点晴天与雨天。适配前提：仅在SKU及相关电气连接具备所画淋雨条件依据时执行；未知时先问，不能仅凭屋檐或室外字样批准。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "仅在SKU及相关电气连接具备所画淋雨条件依据时执行；未知时先问，不能仅凭屋檐或室外字样批准。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-C03",
+      "title": "室外对比图｜整理前与整理后",
+      "category": "室外原创提示词",
+      "description": "需要当前SKU真实可整理方法及前后状态依据；不用人为加花加叶、增件或改变尺寸证明效果。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "comparison",
+        "对比",
+        "整理",
+        "before",
+        "after",
+        "shaping"
+      ],
+      "productTypes": [
+        "可按说明整理的仿真花材",
+        "花环"
+      ],
+      "imageTypes": [
+        "场景图"
+      ],
+      "sceneType": "comparison",
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nCreate one equal split before/after view of the same actual arrangement on a stable porch worktable. Use 5% outer margins and a 2% central gutter. Lock lens, camera distance, support, quantity and all source-supported components. Left shows the evidenced pre-adjustment state; right shows the documented result of the permitted arranging method. Preserve component count and actual material, and reflect only the supported changes in orientation or spacing. Keep both full silhouettes legible and add concise selected labels above them. Do not fabricate a crushed or damaged baseline, stronger stems, extra flowers or a false change in sale size.\n\nLIGHT AND SHADOW\nUse identical soft daylight from upper left on both sides, with matched exposure and color balance. Keep contact shadows on the same tabletop so flattering relighting cannot masquerade as a product improvement.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne SCENE image asset, fixed 1:1. Before final prompts, collect allocation among the four scene types within SCENE01–04 and this asset's chosen 1600 x 1600, 2000 x 2000 or 2048 x 2048 px. Repeat only the resolved pixel dimensions in the final prompt. Multiple panels remain one asset.",
+      "promptZh": "室外对比图｜整理前与整理后。适配前提：需要当前SKU真实可整理方法及前后状态依据；不用人为加花加叶、增件或改变尺寸证明效果。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "需要当前SKU真实可整理方法及前后状态依据；不用人为加花加叶、增件或改变尺寸证明效果。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "scene-square-user-choice",
+        "defaultPixels": null,
+        "pixelChoices": [
+          [
+            1600,
+            1600
+          ],
+          [
+            2000,
+            2000
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-A01",
+      "title": "室外A+｜庭院主视觉横幅",
+      "category": "室外原创提示词",
+      "description": "确认户外用途及商品比例；横幅1464×600为制作默认，不代表账户槽位已核实。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "aplus",
+        "A+",
+        "横幅",
+        "courtyard",
+        "hero"
+      ],
+      "productTypes": [
+        "盆栽",
+        "花材",
+        "立式植株"
+      ],
+      "imageTypes": [
+        "A+图"
+      ],
+      "sceneType": null,
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nDesign one wide A+ hero with a 1464-by-600 desktop master unless the approved slot requires another canvas. Build a residential courtyard with a rear doorway, pale wall and paved foreground. Put the complete actual product and its approved support in the right portion, inside 5% safe margins. The left portion is calm architecture for the exact selected headline and short supporting line, or remains clean when text is native to A+. Use a wider camera position to retain the product from top to base; do not crop a square scene into the banner or enlarge a small plant to doorway height. Keep props sparse and the setting recognizably outdoors.\n\nLIGHT AND SHADOW\nUse morning side light from upper left, a coherent soft floor shadow and neutral sky fill. Give the product sufficient local contrast against the wall while keeping the copy area quiet.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne A+ image asset; default desktop master 1464 x 600 px, or the explicitly confirmed slot adaptation. Resolve the canvas before handoff; account upload acceptance remains a separate check.",
+      "promptZh": "室外A+｜庭院主视觉横幅。适配前提：确认户外用途及商品比例；横幅1464×600为制作默认，不代表账户槽位已核实。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "确认户外用途及商品比例；横幅1464×600为制作默认，不代表账户槽位已核实。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "aplus-desktop",
+        "defaultPixels": [
+          1464,
+          600
+        ],
+        "pixelChoices": [],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-A02",
+      "title": "室外A+｜三种室外用途横幅",
+      "category": "室外原创提示词",
+      "description": "三种地点均需符合当前SKU使用范围；每栏是替代用途，不暗示三份商品。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "aplus",
+        "A+",
+        "三栏",
+        "outdoor",
+        "uses"
+      ],
+      "productTypes": [
+        "盆栽",
+        "桌面花材"
+      ],
+      "imageTypes": [
+        "A+图"
+      ],
+      "sceneType": null,
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nCreate one 1464-by-600 A+ image with three equal lifestyle columns: use 4% outer horizontal margins, two 2% gutters and three columns each 29.333% of the canvas width. First column: traditional entry porch. Second: modern balcony table. Third: country garden seating table. Use the same actual small potted plant or tabletop arrangement in each, with identical merchandise quantities and its approved support. Frame each independently at a believable physical scale; retain its complete silhouette. Reserve a quiet top area in each column for a concise selected use label. Make architecture and task visibly distinct while sharing one typography and color system. Treat the three placements as alternatives.\n\nLIGHT AND SHADOW\nUse clear morning side light, bright overcast balcony light and soft garden shade respectively. Keep product color and overall exposure compatible across the strip, with honest support/contact shadows in each environment.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne A+ image asset; default desktop master 1464 x 600 px, or the explicitly confirmed slot adaptation. Resolve the canvas before handoff; account upload acceptance remains a separate check.",
+      "promptZh": "室外A+｜三种室外用途横幅。适配前提：三种地点均需符合当前SKU使用范围；每栏是替代用途，不暗示三份商品。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "三种地点均需符合当前SKU使用范围；每栏是替代用途，不暗示三份商品。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "aplus-desktop",
+        "defaultPixels": [
+          1464,
+          600
+        ],
+        "pixelChoices": [],
+        "productionDefaultOnly": true
+      }
+    },
+    {
+      "id": "OUT-A03",
+      "title": "室外A+｜主场景与两处真实细节",
+      "category": "室外原创提示词",
+      "description": "需要当前SKU全貌和两处清晰真实细节；环境图不能证明耐晒防水，触感不由图片推断。",
+      "tags": [
+        "室外",
+        "户外",
+        "outdoor",
+        "aplus",
+        "A+",
+        "细节",
+        "outdoor",
+        "details"
+      ],
+      "productTypes": [
+        "花材",
+        "盆栽",
+        "花环"
+      ],
+      "imageTypes": [
+        "A+图"
+      ],
+      "sceneType": null,
+      "prompt": "AGENT ADAPTATION TEMPLATE — NOT A FINAL SKU PROMPT\nBefore handoff, replace generic references and conditional choices below with this asset's actual uploaded filenames and roles, verified dimensions, exact sale quantity, supported placement and exposure, chosen copy and typography, and one resolved canvas. Resolve missing required facts with the user; these design instructions supply no product facts. Do not send unresolved branches or this editorial preamble to the image generator.\n\nIDENTITY AND OUTDOOR FIT\nUse only the actual same-SKU photographs for resolved appearance, intrinsic color, shape, component count and supported views. Establish measurements, included parts, mounting method and permitted outdoor conditions from the current SKU records or user confirmation. Keep product and prop roles explicit. A roof, competitor image or material name does not establish rain, UV, heat or wind performance. Do not add coatings, wiring, lights, foliage or a different base. Preserve true product-to-support scale and documented stem/container geometry. Keep borrowed scenery separate from merchandise.\n\nLAYOUT BLUEPRINT\nBuild one 1464-by-600 A+ image. Use 4% outer margins; assign the left 60% of total width to one coherent approved porch or patio scene, a 2% gutter, and the right 30% to two stacked actual-detail windows. Within the 92% usable height, the two right windows each take 44% of canvas height with a 4% vertical gap. Keep the whole merchandise readable in the left scene and show only two source-resolved parts in the right windows, with accurate crop correspondence. Put brief selected captions within quiet space in each region. Resolve actual parts before finalizing; a petal, stem joint or mount is a choice only when the SKU contains it. Do not fabricate microscopic texture or turn sunlight into a UV-protection claim.\n\nLIGHT AND SHADOW\nUse soft exterior side light from upper left. Maintain coherent white balance between the full scene and detail crops, with texture contrast taken from the genuine source views rather than invented material relief.\nCOPY AND FINISH\nThe agent first collects the user's base copy and font choice. Polish supplied copy without adding claims, or write it after explicit delegation or an actually submitted blank input. Resolve the final text and type system before handoff: one clear headline, smaller supporting text and subordinate labels as needed, with deliberate weight and color hierarchy. Preserve an explicit no-copy or native-A+ text choice. Keep all glyphs and effects outside the complete product silhouette plus a breathing buffer. Deliver photorealistic commercial photography with true texture and coherent perspective; no unrequested badges, watermarks or invented performance labels.\n\nOUTPUT\nOne A+ image asset; default desktop master 1464 x 600 px, or the explicitly confirmed slot adaptation. Resolve the canvas before handoff; account upload acceptance remains a separate check.",
+      "promptZh": "室外A+｜主场景与两处真实细节。适配前提：需要当前SKU全貌和两处清晰真实细节；环境图不能证明耐晒防水，触感不由图片推断。 这是agent改编用原创文字方向，无已生成配图；完整构图/光影见英文prompt。先落实真实SKU、支撑与暴露范围、用户文案/字体，以及场景类型分配和逐图像素，再生成本张独立英文指令。",
+      "status": "原创文字模板，待SKU适配与Lovart实测",
+      "imageStatus": "无成图参考；仅原创文字设计",
+      "reference": null,
+      "references": [],
+      "bundledPreviews": [],
+      "requiresLibraryReference": false,
+      "inputKind": "user-product",
+      "requiredInputs": [
+        "当前SKU照片、尺寸、件数与支撑/安装依据",
+        "需要当前SKU全貌和两处清晰真实细节；环境图不能证明耐晒防水，触感不由图片推断。",
+        "本资产文案、字体及画布选择或明确委托"
+      ],
+      "promptRevision": "outdoor-authored-20261023-r1",
+      "promptReview": {
+        "scope": "authored text only; no source-image observation or generated-image validation"
+      },
+      "provenance": {
+        "kind": "skill-authored",
+        "date": "2026-10-23",
+        "source": "authored-outdoor.json"
+      },
+      "outputSpec": {
+        "canvasPolicy": "aplus-desktop",
+        "defaultPixels": [
+          1464,
+          600
+        ],
+        "pixelChoices": [],
+        "productionDefaultOnly": true
+      }
+    }
+  ]
+}

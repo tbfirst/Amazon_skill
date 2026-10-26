@@ -1,5 +1,7 @@
 # Validation status
 
+For the strategy skill added on 2026-10-15, see [strategy design and validation](AMAZON-STRATEGY.zh-CN.md). The following records the original individual-image skill release only.
+
 Date: 2026-10-14. Package: Plant Product Image Skills, v1.0.0.
 
 ## Checks performed

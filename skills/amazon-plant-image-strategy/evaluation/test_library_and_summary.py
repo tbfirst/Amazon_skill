@@ -63,6 +63,65 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(result['bundledPreviewCount'], 0)
         self.assertEqual(len(result['missingSelectedPreviews']), 1)
 
+    def test_refresh_preserves_authored_text_without_creating_media(self):
+        self.write()
+        dest = self.root / 'snapshot'
+        dest.mkdir()
+        authored = dict(id='OUT-TEST', prompt='Original outdoor design', title='室外阳台',
+                        imageTypes=['场景图'], provenance={'kind':'skill-authored'})
+        pack = dest / 'authored-outdoor.json'
+        pack.write_text(json.dumps({'revision':'test', 'cards':[authored]}), encoding='utf-8')
+        before = pack.read_bytes()
+        for _ in range(2):
+            result = library.import_catalog(self.source, dest)
+            data = library.read_json(dest / 'catalog.json')
+            self.assertEqual(result['cardCount'], 3)
+            self.assertEqual(result['bundledPreviewCount'], 1)
+            match = library.search_cards(data['cards'], '阳台', '场景图')
+            self.assertEqual([c['id'] for c in match], ['OUT-TEST'])
+            self.assertEqual(match[0]['bundledPreviews'], [])
+            self.assertEqual(data['authoredExtensions'][0]['cardCount'], 1)
+            self.assertIn('另含1条原创文字模板', (dest/'index.md').read_text(encoding='utf-8'))
+        self.assertEqual(pack.read_bytes(), before)
+
+    def test_authored_collision_fails_before_overwriting_snapshot(self):
+        self.write()
+        dest = self.root / 'snapshot'
+        library.import_catalog(self.source, dest)
+        snapshot = (dest/'catalog.json').read_bytes()
+        (dest/'authored-outdoor.json').write_text(json.dumps({'cards':[
+            dict(id='DIM-01',prompt='Conflicting original',provenance={'kind':'skill-authored'})
+        ]}), encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'ID conflict'):
+            library.import_catalog(self.source, dest)
+        self.assertEqual((dest/'catalog.json').read_bytes(), snapshot)
+
+    def test_authored_pack_cannot_smuggle_unreviewed_media(self):
+        self.write()
+        dest = self.root / 'snapshot'
+        dest.mkdir()
+        (dest/'authored-outdoor.json').write_text(json.dumps({'cards':[
+            dict(id='OUT-TEST',prompt='Original design',provenance={'kind':'skill-authored'},
+                 references=[dict(file='preview.png')])
+        ]}), encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'original text only'):
+            library.import_catalog(self.source, dest)
+        self.assertFalse((dest/'catalog.json').exists())
+
+    def test_outdoor_pack_is_discoverable_without_claiming_image_evidence(self):
+        data = library.read_json(library.DEFAULT_CATALOG)
+        pack = library.read_json(library.DEFAULT_CATALOG.parent/'authored-outdoor.json')
+        by_id = {c['id']:c for c in data['cards']}
+        for card in pack['cards']:
+            self.assertEqual(by_id[card['id']], card)
+            self.assertEqual(library.search_cards(data['cards'], card['id'])[0]['id'], card['id'])
+            self.assertFalse(card['bundledPreviews'])
+            self.assertFalse(card.get('sourceImageIds'))
+        outdoor = library.search_cards(data['cards'], '室外', limit=500)
+        self.assertTrue({c['id'] for c in pack['cards']}.issubset({c['id'] for c in outdoor}))
+        self.assertEqual(len([c for c in pack['cards'] if c['imageTypes']==['场景图']]),21)
+        self.assertEqual(len([c for c in pack['cards'] if c['imageTypes']==['A+图']]),3)
+
     def test_preview_cannot_escape_source(self):
         self.cards[0]['references'][0]['file'] = '../secret.png'
         self.write()

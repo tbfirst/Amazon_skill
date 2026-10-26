@@ -1,16 +1,29 @@
 # Plant Product Image Skills
 
-A growing collection of Agent Skills for plant merchandise imagery. The first release contains one Lovart-focused skill, with English execution rules and a [Chinese guide](README.zh-CN.md).
+A collection of Agent Skills for plant merchandise imagery, with a [Chinese guide](README.zh-CN.md). It now contains individual Lovart image work and a separate Amazon campaign strategy workflow.
 
-**Status:** v1.0.0 local Git repository, 2026-10-14, ready for its initial commit and user-managed push. No GitHub repository has been published. No open-source license has been selected or granted by this package.
+**Status:** local source collection, updated 2026-10-26. Strategy skill v1.20.0 adds reviewed competitor-set and A+ references, expanded layout and lighting guidance, and a portable image library. Its 48 offline regression tests passed; live end-to-end seller workflow, image generation, and Amazon account upload remain unverified. No publication or open-source license is granted by this update.
 
 ## Available skill
 
 | Skill | Use |
 | --- | --- |
 | [lovart-plant-product-images](skills/lovart-plant-product-images/SKILL.md) | Turn everyday requests and product references into faithful Lovart plant imagery: preparation, integration, scenes, composition, refinement, lighting, individual information images, and review |
+| [amazon-plant-image-strategy](skills/amazon-plant-image-strategy/SKILL.md) | Parallel research of 3–6 competitors; 1 dimension + 1 detail + 4 lifestyle + 5 A+ image plans; Chinese design-strategy and independent English Lovart prompts with layout, lighting and shadows |
 
-Supports real and artificial plants, wreaths, bouquets, potted plants, and flower boxes. Full Amazon listing image campaigns are planned, not implemented.
+Supports real and artificial plant merchandise. The strategy skill produces plans and prompts; the user uploads references and copies prompts into Lovart. It does not generate or publish the campaign.
+
+## Use the campaign strategy skill
+
+Load the complete [amazon-plant-image-strategy](skills/amazon-plant-image-strategy/SKILL.md) folder through your host's supported skill installation mechanism, then invoke `$amazon-plant-image-strategy`. State what the product is, upload original measurements/photos, and supply 3–6 unique competitor URLs or ASINs. Finished listing/A+ images are not required inputs. The skill uses independent browser sessions/tabs concurrently when supported, and asks only consequential unanswered questions. Defaults: Amazon US, Chinese discussion and documents, English image copy and prompts.
+
+Direct-fetch failures trigger documented browser/public-search recovery before asking for exports. Missing evidence is labeled, not invented. Outputs include the substantive multi-competitor `design-strategy.md`, per-ASIN research files, evidence/decision records, a prompt index and exactly 11 independent `.txt` prompts. Five A+ images are allocated to actual modules without expanding the image budget. Incomplete production prompts are kept under `prompts/blocked/`.
+
+After visual research, the skill compares actual competitor layouts with the bundled library, presents concrete options and asks layout questions using the available text popup tool. Each asset records its selected blueprint. Extra `all-prompts.md` and `all-prompts.txt` collections preserve the exact executable per-image prompt text and ordered upload references, with blocked gaps separate; no PDF or all-in-one inferred-layout controller is produced.
+
+Research runs in staged batches: identity verification, image inventory, actual visual/review inspection, then comparison. Per-ASIN JSON checkpoints support resuming; the [offline audit helper](skills/amazon-plant-image-strategy/references/research-records.md) checks counts and evidence structure without browsing. Passing it does not prove source truth or research completeness.
+
+The repository's `skills/` folder is source packaging. A project-local strategy copy now exists under `.agents/skills`; keep it synchronized with the source. Current [official Codex documentation](https://learn.chatgpt.com/docs/build-skills) describes local discovery. See [strategy design and validation](docs/AMAZON-STRATEGY.zh-CN.md) for this project's synchronization and testing status.
 
 Each skill lives in its own directory. Supporting modules are resources within that skill, not separately installed skills. Installed metadata helps a compatible agent select the relevant skill; actual discovery and activation depend on the host. Cloning this collection alone does not register it with every agent.
 
