@@ -10,11 +10,30 @@
 
 交付前核对实际附件角色、SKU与尺度、已选来源骨架、逐图文案回答、准确文字、画布与就绪状态。事实缺口按[商品事实](product-truth-compliance.md)处理；布局、文字效果分别按[参考迁移](reference-fidelity.md)和[文字布局](text-layouts.md)处理。研究、问答、证据ID、选择理由、审批与渲染状态留在Brief/索引，不复制进生图正文。
 
-## 精简正文
+## 以成图质量为目标优化正文
+
+优化目标是信息准确、指令清晰、画面可控，不以字数或压缩率衡量成功。复杂场景、尺寸/细节图和高保真竞品替换可以使用较长正文。删除一句前判断它是否控制了独立的视觉结果；若删除会让模型猜测产品、布局、光影或文字，应保留或改写得更具体。无字仅表示没有文字层，不代表场景描述也要简略。
 
 每条只写本图要画什么、怎么构图、哪些必须保留。相同要求只写一次；删去泛化品质词、长篇禁止清单、重复身份锁、与本图无关的安装/容器/多色规则，以及“请先询问用户/查资料/通过审核”等代理工作流。需要澄清的事在交付前完成，不能转交生图模型。
 
 源模板是策划材料，不直接原样粘贴。按本图实际需要展开字段：无字图一句说明即可，无需字体/文字地图；单景不写窗格规则；无容器不写入瓶几何。参数图保留数值、单位、端点，局部图保留真实部位来源；不能为缩短删除这些关键约束。每条独立可用，不引用上一条提示词。
+
+### 必要画面信息覆盖检查
+
+以下按本图需要展开，不机械塞满所有字段。具体内容必须进入执行正文，不能只留在内部Brief，也不能以“高质量、真实、参考原图”代替：
+
+| 画面目标 | 必须保留的控制信息 |
+| --- | --- |
+| 商品准确 | 实际附件与SKU对应、可见颜色/形态/结构/纹理、数量、随货与道具边界；整体与局部来源分别绑定 |
+| 继承优秀参考 | 指定主参考附件，明确保持的机位、取景、背景、道具位置、图文分区与光影；单列替换商品、文案、配色及必要适配 |
+| 构图与空间 | 主体位置/占比、前中后景、必要留白、支撑和遮挡关系；多格图的分区、窗格形状/数量、间距和统一坐标基准 |
+| 尺度可信 | 实测对象/端点/状态及同平面比例；涉及入瓶时保留插入深度、露茎、花材主体与容器关系，不能压缩成realistic scale |
+| 光影与质感 | 光源方向、软硬、明暗/冷暖关系；接触影与投影的实际承接面；保留实物色和有依据的纹理，白色/亮面不丢细节 |
+| 融合自然 | 商品与环境的透视、曝光、白平衡和清晰度协调；轮廓无剪贴白边，接触处落地；景深突出主体而不糊掉关键细节 |
+| 文字可读 | 逐图弹窗确认结果；有字时写准确字符串、必要断行、位置、字族、大小/字重、字色；底板边界/内边距或羽化范围完整避开商品 |
+| 输出完整 | 实际画布、比例、完整商品或有意局部取景；仅保留本图容易出错且有依据的约束 |
+
+复核采用“已确认画面决定 → 最终正文中的具体指令”逐项对应。缺少关键指令就补回；相互冲突就解决，不靠末尾追加一串禁令。收到成图后再对照商品保真、参考继承、构图光影、融合和文字逐项修词；未生成图片时只报告提示词检查，不保证一次生成即可达到目标质量。
 
 ## 文件与就绪状态
 
@@ -41,12 +60,18 @@ State this asset's SKU, appearance, quantity, sale scope and necessary scale.
 COMPOSITION AND LIGHT
 Specify the retained reference composition, background, props, camera angle,
 product position, light direction and shadows. List only intended changes.
+Resolve foreground/midground/background, subject scale and support, focus,
+light softness and contrast, contact/cast-shadow receiving surfaces, and
+faithful visible texture wherever they affect this image. Match perspective,
+exposure and edge integration between the product and its surroundings.
 For panels/details/dimensions, give their positions and source/endpoint mapping.
 For old-set edits, identify the replacement area and the surroundings to retain.
 
 TEXT (use only the confirmed route)
 No added text or text backing; OR exact approved strings, positions, font,
 size/weight and color, with the selected direct/feathered/panel treatment.
+For visible text, resolve semantic line breaks, alignment and spacing;
+for backing, specify panel bounds/padding or the full feathered extent.
 Keep the full extent of text and effects outside the product silhouette.
 
 ESSENTIAL LIMITS

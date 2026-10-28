@@ -2,7 +2,7 @@
 name: amazon-plant-image-strategy
 description: Plan new image campaigns or refresh existing finished image sets for Amazon flowers, plants, wreaths and trees. Analyze 3–6 competitors and reviews, adapt their layouts and styling to the actual SKU, request unclear product details, and deliver Chinese strategy plus independent English Lovart prompts and Markdown/TXT collections. New sets default to 11 assets; refreshes follow the agreed old-set scope. Not image generation or isolated edits.
 metadata:
-  version: "1.24.0"
+  version: "1.24.1"
 ---
 
 # Amazon Plant Image Strategy
@@ -100,6 +100,8 @@ Plan the scoped desktop A+ assets (five for new-set) on the default 1464×600 ca
 When the user explicitly requests a test and authorizes choosing specifications, select and document a concrete test canvas/module proposal; mark it PROVISIONAL for account upload rather than claiming verified production settings. This does not resolve missing product facts or authorize extra images.
 
 ## Write and deliver
+
+Optimize prompts for image quality and controllability, not minimum length. Preserve all applicable product, reference-layout, scale, lighting, material, text and compositing instructions; expand them when the image needs precision. Remove redundancy only when no visual decision or necessary constraint is lost. Use the quality coverage check in [Lovart prompts](references/lovart-prompts.md) before handoff. Static checks establish instruction completeness, not proven generation quality.
 
 Read [deliverables](references/deliverables.md) and [Lovart prompts](references/lovart-prompts.md). Write to a project output folder such as `outputs/<product-slug>/`, keeping source uploads intact:
 
