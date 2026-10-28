@@ -2,7 +2,7 @@
 name: amazon-plant-image-strategy
 description: Plan new image campaigns or refresh existing finished image sets for Amazon flowers, plants, wreaths and trees. Analyze 3–6 competitors and reviews, adapt their layouts and styling to the actual SKU, request unclear product details, and deliver Chinese strategy plus independent English Lovart prompts and Markdown/TXT collections. New sets default to 11 assets; refreshes follow the agreed old-set scope. Not image generation or isolated edits.
 metadata:
-  version: "1.24.1"
+  version: "1.25.0"
 ---
 
 # Amazon Plant Image Strategy
@@ -52,6 +52,10 @@ Execute research in passes: verify every competitor first, inventory gallery/A+ 
 Keep three distinct concepts: a source's reliability, what it actually proves, and how confidently a strategic inference follows. Competitor reviews prove sampled buyer concerns, not our product's performance. SQP and tool estimates do not automatically prove a competitor's organic visits. A risk score never authorizes an unsupported or prohibited claim.
 
 For thin data, offer useful conservative concepts while labeling evidence limits. Preserve all scoped assets in the draft (11 for new-set); assets lacking indispensable identity or required product measurements remain `BLOCKED`, with conditional prompts clearly outside the ready-to-copy set. Unknown A+ account settings alone do not block default-canvas planning; mark upload review pending. Record competitor access failures per section, not as a blanket failure when other sections are readable.
+
+## Complex reference layouts
+
+For curved or irregular scene divisions, similar-colored composites, overlapping layers or expressive lettering, read [complex layout analysis](references/complex-layout-analysis.md) before drafting. Inspect full images and boundary/type details, distinguish scene masks from real objects, and map region ownership, curve direction/anchors, edge treatment, layer order and lettering morphology. Preserve this geometry in the final prompt and actual reference attachments; color similarity alone is insufficient. Use observed or clearly proposed geometry, never invented precision.
 
 ## Text restraint and faithful reference adaptation
 
