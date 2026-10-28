@@ -2,7 +2,7 @@
 name: amazon-plant-image-strategy
 description: Plan new image campaigns or refresh existing finished image sets for Amazon flowers, plants, wreaths and trees. Analyze 3–6 competitors and reviews, adapt their layouts and styling to the actual SKU, request unclear product details, and deliver Chinese strategy plus independent English Lovart prompts and Markdown/TXT collections. New sets default to 11 assets; refreshes follow the agreed old-set scope. Not image generation or isolated edits.
 metadata:
-  version: "1.25.0"
+  version: "1.26.0"
 ---
 
 # Amazon Plant Image Strategy
@@ -53,9 +53,9 @@ Keep three distinct concepts: a source's reliability, what it actually proves, a
 
 For thin data, offer useful conservative concepts while labeling evidence limits. Preserve all scoped assets in the draft (11 for new-set); assets lacking indispensable identity or required product measurements remain `BLOCKED`, with conditional prompts clearly outside the ready-to-copy set. Unknown A+ account settings alone do not block default-canvas planning; mark upload review pending. Record competitor access failures per section, not as a blanket failure when other sections are readable.
 
-## Complex reference layouts
+## General visual structure analysis
 
-For curved or irregular scene divisions, similar-colored composites, overlapping layers or expressive lettering, read [complex layout analysis](references/complex-layout-analysis.md) before drafting. Inspect full images and boundary/type details, distinguish scene masks from real objects, and map region ownership, curve direction/anchors, edge treatment, layer order and lettering morphology. Preserve this geometry in the final prompt and actual reference attachments; color similarity alone is insufficient. Use observed or clearly proposed geometry, never invented precision.
+For reference-derived work, use [visual structure analysis](references/complex-layout-analysis.md) to translate observed elements and relationships into executable prompts. Match analysis depth to the image: identify roles, region ownership, geometry, alignment, layers, visual hierarchy, spatial support, lighting and typography as applicable. Determine what makes the source effective, then specify retained relationships, product/copy replacements and necessary adaptations. Do not assume a scene count, dividing shape, palette or text treatment. Inspect uncertain details in context and map each important design decision to a concrete instruction and actual reference input.
 
 ## Text restraint and faithful reference adaptation
 
