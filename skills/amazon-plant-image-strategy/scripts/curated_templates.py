@@ -1,7 +1,7 @@
 """Compile quality-reviewed design/edit templates independently of bundled media."""
 import copy
 import json
-from prompt_contracts import PRODUCT_SOURCE_GATE, TEXT_INTEGRATION
+from prompt_contracts import PRODUCT_SOURCE_GATE, SCENE_PROP_FIT, TEXT_INTEGRATION
 
 
 def compile_prompt(template):
@@ -34,6 +34,9 @@ def compile_prompt(template):
                  'layout or a named visual effect, never current-product facts. Obtain missing '
                  'essential views or facts; do not invent texture, hidden structure or extra units.')
     parts.append('OLD-SET INPUTS\n' + PRODUCT_SOURCE_GATE)
+    if kind == 'layout' and not template['id'].startswith('MAIN-') and not set(
+            template.get('imageTypes', [])).intersection({'尺寸图', '细节图', '尺寸+细节图', '细节+尺寸图'}):
+        parts.append('SETTING AND PROP FIT\n' + SCENE_PROP_FIT)
     if template.get('copyMode') == 'approved':
         parts.append('COPY\nUse exact project-approved English and verified measurement strings. '
                      'Specify one readable family, hierarchy, colors and bounded positions. '

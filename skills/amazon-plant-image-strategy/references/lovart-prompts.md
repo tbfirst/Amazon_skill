@@ -29,6 +29,7 @@
 | 商品准确 | 实际附件与SKU对应、可见颜色/形态/结构/纹理、数量、随货与道具边界；整体与局部来源分别绑定 |
 | 继承优秀参考 | 指定主参考附件，明确保持的机位、取景、背景、道具位置、图文分区与光影；单列替换商品、文案、配色及必要适配 |
 | 构图与空间 | 主体位置/占比、前中后景、必要留白、支撑和遮挡关系；多格图的分区、窗格形状/数量、间距和统一坐标基准 |
+| 场景与道具适配 | 生活图写具体目标市场住宅及可见远景边界；可选容器写已定形态、口部、表面、承托及与产品的纵横/露茎关系，遵循[联合适配](scene-product-container-fit.md)，不只写matching vase；无容器/无场景图省略对应项 |
 | 尺度可信 | 实测对象/端点/状态及同平面比例；涉及入瓶时保留插入深度、露茎、花材主体与容器关系，不能压缩成realistic scale |
 | 光影与质感 | 光源方向、软硬、明暗/冷暖关系；接触影与投影的实际承接面；保留实物色和有依据的纹理，白色/亮面不丢细节 |
 | 融合自然 | 商品与环境的透视、曝光、白平衡和清晰度协调；轮廓无剪贴白边，接触处落地；景深突出主体而不糊掉关键细节 |
@@ -66,6 +67,9 @@ Resolve foreground/midground/background, subject scale and support, focus,
 light softness and contrast, contact/cast-shadow receiving surfaces, and
 faithful visible texture wherever they affect this image. Match perspective,
 exposure and edge integration between the product and its surroundings.
+For lifestyle scenes, specify the target-market architecture and visible background limit,
+including views through openings. For an optional vessel, resolve its profile, mouth,
+finish, support and relationship to the actual product silhouette and exposed stems.
 For panels/details/dimensions, give their positions and source/endpoint mapping.
 For old-set edits, identify the replacement area and the surroundings to retain.
 

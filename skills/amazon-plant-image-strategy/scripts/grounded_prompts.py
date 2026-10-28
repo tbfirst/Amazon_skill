@@ -1,9 +1,9 @@
 """Build compact, image-bound planning prompts from reviewed visible layouts."""
 import copy
 import json
-from prompt_contracts import FONT_POLICY, PRODUCT_SOURCE_GATE, TEXT_INTEGRATION
+from prompt_contracts import FONT_POLICY, PRODUCT_SOURCE_GATE, SCENE_PROP_FIT, TEXT_INTEGRATION
 
-REVISION = 'set-refresh-text-integration-20261027-r3'
+REVISION = 'scene-product-container-fit-20261028-r1'
 
 
 def prompt_for(layout, role):
@@ -30,6 +30,8 @@ def prompt_for(layout, role):
     if layout.get('requiredEvidence'):
         parts.append('SPECIFIC EVIDENCE NEEDED\n' + layout['requiredEvidence'])
     parts.append('OLD-SET INPUTS\n' + PRODUCT_SOURCE_GATE)
+    if role in {'SCENE', 'APLUS'}:
+        parts.append('SETTING AND PROP FIT\n' + SCENE_PROP_FIT)
     if layout.get('copyMode') == 'none':
         parts.append('COPY\nPreserve the unlettered layout. Add text only after an explicit project '
                      'choice and a corresponding layout revision.')
@@ -160,6 +162,7 @@ def compact_catalog(data, root):
     data['agentPolicy']['textPlacement'] = TEXT_INTEGRATION
     data['agentPolicy']['typography'] = FONT_POLICY
     data['agentPolicy']['oldSetInputs'] = PRODUCT_SOURCE_GATE
+    data['agentPolicy']['sceneProductContainerFit'] = SCENE_PROP_FIT
     data['agentPolicy']['classifiedLayoutRouting'] = (
         'Use role-specific image layouts or independently quality-reviewed text templates. '
         'A+ groups require an explicit source branch. Inspect available images; a text-only '

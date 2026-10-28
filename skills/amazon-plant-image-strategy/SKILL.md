@@ -2,7 +2,7 @@
 name: amazon-plant-image-strategy
 description: Plan new image campaigns or refresh existing finished image sets for Amazon flowers, plants, wreaths and trees. Analyze 3–6 competitors and reviews, adapt their layouts and styling to the actual SKU, request unclear product details, and deliver Chinese strategy plus independent English Lovart prompts and Markdown/TXT collections. New sets default to 11 assets; refreshes follow the agreed old-set scope. Not image generation or isolated edits.
 metadata:
-  version: "1.26.0"
+  version: "1.27.0"
 ---
 
 # Amazon Plant Image Strategy
@@ -56,6 +56,10 @@ For thin data, offer useful conservative concepts while labeling evidence limits
 ## General visual structure analysis
 
 For reference-derived work, use [visual structure analysis](references/complex-layout-analysis.md) to translate observed elements and relationships into executable prompts. Match analysis depth to the image: identify roles, region ownership, geometry, alignment, layers, visual hierarchy, spatial support, lighting and typography as applicable. Determine what makes the source effective, then specify retained relationships, product/copy replacements and necessary adaptations. Do not assume a scene count, dividing shape, palette or text treatment. Inspect uncertain details in context and map each important design decision to a concrete instruction and actual reference input.
+
+## Scene, product and container fit
+
+Before selecting a lifestyle setting or optional vessel, read [joint scene/product/container fit](references/scene-product-container-fit.md). Resolve the target-market architecture through the visible distance, including openings and reflections; default outdoor settings to plausible low-rise residential gardens, porches and terraces, not unspecified city skylines. Compare product–setting, vessel–setting and product–vessel relationships. Physical capacity alone does not establish balanced proportions or styling. Preserve included/fixed containers; automatically select unspecified optional props by actual silhouette, opening, depth, visual weight and use location. Ask about key conflicts or missing identity/facts, not every vessel choice, unless the user requests per-image selection. Apply these decisions to each scene/panel and its final prompt. Adapt incompatible reference props/backgrounds minimally; clarify conflicts with explicit user choices rather than silently overriding them.
 
 ## Text restraint and faithful reference adaptation
 
