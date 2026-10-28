@@ -8,15 +8,33 @@ ASSETS = ['DIM01', 'DETAIL01', *[f'SCENE{i:02}' for i in range(1, 5)],
           *[f'APLUS{i:02}' for i in range(1, 6)]]
 
 
+def target_assets(manifest):
+    mode = manifest.get('campaignMode', 'new-set')
+    if mode == 'new-set':
+        if 'targetAssetIds' in manifest and manifest['targetAssetIds'] != ASSETS:
+            raise ValueError('new-set uses the fixed 11 asset IDs; use set-refresh for an explicit update scope')
+        return ASSETS
+    if mode != 'set-refresh':
+        raise ValueError('Unknown campaignMode')
+    selected = manifest.get('targetAssetIds')
+    pattern = r'(?:MAIN01|(?:DIM|DETAIL|SCENE|APLUS)(?:0[1-9]|[1-9][0-9]))'
+    if (not isinstance(selected, list) or not selected
+            or not all(isinstance(v, str) and re.fullmatch(pattern, v) for v in selected)
+            or len(selected) != len(set(selected))):
+        raise ValueError('set-refresh requires an explicit ordered list of unique valid targetAssetIds')
+    return selected
+
+
 def compile_summary(project):
     project = Path(project).resolve()
     manifest = json.loads((project / 'prompt-manifest.json').read_text(encoding='utf-8-sig'))
     entries = manifest['assets']
-    if len(entries) != len(ASSETS) or {e['id'] for e in entries} != set(ASSETS):
-        raise ValueError('Manifest must contain exactly the 11 unique fixed asset IDs')
+    selected = target_assets(manifest)
+    if len(entries) != len(selected) or {e['id'] for e in entries} != set(selected):
+        raise ValueError('Manifest must contain exactly the selected unique asset IDs (11 for new-set)')
     by_id = {e['id']: e for e in entries}
     ready, blocked = [], []
-    for asset in ASSETS:
+    for asset in selected:
         entry = by_id[asset]
         status = entry['status']
         if status not in {'READY', 'PROVISIONAL', 'BLOCKED'}:

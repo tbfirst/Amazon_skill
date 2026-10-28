@@ -1,18 +1,20 @@
 # 交付文档与单图 Brief
 
+适用模式：下文固定11图、4张SCENE和5张A+均为`new-set`默认。`set-refresh`先按[旧套图更新](set-refresh.md)记录的目标清单执行，SCENE数量为N、A+为M；类型分配合计N，没有该角色则不追加或强问。已明确的选择与规格沿用，角色/数量/画布有歧义时才澄清。
+
 默认输出Markdown和UTF-8纯文本提示词，另交付 `all-prompts.md` 与 `all-prompts.txt` 两份总汇。不要自动制作PDF，尤其不要沿用历史 `lovart-handoff` 的PDF总册。用户明确要求其他格式时再按其要求处理。
 
 ## design-strategy.md 结构
 
-1. **项目摘要**：产品/SKU、站点、目标、用户、主购买任务、核心主张、数据充分度、选定方向与日期。
+1. **项目摘要**：campaignMode、目标资产清单与范围依据；产品/SKU、站点、目标、用户、主购买任务、核心主张、数据充分度、选定方向与日期。
 2. **产品事实**：真实/仿真/其他类型、外观、规格与测量口径、材料、套装、随货与不含物、状态差异、身份锁、关键 P 编号。
 3. **逐竞品研究与横向对比**：3–6 个去重 ASIN、请求/落地变体、每区访问状态、实际恢复路径；各竞品主图/副图/A+ 的视觉分析、评论图与卖家图落差、评论原文主题 n/N 与反例。每套保留有序图谱、跨图共同规则及版式变化节奏，不能只有代表图。展示布局、主体占比、文字层级、明暗、光向、阴影、背景、场景和优缺点的对照矩阵。区分原文、平台 AI 摘要与独立推断；缺口明确，不能只有一串外链。
 4. **自然流量词 / 搜索需求入口**：真实流量/排名报表、工具估计、公开搜索观察和推测需求分别列出，保留来源、时期、口径和未知值。
 5. **意图与 JTBD**：IC、代表词、证据、用户情境、所需结果、购买障碍、对应图；每个主要任务可追溯到用户确认或研究。
 6. **风险与证据**：主张 C 到证据 P 的映射、竞争研究的启发、反证、禁用说法、数据/视觉缺口及处理。
-7. **创意策略**：考虑过的方向、选择理由、优先级、产品身份锁、视觉锁、文案基调与制作规格。附竞品与LIB库候选对照、实际检索/阅读/目视范围、弹框回答或用户委托及11张版式摘要，链接layout-decisions。依[文案与字体](copy-typography.md)记录基础文案/润色稿/最终稿、字体菜单选择或AI委托、大中小层级及例外版式。依[四类场景](scene-types.md)记录4张的类型张数分配及逐图方图像素回答。附场所/时段/季节/活动候选表：产品适配、事实/竞品观察/外部启发/独立假设、空间限制、道具作用、入选或排除理由；附实际场景检索查询/URL/日期/已读范围与入选图的建筑、配色、文字/字效、光影矩阵。记录每张尺度计算与主次检查，不能仅列“真实比例”。
-8. **11 张资产图谱**：DIM01、DETAIL01、SCENE01–04、APLUS01–05；各图任务、主要问题、意图、事实依据、竞品 V-ID 与迁移理由、顺序建议、状态。标明场景类型、1:1与所选像素，四类张数之和为4；说明各场景资产的任务差异和每张 A+ 的新增价值；不增加 MAIN。
-9. **11 份单图 Brief**：每个固定资产独立一份，用下面的结构；不得合并四个场景或五张 A+，不得把竞品某图当作我方商品。
+7. **创意策略**：考虑过的方向、选择理由、优先级、产品身份锁、视觉锁、文案基调与制作规格。附竞品与LIB库候选对照、实际检索/阅读/目视范围、弹框回答或用户委托及目标资产版式摘要（new-set为11张），链接layout-decisions。依[文案与字体](copy-typography.md)记录基础文案/润色稿/最终稿、字体菜单选择或AI委托、大中小层级及例外版式。依[四类场景](scene-types.md)记录当前N张SCENE的类型分配及逐图方图像素回答。附场所/时段/季节/活动候选表：产品适配、事实/竞品观察/外部启发/独立假设、空间限制、道具作用、入选或排除理由；附实际场景检索查询/URL/日期/已读范围与入选图的建筑、配色、文字/字效、光影矩阵。记录每张尺度计算与主次检查，不能仅列“真实比例”。
+8. **目标资产图谱**：new-set为DIM01、DETAIL01、SCENE01–04、APLUS01–05；set-refresh以targetAssetIds为准并链接set-refresh-map.md；各图任务、主要问题、意图、事实依据、竞品 V-ID 与迁移理由、顺序建议、状态。标明场景类型、1:1与所选像素，四类张数之和为当前SCENE数量N；说明各场景资产的任务差异和每张 A+ 的新增价值；new-set不增加MAIN；set-refresh仅更新范围内已有MAIN01。
+9. **逐资产Brief**：每个目标资产独立一份，用下面的结构；不得合并四个场景或五张 A+，不得把竞品某图当作我方商品。
 10. **A+ 原生字段交接**：模块名称、字段、英文内容、图槽/桌面/移动端映射、实际要求来源。纯文本模块同样记录，但无需伪造图像 prompt。
 11. **实验与验收**：指标口径、基线来源、单变量假设、样本与观察期局限、回退版本、出图后检查。
 12. **缺口与下一步**：阻塞资产、每项所需的具体信息；已可复制提示词入口。链接 evidence-ledger、discovery、prompt-index。
@@ -29,9 +31,12 @@
 ### ASSET_ID / 中文图名
 Status: READY | PROVISIONAL | BLOCKED
 Readiness scope: 提示词可执行 / 平台复核 / 成图验收分别说明
-Placement: secondary dimension | secondary detail | secondary lifestyle | A+ image
+Campaign mode: new-set | set-refresh
+Refresh mapping: 旧文件/图位→商品区域或补充素材→竞品图位→新方案；忠实度/细节清晰度、补图状态；非更新模式不适用
+Execution method: bounded-edit | layout-rebuild；保留区、替换区与允许的依赖变更
+Placement: scoped existing MAIN01 | secondary dimension | secondary detail | secondary lifestyle | A+ image
 Scene type: single | four-grid | installation | comparison；非场景资产不适用
-Scene allocation: 本图在已确认4张分配表中的位置；场景型A+不占SCENE名额
+Scene allocation: 本图在当前N张SCENE分配表中的位置；场景型A+不占SCENE名额
 Module_ID / module type / slot: A+ 必填；listing 不适用
 Objective: CVR / 减少误购退货 / 型号选择 / 其他具体目标
 Priority and rationale: 数据或定性依据，分数如使用则标口径
@@ -69,6 +74,7 @@ Visual composition:
 - 必需特写与来源照片；允许调整与禁止变化
 - 文案区域、字族/字号层级/字重/行数/对齐/对比、移动端阅读与安全区域
 - Text map: 采用TYPE-01–08或已有骨架的文字布局；每元素copy_id、exact_text、line_texts、明确坐标基准的zone、具体字体/字号目标/字重/行高/字距/对齐/字色及强调短语；NONE/原生字段分别处理，见text-layouts.md
+- Text surface: natural-background/feathered-veil/designed-panel/native-only/none；真实承接平面或图形边界、纹理/光照连续性、字色/填充/内边距与照片接合；允许局部羽化且完整效果避开商品；无字图不加文字载体
 - Text check: design-checked; render-unverified，或本次实际排版/成图检查的尺寸与问题；没有真实渲染不能声称已适配字宽或小屏验收
 - 字号按大/中/小建立层级，卖点详略、字重和颜色按重要性变化；米白底区/细边框标签/手触细节若采用，记录用户选择、区域与事实依据
 - 艺术字适用范围、准确标题、具体字形/笔画/行数/字色/文字容纳区与完整商品缓冲；用户字体选择优先，AI选择时适用短标题主动给展示字；无字/原生字段/朴素选择明确记录；模糊/渐变与所有字效不进入商品
@@ -104,16 +110,20 @@ Owner / Due / Revision: 已知值或未指定，不编造负责人与截止日�
 
 `READY` 仅表示提示词本身具备已知输入并且没有阻塞条件，不等于生成图已通过审核。`PROVISIONAL` 适用于保守可执行但市场依据薄弱、或用户明确授权自行选择测试画布/暂拟模块等情况，必须指出不确定性；测试可生成与正式账户可上传分列。如包含无法解析的占位尺寸、图片来源或产品事实，应为 `BLOCKED`。
 
-默认恰好 11 个 brief 和 11 份 prompt：DIM01 ×1、DETAIL01 ×1、SCENE01–04 ×4、APLUS01–05 ×5；blocked 草案也计入总数并单独列明。未知资格/尺寸不擅自取消五张 A+ 策略，也不产生额外占位图。真实模块需要更多独立图槽/移动端派生图时，说明适配缺口，再由用户改变范围，不静默扩数。
+new-set默认恰好11个brief和11份prompt：DIM01 ×1、DETAIL01 ×1、SCENE01–04 ×4、APLUS01–05 ×5；blocked 草案也计入总数并单独列明。未知资格/尺寸不擅自取消五张 A+ 策略，也不产生额外占位图。真实模块需要更多独立图槽/移动端派生图时，说明适配缺口，再由用户改变范围，不静默扩数。
+
+set-refresh不沿用固定11个ID：目标图数、角色、顺序与范围以set-refresh-map及targetAssetIds为准，每个目标仍有独立brief/TXT；BLOCKED不减少目标数。
 
 默认画布已知时，不因账号模块未知把全部A+ prompt放入blocked。brief/index/TXT均填实际制作默认值或逐图选择值，上传适配待核单列。SCENE类型分配/像素弹窗未答且未委托时，其最终prompt不能因已有1600默认而提前就绪。若用算术助手，将实际选择的输入保存`scale-plan.json`，检查结果保存`scale-audit.json`；无Python则在brief保留手算与局限。外部灵感在现有证据账本记SRC-INSP，无须为每个查询创建额外报告。
 
 ## 完成检查
 
-- 每个资产 ID 唯一，图谱、brief、index 和 prompt 一一对应；固定 1+1+4+5，没有 MAIN 或额外 A+ 图。
-- 实读竞品套图后已弹窗选择参考路线，且具体ASIN/变体/套图也已选或有明确委托；逐图遵循选中主套图及辅助来源，未答不默认使用内置模板，下载与完整目视分开。
-- 场所/节日候选有适配和排除理由；四类张数及SCENE映射已经弹窗确认或明确委托且合计4；各资产有新增任务，生活场景有可识别的本地住宅结构，安装图不被强加房间/节日，不为拓展节日改变固定商品配饰。
+- 每个资产ID唯一，图谱、brief、index与prompt一一对应；new-set固定1+1+4+5且无MAIN；set-refresh恰好覆盖已定targetAssetIds，已有MAIN只在更新范围内。
+- 已记录参考路线的用户选择/委托；按竞品更新旧套图已隐含选择competitor-derived，无需重复弹窗，且具体ASIN/变体/套图也已选或有明确委托；逐图遵循选中主套图及辅助来源，未答不默认使用内置模板，下载与完整目视分开。
+- 场所/节日候选有适配和排除理由；四类张数及SCENE映射已经弹窗确认或明确委托且合计当前SCENE数量N（new-set为4）；各资产有新增任务，生活场景有可识别的本地住宅结构，安装图不被强加房间/节日，不为拓展节日改变固定商品配饰。
 - 五张 A+ 有信息递进和版式节奏；参考图的数量/手机端不静默扩数，原生多图槽与组合位图分清。
+- set-refresh有旧图诊断和逐图旧→新映射；不清楚的必要花纹/茎杆/接头已当场澄清/补图，旧生成图不自证真实，不靠竞品/锐化补细节；局部编辑与重建边界无矛盾。
+- 文字底层保留自然背景纹理/光照或明确编辑区，与照片对齐接合；允许必要的局部白色羽化，最外效果避开商品；整套不全铺硬底板或羽化；保留有效源图底板，不一律禁白色信息区；自然景深另核。
 - 文字不压商品关键特征；配色有主次角色而非统一模板。每图光源、亮暗面、投影与支撑平面一致，挂件不出现盆底落地影。
 - 实物尺寸、参照物完整端点/依据、前后深度、投影比与取景自洽；跨图允许景别改变，不允许实物尺寸漂移。未观察成图不能标比例验收通过。
 - 场景需要拓展时已执行公开检索或如实记工具限制；外部图不混入V/P/R，不为凑时段/季节改变商品。辅助道具不抢主视觉。
@@ -139,7 +149,7 @@ Owner / Due / Revision: 已知值或未指定，不编造负责人与截止日�
 
 ## 总提示词汇总与可重复编译
 
-固定的11张prompt仍是事实来源。新增 `prompt-manifest.json` 作为编译清单，每条记录：
+单张prompt仍是正文来源，new-set固定11张，set-refresh按已确定范围。新增 `prompt-manifest.json` 作为编译清单，每条记录：
 
 ```json
 {
@@ -155,7 +165,7 @@ Owner / Due / Revision: 已知值或未指定，不编造负责人与截止日�
 }
 ```
 
-示例只说明单条结构；实际清单必须恰好11个唯一ID，不能把示例文件名当成真实素材。`references` 按实际上传顺序填写文件名及角色，必须与prompt内部映射一致；无需附件才填空数组。PROVISIONAL与BLOCKED必须给出 `condition`。BLOCKED路径为 `prompts/blocked/<ID>.txt`，正文以 `CONDITIONAL DRAFT — NOT READY TO GENERATE` 开头；其余路径为 `prompts/<ID>.txt`。
+示例只说明单条结构；缺省campaignMode为new-set，仍须固定11个唯一ID，不能把示例文件名当成素材。set-refresh须显式写campaignMode和targetAssetIds，assets与该清单一一对应，按清单顺序汇总；不从文件夹残留TXT推测范围。`references` 按实际上传顺序填写文件名及角色，必须与prompt内部映射一致；无需附件才填空数组。PROVISIONAL与BLOCKED必须给出 `condition`。BLOCKED路径为 `prompts/blocked/<ID>.txt`，正文以 `CONDITIONAL DRAFT — NOT READY TO GENERATE` 开头；其余路径为 `prompts/<ID>.txt`。
 
 在技能目录运行：
 
@@ -163,6 +173,22 @@ Owner / Due / Revision: 已知值或未指定，不编造负责人与截止日�
 python -X utf8 scripts/build_prompt_summary.py "E:/Amazon_skill/outputs/<product-slug>"
 ```
 
-脚本按DIM01、DETAIL01、SCENE01–04、APLUS01–05排序，从单张TXT原样读取，输出根目录 `all-prompts.md` 和 `all-prompts.txt`。Markdown每张一个可复制代码块，TXT每张有明确BEGIN/END边界；每张前列状态、剩余条件和上传文件。BLOCKED只在末尾单独列资产、缺项和条件草案链接，不复制其正文。全部受阻时汇总仍有11项缺口，无可执行段。
+new-set脚本按DIM01、DETAIL01、SCENE01–04、APLUS01–05排序；set-refresh按targetAssetIds排序，从单张TXT原样读取，输出根目录 `all-prompts.md` 和 `all-prompts.txt`。Markdown每张一个可复制代码块，TXT每张有明确BEGIN/END边界；每张前列状态、剩余条件和上传文件。BLOCKED只在末尾单独列资产、缺项和条件草案链接，不复制其正文。全部受阻时汇总仍列出所有目标缺口，无可执行段。
 
 这两份合集不算新增图，不替代单图文件；修订单图后重新编译。无Python时可人工做同样汇总并核对全文。编译仅检查ID/路径/就绪分隔与复制一致，不证明事实、文案、版式或实际成图合格。交付时优先给用户总汇入口，再链接索引与策略，不要求用户从PDF提取文本。
+
+套图更新清单示例（仅结构说明，不是实际项目文件名或范围）：
+
+```json
+{
+  "campaignMode": "set-refresh",
+  "targetAssetIds": ["MAIN01", "SCENE01", "APLUS01"],
+  "assets": [
+    {"id": "MAIN01", "status": "READY", "prompt": "prompts/MAIN01.txt", "references": ["old-main.jpg — clear verified SKU region"], "condition": ""},
+    {"id": "SCENE01", "status": "BLOCKED", "prompt": "prompts/blocked/SCENE01.txt", "references": [], "condition": "需要同SKU茎杆连接近拍"},
+    {"id": "APLUS01", "status": "READY", "prompt": "prompts/APLUS01.txt", "references": ["product-front.jpg — SKU identity"], "condition": ""}
+  ]
+}
+```
+
+ID须为MAIN01，或DIM/DETAIL/SCENE/APLUS加01–99序号；不使用未解析占位符或路径作为ID。已有主图是否在范围内先由更新清单确定；这不是给new-set自动增主图的方式。

@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "revision": "classified-layouts-20261026-r1",
+  "scope": "Maintained layout adaptations for the user's three local categories. Fourteen dimension/detail references were opened individually; other retained images were inspected in category overviews. Source observations and product identities remain separate.",
+  "dimensionLayouts": [
+    {
+      "imageId": "IMG-fe6f0ec125d1c36b",
+      "layoutZh": "白底，顶部一行深绿标题，左侧完整商品，右侧上下两圆窗，左外侧竖向尺寸线；圆窗有细描边",
+      "layoutEn": "A white field, one dark-green headline across the top, a complete product view on the left and two vertically stacked circular close-ups on the right, edged with fine circular outlines. A height leader occupies the outer left margin.",
+      "dimensionAdaptation": "Make the complete measured view primary. Place a verified overall-height leader outside its full endpoints; use the two circular windows only for available part views, with their own measurements only when independently verified.",
+      "detailAdaptation": "Retain the left complete identity view and two right circular windows. Assign each circle a distinct genuine part detail and concise approved label. Replace the measurement-only left margin with breathing space; retain a size annotation only if it serves the approved detail task.",
+      "sha256": "fe6f0ec125d1c36b582911f2e6d8ff58d8b1fa32426ea38ce13791671f341ea5",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-e88c95c18a0ff8a8",
+      "layoutZh": "白底三视图：左侧完整正视，右上俯视，右下单花或独立部位；每个视图独立尺寸线，无彩色标题条",
+      "layoutEn": "Three unboxed views on white: the complete front view fills the left half, a top view occupies the upper right and one isolated part occupies the lower right. Thin black measurement lines belong to their own views. The source has no colored title strip.",
+      "dimensionAdaptation": "Use independently available front, top and part views. Bind total height to the complete front view, spread to the actual top view and part size only to that part. An unavailable top view or isolated part is a missing source requirement, not permission to invent it.",
+      "detailAdaptation": "Retain the asymmetric three-view reading order. Let the whole view establish identity and the two right views explain distinct supported construction details. Use short labels in open white space; preserve the uncluttered source treatment without adding an unsolicited title band.",
+      "sha256": "e88c95c18a0ff8a8bd5073aaf30513eda28e3e1b4daf7e7f7b09b1c65865385b",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-4b9836deb1740822",
+      "layoutZh": "暖米色背景，左约三分之二放完整商品与尺寸，右侧四张浅色圆角卡竖排；顶部大标题、底部数量区",
+      "layoutEn": "A warm ivory layout with the complete product and measurement area across roughly the left two thirds. Four pale rounded reference cards stack down the right. A large dark heading anchors the top; a compact sale-content zone sits at the lower left.",
+      "dimensionAdaptation": "Use the left full view for overall and independently verified segment dimensions. Assign the four right cards only to available measured supporting views or explicitly confirmed sale variants. Do not turn four displayed source colors into a mixed current sale unit.",
+      "detailAdaptation": "Use the left view for overall identity and the four right cards for different supported details. Resolve the actual card count and available part photos before finalizing; preserve rounded cards and warm contrast while using one approved type family.",
+      "sha256": "4b9836deb1740822a1989331893737f6bbfe7e2a36c736ac25b0c93ca9109f76",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-79c94e78fb0099a7",
+      "layoutZh": "深绿外场与标题底板，白色弧形主体区居左，右侧三圆窗沿弧排列并配浅色标签，右上数量徽章",
+      "layoutEn": "A dark-green outer field and filled headline treatment frame a large white curved product area on the left. Three circular details follow the curve on the right with pale labels beside them. A count badge sits at the upper right.",
+      "dimensionAdaptation": "Keep the complete measured view inside the white area and its verified height leader outside the silhouette. Retain the three circular supporting views when source-supported; a count badge requires the actual sale quantity and can be omitted or reassigned only as an explicit design decision.",
+      "detailAdaptation": "Use the curved division to separate the complete product from three actual part close-ups. Retain the light-on-dark labels and circular boundaries. Do not inherit the reference's resilience, quality or adjustable-part claims.",
+      "sha256": "79c94e78fb0099a7c865dcd08968536be1a6c68469ce62aa407a6a46e8f1eb45",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-48d71770d95ca2d3",
+      "layoutZh": "绿色标题区及框架，左侧大白色圆角完整商品窗，右侧三张等宽圆角近拍窗；尺寸线在左大窗内留白",
+      "layoutEn": "A green heading field and framework contain one large white rounded product window on the left and three equal-width rounded close-up windows stacked on the right. Measurement leaders sit in reserved white space around the complete left view.",
+      "dimensionAdaptation": "Measure the complete view and any verified segment only within the large left window. Keep the right three views explanatory unless their own dimensions are known. Preserve consistent corner radii, aligned edges and equal gutters.",
+      "detailAdaptation": "Retain the green frame and the three right close-ups as the main evidence sequence. Keep enough of the complete left view to locate each part. Use readable labels in reserved card space without automatically removing the colored framework.",
+      "sha256": "48d71770d95ca2d315acf3ce4f28bd49bc644c79702ee200bbda34d4e29cd682",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-e2a934da4dca032d",
+      "layoutZh": "顶部橙色横幅，左侧完整单束测量，右上圆形数量徽章，右下手持多束展示",
+      "layoutEn": "An orange headline band spans the top. A complete single-unit measurement view occupies the left. A round quantity badge sits at upper right and a hand-held grouped view fills the lower right.",
+      "dimensionAdaptation": "Bind the size leaders to the single complete unit. Use the grouped hand-held inset only with a verified count/allocation and a suitable actual hand-held reference; it must not imply that the complete pack is one measured stem.",
+      "detailAdaptation": "Keep the left complete identity view. Use the lower-right window for a documented grip, supported connection or actual pack arrangement, with the upper-right badge carrying a verified concise fact if needed. A hand must not imply softness, bendability or assembly without evidence.",
+      "sha256": "e2a934da4dca032d0fc13f1b39370737be2da864234747df325b58994221863f",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-2b8df74a164bb64a",
+      "layoutZh": "白底左大完整商品，右三圆窗竖排，左上深绿圆角标题底；全长及裸茎尺寸在完整视图旁",
+      "layoutEn": "A large complete product view occupies the left on white. Three circular details stack vertically on the right with labels beneath them. A compact dark-green rounded headline panel sits above the left area; overall and bare-segment leaders belong to the complete view.",
+      "dimensionAdaptation": "Keep the whole measured view and independently verified bare/decorative segments separate. Assign circular views only their own supported labels or measurements. Preserve the source's compact title backplate.",
+      "detailAdaptation": "Use the three circles for actual surface, connection and branching details as available. Retain the green title panel and whole-product context; remove measurement-only annotations when the approved task is purely visual detail.",
+      "sha256": "2b8df74a164bb64a18f4eb24fd04eb1ec49eee7b13f29796d3b08aec15cc2254",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-083d6b1ba0096f67",
+      "layoutZh": "白底大主体居左中，左上彩色矩形标题底，三个圆窗分布于右上和下部两侧，最右竖尺寸线、下方数量块",
+      "layoutEn": "A large complete product view spans the left and center of a white field. A saturated rectangular headline panel anchors the upper left. Three circular details sit at upper right, lower left and lower right, with a compact count tile below and a vertical size leader in the outer right margin.",
+      "dimensionAdaptation": "Fit the entire current product between explicit measured endpoints, leaving the far-right leader outside it. Keep the three detail circles distinct from the measurement view and replace every source numerical value and sale-count tile with verified project facts.",
+      "detailAdaptation": "Retain the distributed three-circle composition and colored headline/count treatments where chosen. Connect each circle to a genuine visible part; the count tile may carry a supported short fact after its role is resolved. Avoid repeating an overall-size task.",
+      "sha256": "083d6b1ba0096f674c460c040ceb9c3e2dc36669c76796563a40ccd44b209620",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-0a38211f36ce7abd",
+      "layoutZh": "白底左侧大完整枝束，右侧四圆窗纵排，标签在圆下；第二圆周围原有放射符号涉及UV宣称",
+      "layoutEn": "A complete product dominates the left two thirds of a white field. Four circular close-ups stack down the right with short labels beneath them. Keep the clean reading order; the source's sunburst around one circle communicates a performance claim and is not a neutral mandatory ornament.",
+      "dimensionAdaptation": "Reserve a clear leader zone beside the complete view and use only verified overall or segment measurements. Keep the four circles as supported supplementary views; resolve missing part photos before retaining their count.",
+      "detailAdaptation": "Use four distinct evidence-backed details in the right column, keeping the complete left identity view. Do not transfer the UV sunburst, durability wording, material name or branch count unless established for this SKU.",
+      "sha256": "0a38211f36ce7abd152096bf163028813217812f6b1544288142dd9670c3d7df",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-2b3aaf42b5723a51",
+      "layoutZh": "右侧大完整正视，左上俯视、左下单花两张细线圆角框；上部大橙色标题，各视图独立尺寸",
+      "layoutEn": "The complete upright product occupies the right. Two thin rounded rectangular windows stack on the left, showing a top view above and an isolated part below. A large orange heading occupies the upper-right zone. Each view has its own measurement leaders.",
+      "dimensionAdaptation": "Keep the right view's total height separate from top-view spread and isolated-part diameter. Obtain all required same-SKU views and measurement endpoints. Do not move whole-product dimensions onto a close-up.",
+      "detailAdaptation": "Keep the two left windows for distinct available details or source-supported alternate views. Use the right complete view for identity and short orange-accent labels for hierarchy, with no invented top view or detached part.",
+      "sha256": "2b3aaf42b5723a5104e3167d5ad3e8e50f13fd19427bc2d8b0b8a6015eeb412e",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-32df8834d5f8b0dc",
+      "layoutZh": "白底上方两行大标题及细装饰分隔，四组商品错落排布，各组配数量文字；来源为多色数量清单",
+      "layoutEn": "A two-line heading and fine decorative separator sit at the top of a white field. Four product groups form a staggered two-by-two arrangement below, each with a nearby concise quantity label. This source is a sale-content grid, not an existing measurement diagram.",
+      "dimensionAdaptation": "Adapt the staggered four-cell skeleton only to approved measured views or confirmed sale groups. Bind each verified dimension to its actual view. Several views of one SKU must be labeled as explanatory views; do not imply four included colors or inherit source quantities.",
+      "detailAdaptation": "Use the four-cell skeleton for four genuine available details or explicitly confirmed sale groups. Resolve the cell count and content role in the layout decision. A single-SKU detail grid must not silently become a mixed-color pack.",
+      "sha256": "32df8834d5f8b0dc6dca6e1c3efeb2f29a510699f75f35eda943b5c96a0715a8",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-880f4592b15af043",
+      "layoutZh": "深色背景，左侧完整枝束和左上大标题，右侧三张圆角近拍卡；每卡有棕色标签底，尺寸在完整主体边",
+      "layoutEn": "A dark contextual field contains a complete product at left, a large light headline above it and three rounded close-up cards stacked at right. Each close-up has a coordinated brown label footer. Measurement leaders border the complete left product.",
+      "dimensionAdaptation": "Use light high-contrast leaders around the complete measured silhouette; keep the three detail cards secondary. Match source-like dark/light separation while preserving the real SKU's color. Keep the label footers clear of the close-up merchandise.",
+      "detailAdaptation": "Retain all three rounded cards and their filled label footers, replacing their copy with supported part descriptions. Preserve dark-background separation and a complete left identity view. Do not inherit adjustable-stem or bundle-count claims.",
+      "lightEn": "Use a resolved warm directional highlight to separate the product from the dark field, with a credible receiving background or an explicitly isolated cutout treatment. Keep right-window exposure and white balance consistent; a decorative forest background supplies no outdoor-performance evidence.",
+      "sha256": "880f4592b15af043d1aa164850fa6abaf56d546de99c465b946cc38a3b8bf7fb",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-acbc3c7ae7753d65",
+      "layoutZh": "右侧白色弧形完整商品区，左侧虚化背景中三圆窗竖排并配白色标签，最右侧彩色竖尺寸胶囊",
+      "layoutEn": "A white curved complete-product area fills the right. Three circular close-ups stack on the left over a blurred contextual background with high-contrast pale labels. A colored vertical measurement capsule occupies the far-right margin.",
+      "dimensionAdaptation": "Use the right complete view and far-right capsule for the independently verified overall dimension. Keep the three left detail windows and their own reading order. The curved boundary must not cut through the complete current product.",
+      "detailAdaptation": "Make the three left circles an evidence-backed detail sequence while preserving the complete right product. Retain the curved divide and label contrast; reuse the size capsule only for a resolved factual role, otherwise allocate quiet margin through the design decision.",
+      "sha256": "acbc3c7ae7753d65eeccdbbcc14b8a079ec3c7326bcfc76f7991621b8bb93524",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    },
+    {
+      "imageId": "IMG-aed9ad2c4f825159",
+      "layoutZh": "暖白背景，下方大扇形枝束，上左单枝圆窗和数量圆章，上右三行深绿标题，浅绿弧形衬底",
+      "layoutEn": "A large fan of actual units fills the lower area of a warm-white field. A single-unit circular inset and round count badge occupy the upper left; stacked dark-green heading and smaller sale-content text occupy the upper right above a pale-green curved background.",
+      "dimensionAdaptation": "Use a complete current unit in the upper-left view for verified single-unit measurements, or measure the fan only if that arrangement and spread are actually established. Keep unit length, arranged spread and pack quantity distinct; request a different layout if the necessary measured view cannot fit legibly.",
+      "detailAdaptation": "Use the lower fan to explain documented branching, included units or genuine density, and the upper-left inset for a specific available unit/part. Preserve actual count and sale role. Do not multiply units merely to reproduce the source fan's fullness.",
+      "sha256": "aed9ad2c4f825159ef266cb1fcee88a6d05e3a569ae704afcaf4701f43ac1ab4",
+      "reviewScope": "Existing full-image dimension-layout review; 2026-10-26 contact-sheet cross-check. Green-panel and ivory-assortment sources also reopened full size in this audit."
+    }
+  ]
+}

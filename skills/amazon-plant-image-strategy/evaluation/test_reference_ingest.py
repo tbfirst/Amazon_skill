@@ -4,6 +4,8 @@ from copy import deepcopy
 from pathlib import Path
 import tempfile
 import unittest
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 from PIL import Image
 
 spec = importlib.util.spec_from_file_location('ingest', Path(__file__).resolve().parents[1]/'scripts/reference_ingest.py')

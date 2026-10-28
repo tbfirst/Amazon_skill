@@ -66,6 +66,27 @@ These are acceptance scenarios for evaluating the skill, not claims of completed
 | New project has no pixel specifications or verified A+ account settings | Writes 1600x1600 secondary and 1464x600 desktop A+ canvases consistently in briefs/index/prompts, does not reuse old 2000/970 test defaults or re-ask the known size; upload review remains pending |
 | A confirmed account slot differs from the desktop master, and a later generator returns different pixels | Distinguishes 1464x600 default master, confirmed slot and actual file pixels; adapts composition without stretching product, does not silently add assets or claim requested dimensions were achieved |
 
+## Set refresh and integrated copy
+
+These are text-review scenarios; they do not claim image generation or a live competitor run.
+
+| Case / raw scenario | Expected observable behavior |
+| --- | --- |
+| Uploads 7 finished old images and 4 competitor ASINs, asks to adopt their layout/styling | Routes to set-refresh; inventories old roles, preserves resolved scope, analyzes competitor galleries/A+ and reviews, chooses principal source only if unresolved, and maps each old image/product source to a new layout; no forced 11-image expansion |
+| One old main image is within an expressly requested whole-set refresh | Includes MAIN01 in targetAssetIds; new-set still excludes a new MAIN; scope and artifact counts match |
+| Old images have already generated petals and the stem junction is too small to read, while the chosen detail layout needs a junction macro | Immediately asks a focused popup and/or requests the specific same-SKU close-up in chat; marks only dependent assets BLOCKED and continues research; no invented veins/joints or reliance on sharpening |
+| Clear old product regions are confirmed faithful, with sufficient views for the selected layout | Reuses only those supported regions without demanding all new raw photography; embedded claims still need factual evidence |
+| User replies that they can upload a stem photo but has not uploaded it yet | Keeps the visual gap open; text availability is not the missing photo itself |
+| Old images disagree on flower color, branching or included pot | Clarifies actual variant/source reliability before combining regions; does not synthesize an ideal SKU |
+| New layout requires another view, and the only old view is front-facing | Requests the missing view or discusses a supported layout change; no unseen-side reconstruction |
+| User already says follow competitor A's set | Records competitor-derived and A as selected without repeating the three-route popup; still resolves consequential missing facts |
+| A rebuilt layout uses a library operation whose default preserves the old background | Resolves layout-rebuild scope, removes conflicting old-composition locks and names identity material separately; bounded-edit still preserves genuinely unaffected areas |
+| Copy is difficult to read on a detailed wall | Changes text placement/color/weight or approved length, or plans a deliberate integrated panel; no automatic white blurred patch/frosted mat/feathered washout |
+| Chosen competitor has a solid ivory angled information panel | Preserves its information role, edge, alignment and palette where compatible; does not ban all white panels to solve the blur problem |
+| Competitor uses a blurred white copy area | Preserves information hierarchy but records an integrated surface adaptation; selecting the source does not automatically approve its frosted effect |
+| A normal lifestyle scene has natural distant bokeh | Preserves physically coherent depth of field; no extra text-shaped blur mask, product-edge fade or erased wall texture |
+| Updated prompts have a new photo layout but retain correct existing product labels | Exact copy, single-family typography, text-surface treatment and product protection agree across map, brief and TXT; render remains unverified |
+
 ## 1.5.0 full-set layout and library cases
 
 These additional scenarios describe expected behavior; they are not completed live browser/popup/generation runs.
@@ -290,6 +311,26 @@ For scene/A+ revisions also check candidate compatibility and exclusions, user-o
 - 选择B0H5J4K825的A01与A08：分别检索斜切标题区和深绿外框核对栏的精确图像分支，不能只用配方默认A01替代A08；显示原图与prompt的sourceSlot、sourceImageId必须对应。
 - 同ASIN A+出现秋色球状花及另一种白花：按已审核主体分别处理，不按ASIN合并；不将未入选图位标成已审核离线图。
 - 池畔、灯树夜景、四盆满花参考：布局可迁移，防水、定时、雪地、数量与丰满效果都不能自动继承到本品；缺必要几何或数量时弹窗。
-- 库素材不在作者原盘：所选74图必须通过技能相对路径可打开并核对SHA；新提示词仍需当前SKU实例化，历史观察不冒充当前会话看图或生成验收。
+- 库素材不在作者原盘：以当前分类精选为准，随包图片通过技能相对路径可打开且SHA对应；用户移除图保留文字但无本地可用标记。新提示词仍需SKU实例化，历史观察不冒充当前看图或生成验收。
 
 这些是行为验收标准；本次实际运行的数据/检索/已有单元测试范围见维护记录，不声称已执行所有弹窗或生图案例。
+
+## 1.21.0 classified references and dual-role layouts
+
+- DIM01和DETAIL01均能检索dimensions中的14张参考；同一图两角色读取各自分支，完整尺寸与局部细节不混淆，不机械重复成图。
+- 选择IMG-880f4592b15af043作DETAIL01：保留右三卡与棕色标签底，不照搬旧观察提示词中的去底条指令；SKU无可调节事实时不继承来源文字。
+- 只保留四色数量清单骨架：先确定当前各格是测量视图、细节还是已确认售卖组；不从源图继承四色和各组三件。
+- Aplus/collected目录的重分类不重写主要产品身份或原图内容；功能图不凭目录变成纯单景，A+仍按横幅及具体产品分支。
+- 用户移动图片后按哈希更新路径；删除图片不从历史源库自动恢复，历史文字继续可查且observedThisRun不变为true。
+- 维护标注示例不出现在运行链接或生成附件，删除其文件夹后技能资源仍完整。
+
+## v1.23.0 文字节制与竞品继承验收场景
+
+以下为后续行为验收案例，非已执行生图测试。
+
+- 四张场景均自动铺彩色标题板：应在整套检查时调整为以无字/直接落字为主、必要时局部羽化；仅换底板颜色不通过。
+- 参考有白色柔边字区：允许继承羽化至透明，完整效果避开细枝和盆体；不得因旧禁令改为硬色板。
+- 场景画面已能表达任务：主动规划NONE并跳过文案/字体问答；不得为填字段编标题。
+- 用户要求直接替换竞品商品：保留机位、布景、道具、构图、光影，仅换我方实物/文案/指定配色和必要适配；实际上传身份与风格两类参考。
+- 同类请求作用于尺寸/细节/A+：分别继承箭头布局、细节窗口、叙事分区，参数与微观特征依据我方素材；不得只在场景图继承。
+- 无实际参考附件：明确文字适配和未渲染状态，不声称已原图替换或相似度通过。

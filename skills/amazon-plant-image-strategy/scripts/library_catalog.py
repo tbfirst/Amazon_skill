@@ -63,7 +63,7 @@ def check_cards(data):
     if not ids or len(ids) != len(set(ids)):
         raise ValueError('Empty catalog or duplicate card IDs')
     for c in cards:
-        if not isinstance(c.get('prompt'), str):
+        if not isinstance(c.get('prompt'), str) and not c.get('promptSourceImageId'):
             raise ValueError(f"Missing recipe: {c['id']}")
     return cards
 
@@ -97,22 +97,30 @@ def render_index(data):
     def cell(value):
         return str(value).replace('|', '\\|').replace('\n', ' ')
     lines = ['# 内置植物设计参考库\n\n',
-             f"{data['cardCount']}条内部模板，{len(data.get('images', []))}条图像知识记录，{data['bundledPreviewCount']}个内置成图参考。",
+             f"{data['cardCount']}个卡片入口，{len(data.get('images', []))}条图像记录，{data['bundledPreviewCount']}个内置成图参考。",
              '配图只提供版式或指定视觉效果；导入不等于逐图目视或Lovart实测。\n\n',
              '供agent按需读取，无需用户翻译。完整卡片/图像用 `scripts/library_catalog.py show ID` 读取；',
-             '未内置图片可从可用原库读取，不能声称已经看过。\n\n',
+             '模板质量与配图可用性分别记录；无内置图的已审核文字模板仍可使用，不声称本轮看过缺失图片。\n\n',
              f"原库快照SHA-256：`{data['source']['sha256']}`。\n\n"]
     for extension in data.get('authoredExtensions', []):
         lines.append(f"另含{extension['cardCount']}条原创文字模板（`{extension['file']}`，"
                      f"版本`{extension['revision']}`），已计入模板总数；无新增成图或竞品观察，须适配SKU后使用。\n\n")
+    if data.get('designGroups'):
+        lines.extend(['## 按交付角色检索\n\n',
+                      '| 分类 | 本地图片 | 用途 | 检索参数 |\n|---|---|---|---|\n'])
+        for group, spec in data['designGroups'].items():
+            lines.append(f"| {cell(spec['label'])} | {spec['count']} | {cell(' / '.join(spec['roles']))} | "
+                         f"`--design-group {group}` |\n")
+        lines.append('\n尺寸与细节共用版式池；`show IMG-ID --asset-role DIM01/DETAIL01`读取独立适配分支。'
+                     '分类不合并A+产品身份；仍按具体图片核对内容和来源。\n\n')
     lines.extend([
              '| ID | 名称 | 图类 | 内置预览 |\n|---|---|---|---|\n']
     )
     for card in data['cards']:
-        previews = ' / '.join(f"[预览{i}]({r['file']})" for i, r in enumerate(card['bundledPreviews'], 1)) or '无内置图'
+        previews = ' / '.join(f"[预览{i}]({r['file']})" for i, r in enumerate(card['bundledPreviews'], 1)) or '无内置图；文字模板可用'
         lines.append(f"| {cell(card['id'])} | {cell(card.get('title', ''))} | {cell(' / '.join(card.get('imageTypes', [])))} | {previews} |\n")
     if data.get('series'):
-        lines.extend(['\n## 套图索引（含仅文字记录）\n\n',
+        lines.extend(['\n## 套图索引（保留缺失图位）\n\n',
                       '以 `search --kind series` 检索，`show SET-ID` 按源图序读取；缺口不是已核实全套。\n\n',
                       '| SET ID | 商品/变体 | 已内置图库 | 已内置A+ |\n|---|---|---|---|\n'])
         for series in data['series']:
@@ -156,13 +164,16 @@ def import_catalog(source_root, destination, selection=None):
             raise ValueError(f'Selected source file missing: {relative}')
         if original.suffix.lower() not in {'.png', '.jpg', '.jpeg', '.webp', '.svg'}:
             raise ValueError(f'Unsupported preview file: {relative}')
-        target_relative = 'previews/' + normalized
-        target = inside(dest, target_relative)
         raw = original.read_bytes()
+        sha = hashlib.sha256(raw).hexdigest()
+        if selection.get('allowedMediaSha256s') is not None and sha not in selection['allowedMediaSha256s']:
+            return None
+        target_relative = selection.get('classifiedPathsBySha256', {}).get(sha, 'previews/' + normalized)
+        target = inside(dest, target_relative)
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(raw)
         record = {'file': target_relative, 'sourceFile': relative,
-                  'sha256': hashlib.sha256(raw).hexdigest(), 'kind': kind}
+                  'sha256': sha, 'kind': kind}
         bundled[target_relative] = record
         return record
 
@@ -179,7 +190,8 @@ def import_catalog(source_root, destination, selection=None):
                 missing.append({'card': card['id'], 'file': relative})
                 continue
             record = bundle(relative, kind)
-            card['bundledPreviews'].append(record)
+            if record is not None:
+                card['bundledPreviews'].append(record)
     images = copy.deepcopy(knowledge.get('images', []))
     by_id = {i['id']: i for i in images}
     source_series = read_json(source / 'series-index.json').get('series', []) if (source / 'series-index.json').is_file() else []
@@ -207,6 +219,9 @@ def import_catalog(source_root, destination, selection=None):
         if not record or not reusable(record):
             raise ValueError(f'Selected image is unknown or not reviewed for reuse: {image_id}')
         asset = bundle(record['file'], 'reviewed-finished-reference')
+        if asset is None:
+            image_ids.discard(image_id)
+            continue
         if record.get('sha256') and record['sha256'] != asset['sha256']:
             raise ValueError(f'Source image hash changed: {image_id}')
         record.update(sourceFile=record['file'], bundledFile=asset['file'], file=asset['file'])
@@ -251,6 +266,10 @@ def import_catalog(source_root, destination, selection=None):
     }
     dest.mkdir(parents=True, exist_ok=True)
     (dest / 'catalog.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    if (dest / 'classified-layouts.json').is_file():
+        from refresh_local_library import reconcile
+        result, _ = reconcile(dest / 'catalog.json')
+        (dest / 'catalog.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     (dest / 'index.md').write_text(render_index(result), encoding='utf-8')
     return dict({k: result[k] for k in ['cardCount', 'bundledPreviewCount', 'missingSelectedPreviews']},
                 seriesCount=len(chosen_series), bundledImageCount=len(image_ids))
@@ -296,6 +315,13 @@ def resolve_image(record, root, portable=False):
                   textSearchable=text_searchable(record), fetchable=False,
                   observedThisRun=False,
                   mediaStatus='local' if available else 'text-only')
+    if not available:
+        for branch in result.get('planningPrompts', {}).values():
+            if branch.get('textOnlyUsable'):
+                if branch.get('referenceFile'):
+                    branch['sourceReferenceFile'] = branch['referenceFile']
+                branch['referenceFile'] = None
+                branch['referenceStatus'] = 'text-only; no available image attachment'
     return result
 
 
@@ -305,7 +331,7 @@ def search_cards(cards, query='', image_type=None, limit=8):
     terms = query.casefold().split()
     matches = []
     for card in cards:
-        if image_type and image_type not in card.get('imageTypes', []):
+        if image_type and image_type not in card.get('layoutImageTypes', card.get('imageTypes', [])):
             continue
         title = ' '.join([card['id'], card.get('title', ''), card.get('category', ''),
                           *card.get('tags', []), *card.get('productTypes', [])]).casefold()
@@ -329,7 +355,8 @@ def search_cards(cards, query='', image_type=None, limit=8):
     matches.sort(key=lambda item: (-item[0], item[1]['id']))
     return [{k: card.get(k) for k in ['id', 'title', 'category', 'imageTypes', 'productTypes',
              'status', 'imageStatus', 'layoutSketch', 'bundledPreviews',
-             'productKey', 'principalProduct', 'sourceAsins', 'promptZh', 'promptVariants']}
+             'productKey', 'principalProduct', 'sourceAsins', 'promptZh', 'promptVariants',
+             'designGroups', 'targetRoles', 'layoutImageTypes', 'promptSourceImageId', 'description']}
             for _, card in matches[:limit]]
 
 
@@ -344,7 +371,7 @@ def search_images(images, query='', image_type=None, limit=8, include_restricted
                       or (observation.get('legacyReview') or {}).get('displayEligible') is False)
         if restricted and not include_restricted:
             continue
-        types = observation.get('imageTypes', [])
+        types = ['尺寸图', '细节图'] if 'dimensions-details' in record.get('designGroups', []) else observation.get('imageTypes', [])
         if image_type and image_type not in types:
             continue
         # Shared policy/negative constraints and hashes are not visual evidence.
@@ -363,6 +390,8 @@ def search_images(images, query='', image_type=None, limit=8, include_restricted
     matches.sort(key=lambda v: (-v[0], v[1]['id']))
     return [dict(id=r['id'], file=r.get('file'), originalName=r.get('originalName'),
                  status=r.get('visualStatus', 'pending'), imageTypes=o.get('imageTypes', []),
+                 layoutImageTypes=['尺寸图', '细节图'] if 'dimensions-details' in r.get('designGroups', []) else o.get('imageTypes', []),
+                 designGroups=r.get('designGroups', []), targetRoles=r.get('targetRoles', []),
                  overview=o.get('overview') if r.get('visualStatus', '').startswith('observed') else None,
                  reviewMethod=o.get('reviewMethod'), limitations=o.get('limitations'),
                  restricted=(r.get('reuseEligible') is False or o.get('reuseDecision') in {'reject', 'hold'}
@@ -378,7 +407,7 @@ def search_recipes(recipes, query='', image_type=None, limit=8):
     if limit < 1:
         raise ValueError('limit must be positive')
     terms = query.casefold().split()
-    matches = [r for r in recipes if (not image_type or image_type in r.get('imageTypes', []))
+    matches = [r for r in recipes if (not image_type or image_type in r.get('layoutImageTypes', r.get('imageTypes', [])))
             and all(t in json.dumps({k: r.get(k) for k in [
                 'id', 'title', 'imageTypes', 'layout', 'prompt', 'promptZh', 'promptVariants',
                 'productKey', 'principalProduct', 'sourceAsins']},
@@ -386,7 +415,8 @@ def search_recipes(recipes, query='', image_type=None, limit=8):
     # Search discovers IDs and scope; read one full prompt through show --image-id.
     return [dict({k: copy.deepcopy(r.get(k)) for k in [
         'id', 'title', 'category', 'imageTypes', 'productTypes', 'productKey',
-        'principalProduct', 'sourceAsins', 'sourceCount', 'sourceImageIds', 'promptRevision']},
+        'principalProduct', 'sourceAsins', 'sourceCount', 'sourceImageIds', 'promptRevision',
+        'designGroups', 'targetRoles', 'layoutImageTypes']},
         layoutSummary=(r.get('layoutZh') or r.get('layout') or '')[:240],
         variantCount=len(variant_summaries(r)), variants=variant_summaries(r)) for r in matches]
 
@@ -400,7 +430,7 @@ def variant_summaries(recipe):
             for image_id, value in rows if isinstance(value, dict)]
 
 
-def show_recipe(recipe, image_id=None):
+def show_recipe(recipe, image_id=None, images=None):
     """Return one independent branch, or a default prompt with compact choices."""
     result = copy.deepcopy(recipe)
     variants = result.pop('promptVariants', None) or {}
@@ -414,6 +444,13 @@ def show_recipe(recipe, image_id=None):
         selected = next((v for v in variants if isinstance(v, dict) and v.get('imageId') == image_id), None)
     if not variants and image_id in recipe.get('sourceImageIds', []):
         selected = recipe
+    if isinstance(selected, dict) and selected.get('promptSourceImageId'):
+        image = (images or {}).get(selected['promptSourceImageId'])
+        if not image or not image.get('textSearchable'):
+            raise ValueError(f'Selected planning reference is not eligible: {image_id}')
+        if not image.get('available') and not image.get('planningPrompts', {}).get('APLUS', {}).get('textOnlyUsable'):
+            raise ValueError(f'Selected planning reference is not locally available: {image_id}')
+        selected = dict(selected, **image['planningPrompts']['APLUS'])
     if not isinstance(selected, dict) or not isinstance(selected.get('prompt'), str):
         raise ValueError(f'Unknown or unavailable image branch: {image_id} for {recipe["id"]}')
     result.update(copy.deepcopy({k: v for k, v in selected.items() if k != 'promptVariants'}))
@@ -455,6 +492,8 @@ def main():
         if command == 'search':
             p.add_argument('--query', default='')
             p.add_argument('--image-type')
+            p.add_argument('--design-group', choices=['aplus', 'dimensions-details', 'scenes'],
+                           help='User-classified layout pool; does not replace observed image content')
             p.add_argument('--limit', type=int, default=8)
             p.add_argument('--kind', choices=['template', 'image', 'recipe', 'series', 'all'], default='template')
             p.add_argument('--include-restricted', action='store_true', help='Diagnostics only')
@@ -462,6 +501,8 @@ def main():
         else:
             p.add_argument('card_id')
             p.add_argument('--image-id', help='Read one image-specific recipe branch')
+            p.add_argument('--asset-role', choices=['DIM01', 'DETAIL01', 'SCENE', 'APLUS'],
+                           help='Select the image-bound planning adaptation')
     args = parser.parse_args()
     try:
         client = None
@@ -520,6 +561,14 @@ def main():
             image_root = args.source_root.resolve() if args.source_root else path.resolve().parent
             resolve = (lambda r: client.resolve(r, remote_entry['manifestUrl'], data['libraryVersion'])) if client else (lambda r: resolve_image(r, image_root, portable))
             resolved = {r['id']: resolve(r) for r in images}
+            if data.get('promptPolicy', {}).get('requireLocalReference'):
+                # Missing/tampered media must not expose a stale planning prompt,
+                # even before the maintainer runs refresh_local_library.
+                active_ids = {i for i, r in resolved.items() if r['available'] and r['textSearchable']}
+                for i, r in resolved.items():
+                    if i not in active_ids:
+                        r['textSearchable'] = False
+                cards = [c for c in cards if c.get('promptSourceImageId') in active_ids]
             eligible_ids = {i for i, r in resolved.items() if r['textSearchable']}
             # Older external text-only exports have no image index to adjudicate.
             if images or not args.source_root:
@@ -538,10 +587,18 @@ def main():
                     member['resolvedFile'] = record['resolvedFile'] if member['available'] else None
             available_ids = {i for i, r in resolved.items() if r['available']}
             if args.command == 'search':
-                matches = search_cards(cards, args.query, args.image_type, args.limit) if args.kind in ['template', 'all'] else []
+                selected_cards = [c for c in cards if (not args.design_group or args.design_group in c.get('designGroups', []))
+                                  and (not args.available_only or any(
+                                      inside(image_root, p['file']).is_file() and
+                                      (not p.get('sha256') or digest(inside(image_root, p['file'])) == p['sha256'])
+                                      for p in c.get('bundledPreviews', [])))]
+                matches = search_cards(selected_cards, args.query, args.image_type, args.limit) if args.kind in ['template', 'all'] else []
                 searchable_images = [r for r in images if (args.include_restricted or r['id'] in eligible_ids)
+                                     and (not args.design_group or args.design_group in r.get('designGroups', []))
                                      and (not args.available_only or r['id'] in available_ids)]
-                searchable_recipes = [r for r in recipes if not args.available_only or available_ids.intersection(r.get('sourceImageIds', []))]
+                searchable_recipes = [r for r in recipes
+                                      if (not args.design_group or args.design_group in r.get('designGroups', []))
+                                      and (not args.available_only or available_ids.intersection(r.get('sourceImageIds', [])))]
                 image_matches = search_images(searchable_images, args.query, args.image_type, args.limit, args.include_restricted) if args.kind in ['image', 'all'] else []
                 for match in image_matches:
                     match.update({k: resolved[match['id']][k] for k in [
@@ -552,25 +609,32 @@ def main():
                 recipe_matches = search_recipes(searchable_recipes, args.query, args.image_type, args.limit) if args.kind in ['recipe', 'all'] else []
                 for match in recipe_matches:
                     match['availableImageIds'] = [i for i in match.get('sourceImageIds', []) if i in available_ids]
-                searchable_series = [s for s in series if not args.available_only or any(m.get('available') for m in s['members'])]
+                searchable_series = [s for s in series
+                                     if (not args.available_only or any(m.get('available') for m in s['members']))
+                                     and (not args.design_group or any(args.design_group in m.get('designGroups', []) for m in s['members']))]
                 series_matches = search_series(searchable_series, args.query, args.limit) if args.kind in ['series', 'all'] else []
                 result = {'catalog': str(path.resolve()), 'agentPolicy': policy,
                           'imageRoot': str(image_root), 'portable': portable,
                           'libraryVersion': data.get('libraryVersion', data.get('source', {}).get('version')),
                           'manifestHash': data.get('manifestHash'),
                           'coverage': dict(totalImages=len(images), textSearchableImages=len(eligible_ids), localImages=len(available_ids)),
+                          'designGroups': data.get('designGroups', {}),
                           'matches': matches, 'images': image_matches, 'recipes': recipe_matches, 'series': series_matches}
             else:
                 card = next((c for c in cards if c['id'] == args.card_id), None)
                 image = next((r for r in images if r['id'] == args.card_id), None)
+                if image and data.get('promptPolicy', {}).get('requireLocalReference') and image['id'] not in eligible_ids:
+                    raise ValueError('Selected planning reference is not locally available and eligible')
                 recipe = next((r for r in recipes if r['id'] == args.card_id), None)
                 selected_series = next((s for s in series if s['id'] == args.card_id), None)
                 if card is None and image is None and recipe is None and selected_series is None:
                     raise ValueError(f'Unknown card: {args.card_id}')
+                if card and card.get('promptSourceImageId'):
+                    image = resolved[card['promptSourceImageId']]
                 if args.image_id and recipe is None and selected_series is None:
                     raise ValueError('--image-id requires a recipe or series ID')
                 if recipe is not None:
-                    recipe = show_recipe(recipe, args.image_id)
+                    recipe = show_recipe(recipe, args.image_id, resolved)
                 if selected_series is not None and args.image_id:
                     members = [m for m in selected_series['members'] if m.get('imageId') == args.image_id]
                     if not members or not all(m['textSearchable'] for m in members):
@@ -578,6 +642,27 @@ def main():
                     selected_series = copy.deepcopy(selected_series)
                     selected_series['members'] = members
                     image = resolved[args.image_id]
+                if args.asset_role:
+                    source_id = args.image_id or (image or {}).get('id')
+                    candidates = ([resolved[source_id]] if source_id in resolved else
+                                  [r for r in resolved.values() if card and
+                                   r.get('sha256') in {p.get('sha256') for p in card.get('bundledPreviews', [])}])
+                    candidates = [r for r in candidates if args.asset_role in r.get('planningPrompts', {})]
+                    if len(candidates) != 1:
+                        raise ValueError('Asset-role adaptation requires one selected dimension/detail image ID')
+                    if (not candidates[0]['textSearchable'] or
+                            (not candidates[0]['available'] and not candidates[0]['planningPrompts'][args.asset_role].get('textOnlyUsable'))):
+                        raise ValueError('Selected planning reference is not locally available and eligible')
+                    planning_template = candidates[0]['planningPrompts'][args.asset_role]
+                else:
+                    planning_template = None
+                if planning_template is None:
+                    canonical_id = (card or {}).get('promptSourceImageId') or (image or {}).get('id')
+                    canonical = resolved.get(canonical_id, {})
+                    branches = canonical.get('planningPrompts', {})
+                    if canonical.get('textSearchable') and len(branches) == 1 and (
+                            canonical.get('available') or next(iter(branches.values())).get('textOnlyUsable')):
+                        planning_template = next(iter(branches.values()))
                 # Search reads only summaries; show verifies and loads just the selected detail.
                 if image and client:
                     image = client.detail(image, path, remote_entry, args.offline)
@@ -599,7 +684,8 @@ def main():
                           'libraryVersion': data.get('libraryVersion', data.get('source', {}).get('version')),
                           'manifestHash': data.get('manifestHash'),
                           'card': card, 'image': resolve(image) if image else None, 'recipe': recipe,
-                          'series': selected_series, 'referenceImages': reference_images}
+                          'series': selected_series, 'referenceImages': reference_images,
+                          'planningTemplate': planning_template}
             result.update(librarySource=library_source, fallbackReason=fallback_reason)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         if args.command == 'fetch' and result['status'] == 'failed':

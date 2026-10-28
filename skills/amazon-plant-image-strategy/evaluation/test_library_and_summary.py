@@ -108,19 +108,48 @@ class LibraryTests(unittest.TestCase):
             library.import_catalog(self.source, dest)
         self.assertFalse((dest/'catalog.json').exists())
 
-    def test_outdoor_pack_is_discoverable_without_claiming_image_evidence(self):
+    def test_quality_templates_are_independent_of_media_and_aliases_stay_distinct(self):
         data = library.read_json(library.DEFAULT_CATALOG)
-        pack = library.read_json(library.DEFAULT_CATALOG.parent/'authored-outdoor.json')
-        by_id = {c['id']:c for c in data['cards']}
-        for card in pack['cards']:
-            self.assertEqual(by_id[card['id']], card)
-            self.assertEqual(library.search_cards(data['cards'], card['id'])[0]['id'], card['id'])
-            self.assertFalse(card['bundledPreviews'])
-            self.assertFalse(card.get('sourceImageIds'))
-        outdoor = library.search_cards(data['cards'], '室外', limit=500)
-        self.assertTrue({c['id'] for c in pack['cards']}.issubset({c['id'] for c in outdoor}))
-        self.assertEqual(len([c for c in pack['cards'] if c['imageTypes']==['场景图']]),21)
-        self.assertEqual(len([c for c in pack['cards'] if c['imageTypes']==['A+图']]),3)
+        images = {r['id']:r for r in data['images']}
+        for card in data['cards']:
+            if card.get('promptSourceImageId'):
+                self.assertIn(card['promptSourceImageId'], images)
+                self.assertNotIn('prompt', card)
+            else:
+                self.assertTrue(card['prompt'])
+                self.assertTrue(card['textOnlyUsable'])
+                self.assertEqual(card['qualityReview']['decision'],'retain-rewritten')
+        self.assertFalse(any(c['id'].startswith('OUT-') for c in data['cards']))
+        for record in images.values():
+            resolved=library.resolve_image(record, library.DEFAULT_CATALOG.parent, True)
+            self.assertEqual(resolved['available'],record['bundled'])
+            self.assertTrue(record['planningPrompts'])
+            self.assertNotIn('recipe', record['observation'])
+            for branch in record['planningPrompts'].values():
+                self.assertEqual(branch['sourceImageId'], record['id'])
+                self.assertEqual(branch['referenceFile'],record['file'] if record['bundled'] else None)
+        for recipe in data['layoutRecipes']:
+            self.assertTrue(recipe['requiresImageSelection'])
+            self.assertNotIn('prompt', recipe)
+            self.assertEqual(set(recipe['sourceImageIds']), set(recipe['promptVariants']))
+            for branch in recipe['promptVariants'].values():
+                self.assertIn(branch['promptSourceImageId'], images)
+                self.assertNotIn('prompt', branch)
+
+    def test_pointer_recipe_requires_selection_and_loads_only_that_image(self):
+        recipe = dict(id='APLUS-test', sourceImageIds=['IMG-a','IMG-b'], requiresImageSelection=True,
+            promptVariants={i:dict(promptSourceImageId=i) for i in ['IMG-a','IMG-b']})
+        images = {i:dict(available=True,textSearchable=True,planningPrompts={
+            'APLUS':dict(prompt='Layout for '+i,sourceImageId=i)}) for i in ['IMG-a','IMG-b']}
+        self.assertNotIn('prompt',library.show_recipe(recipe,images=images))
+        selected=library.show_recipe(recipe,'IMG-b',images)
+        self.assertEqual(selected['prompt'],'Layout for IMG-b')
+        self.assertNotIn('Layout for IMG-a',json.dumps(selected))
+        images['IMG-b']['available']=False
+        with self.assertRaisesRegex(ValueError,'not locally available'):
+            library.show_recipe(recipe,'IMG-b',images)
+        images['IMG-b']['planningPrompts']['APLUS']['textOnlyUsable']=True
+        self.assertEqual(library.show_recipe(recipe,'IMG-b',images)['prompt'],'Layout for IMG-b')
 
     def test_preview_cannot_escape_source(self):
         self.cards[0]['references'][0]['file'] = '../secret.png'
@@ -446,6 +475,63 @@ class SummaryTests(unittest.TestCase):
         self.write()
         summary.compile_summary(self.root)
         self.assertIn('````text\nLiteral ```text', (self.root / 'all-prompts.md').read_text(encoding='utf-8'))
+
+    def refresh_manifest(self, ids):
+        entries=[]
+        for asset in ids:
+            relative=f'prompts/{asset}.txt'
+            (self.root/relative).write_text('Updated '+asset+'\n',encoding='utf-8')
+            entries.append(dict(id=asset,status='READY',prompt=relative,
+                                references=['old-set.jpg — verified clear SKU region'],condition=''))
+        return dict(campaignMode='set-refresh',targetAssetIds=ids,assets=entries)
+
+    def write_manifest(self, data):
+        (self.root/'prompt-manifest.json').write_text(json.dumps(data),encoding='utf-8')
+
+    def test_refresh_uses_explicit_scope_and_order_without_adding_new_set_assets(self):
+        data=self.refresh_manifest(['APLUS02','MAIN01','SCENE01'])
+        data['assets'].reverse()
+        self.write_manifest(data)
+        self.assertEqual(summary.compile_summary(self.root),dict(executable=3,blocked=0,total=3))
+        text=(self.root/'all-prompts.txt').read_text(encoding='utf-8')
+        self.assertLess(text.index('APLUS02'),text.index('MAIN01'))
+        self.assertLess(text.index('MAIN01'),text.index('SCENE01'))
+        self.assertNotIn('DIM01',text)
+        self.assertNotIn('APLUS05',text)
+
+    def test_refresh_accepts_larger_explicit_scope_and_keeps_blocked_text_separate(self):
+        ids=['MAIN01',*summary.ASSETS,'DETAIL02','SCENE05']
+        data=self.refresh_manifest(ids)
+        entry=data['assets'][-1]
+        entry.update(status='BLOCKED',prompt='prompts/blocked/SCENE05.txt',condition='Need a clear same-SKU stem joint photo')
+        blocked=self.root/entry['prompt'];blocked.parent.mkdir()
+        blocked.write_text('CONDITIONAL DRAFT — NOT READY TO GENERATE\nUNRESOLVED DETAIL',encoding='utf-8')
+        self.write_manifest(data)
+        self.assertEqual(summary.compile_summary(self.root),dict(executable=13,blocked=1,total=14))
+        text=(self.root/'all-prompts.md').read_text(encoding='utf-8')
+        self.assertIn(entry['condition'],text)
+        self.assertNotIn('UNRESOLVED DETAIL',text)
+
+    def test_refresh_requires_safe_explicit_scope_and_exact_manifest_coverage(self):
+        data=self.refresh_manifest(['MAIN01','SCENE01'])
+        for scope in [None,[],['MAIN01','MAIN01'],['../SCENE01'],['SCENE00'],['SCENE100']]:
+            with self.subTest(scope=scope):
+                data['targetAssetIds']=scope
+                self.write_manifest(data)
+                with self.assertRaises(ValueError):
+                    summary.compile_summary(self.root)
+        data['targetAssetIds']=['MAIN01']
+        self.write_manifest(data)
+        with self.assertRaises(ValueError):
+            summary.compile_summary(self.root)
+
+    def test_new_set_cannot_silently_adopt_a_refresh_scope(self):
+        data=self.refresh_manifest(['MAIN01','SCENE01'])
+        for mode in ['new-set','refresh-typo']:
+            data['campaignMode']=mode
+            self.write_manifest(data)
+            with self.assertRaises(ValueError):
+                summary.compile_summary(self.root)
 
 
 if __name__ == '__main__':

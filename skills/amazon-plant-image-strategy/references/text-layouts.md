@@ -2,6 +2,21 @@
 
 与[文案输入及润色](copy-typography.md)一起读取。用于DIM、DETAIL、四类SCENE和A+；文字布局是已选图像骨架上的编辑层，不增加资产、图像来源配方或竞品观察数。先有商品与图像分区，再安排文字；用户指定的字体、参考骨架和无字选择优先。
 
+<a id="图文融合与文字底层"></a>
+## 图文融合与文字底层
+
+先确定每图的 `copy_mode: none | minimal | informational | native-only`，再决定文字载体。无字是正式设计方案：场景已经表达摆放效果、氛围或用途时，主动考虑无字；不必等用户逐张要求。尺寸/必要限定不能为了简约丢失；可通过调整画面消除随货误解，或把该图保留为必要标注图。没有文案时跳过字体和标题问答，文字地图与底板均为NONE。
+
+先看不带文字的完整构图，再在低干扰背景直接排字；`backplate: NONE` 是起点。仅局部对比不足时选择羽化底层，需要独立信息分区时才使用设计底板。色板不是文案的必备组件，禁止从一张模板向全套自动扩散。
+
+允许白色或协调浅色的局部半透明羽化背景：中心只提供足够的文字对比，边缘逐渐淡出至透明，保留背景纹理与空间感，不形成突兀硬矩形。记录区域、颜色、不透明度目标、羽化过渡范围和产品保护区。文字、底层及最外侧羽化/模糊范围均不得覆盖商品、细枝、叶缘、花瓣、随货盆和必要支撑；空间不够先移字/缩短文案，不把商品糊掉。自然景深与文字羽化分别描述。源图有合适羽化时可以直接继承，不强制改成硬色板。
+
+设计底板可用于尺寸/步骤/信息图或确有需要的场景，沿用所选来源的形状、边界、内边距与对齐。填充从当前场景取低冲突颜色，核对商品分离度；不要为整套统一而套棕白配色，也不要为变化随机加高饱和色块。
+
+每图记录 `text_surface: natural-background | feathered-veil | designed-panel | native-only | none`。整套交付前汇总各类数量与相邻图的视觉节奏：自主策划时，有色填充板只占场景图少数，例如四张场景最多一张作为起稿目标；这是设计默认，不是平台规定。其余由无字、自然背景落字和必要局部羽化组成，不要求用满所有类型，也不把全套硬底板换成全套白雾。用户明确指定的例外保留并说明理由；不要为配额破坏已确认的优秀参考。
+
+英文正文按单图写清最终方式，例如无字图写 `No added text, captions, badges, text panels or text veils.`；直接落字写 `Place the exact copy directly on the intact background; no added backplate.`；羽化方案写明实际区域及 `Use a subtle translucent white veil with edges feathering smoothly to fully transparent; keep the entire feathered extent outside the product protection area.` 正式正文填入本图唯一参数，不保留候选列表。已选羽化时删除与其冲突的禁止白色模糊旧词。
+
 ## 八种可选布局
 
 每轮只展示与本图适配的2–3种，已有选择/明确委托就直接落实，不额外强制八选一。以下比例是设计起点，均需按具体商品与文案调整；不是Amazon规定，也不是已渲染测量。所有坐标以整张画布左上为原点，x向右、y向下。
@@ -44,6 +59,7 @@
 |line_texts|明确每行实际文字；拼接后必须还原exact_text，只允许行间空白变化|
 |zone|x/y范围与整图或指定面板的坐标基准；面板局部坐标交付前转换或清楚限定|
 |type|所选字族/可观察字形、字重、具体目标字号或字高、行高、字距、对齐与字色；纯prompt是目标，非实际字体加载证明|
+|text_surface / continuity|采用真实背景、局部羽化、明确设计底板、原生字段或无字；写所在平面/接合边界及连续性；自然景深和文字底层分开；允许局部羽化，效果不越过保护区|
 |font_lock / backplate|本图唯一字族/字形及已批准例外；底板无则NONE，否则记形状、x/y边界、填充色/不透明度、圆角或直径、内边距及可选边线。整个底板和阴影均避开商品保护区；不凭颜色代码宣称实测对比达标|
 |emphasis|哪段逐字短语用哪种字重或强调色；不新增字词，不把整个句子都标重点|
 |protection|与完整商品、尺寸箭头、特写窗/其他文字块的间距；文字底板和字效也计入边界|
@@ -56,7 +72,7 @@
 
 1. 去掉重复信息和与本图任务无关的修饰词，保留所有必要事实、限定条件与锁定词；纯语法/同义精简直接记录，意义改变再问。
 2. 在已有安静背景内调整断行、字区宽度和文字块间距；仍维护选定图像骨架与商品真实尺度。
-3. 移动文字或调整镜头/留白；只有改变已选骨架、违反明确无底板要求或减少已选细节窗等未授权冲突才弹窗；已选参考或设计委托范围内的协调底板可直接落实。
+3. 移动文字或调整镜头/留白；底板需有明确结构和场景配色，可用局部低透明度羽化，但效果范围不得侵入产品；只有改变已选骨架、违反明确无底板要求或减少已选细节窗等未授权冲突才弹窗；已选参考或设计委托范围内的协调底板可直接落实。
 4. A+允许且已选择原生字段时，把较长说明移到原生文本，图内保留短标题或NONE；不能把普通Listing图片的必需信息移到不存在的字段。
 5. 最后在可读范围内微调字号。不要用小字、窄体拉伸、文字压住商品、淡化叶缘或漏掉销售条件来解决拥挤；未解决的版面不标排版通过。
 
@@ -83,7 +99,9 @@ left aligned, dark charcoal. Two lines:
 "your arrangement"
 SCOPE: x=6–44%, y=50–57%; 36 px target size, medium, one line,
 left aligned, dark charcoal. Give this sale-content label clear contrast.
-Use normal letter spacing and no text panel, glow or sweeping flourishes.
+Use normal letter spacing directly on the intact quiet background.
+Preserve its texture and lighting; add no blurred white mat, frosted patch,
+text panel, glow or sweeping flourishes.
 Keep all glyphs outside the full product protection area. Do not print
 the field labels H1, SUPPORT, SCOPE or the quotation marks. Render only
 the exact copy listed above; line breaks may not change its words.

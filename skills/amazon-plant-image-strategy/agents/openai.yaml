@@ -1,4 +1,4 @@
 interface:
   display_name: "Amazon 植株图片策略"
-  short_description: "竞品研究与11图策划，弹窗收集文案、字体及四类场景分配和方图尺寸"
-  default_prompt: "使用 $amazon-plant-image-strategy，分析我的产品素材与3–6个竞品的整套图库及A+，弹窗选择参考路线、具体竞品套图、文案、字体和版式；逐图落实参考布局与光影、统一字族、协调文字底框和真实数量疏密。确认4张场景类型及逐图方图尺寸，交付尺寸1张、细节1张、场景4张、A+5张的策略、独立英文Lovart提示词及Markdown/TXT合集。"
+  short_description: "新品11图与旧套图更新，竞品评论分析、产品补图澄清和自然图文融合"
+  default_prompt: "使用 $amazon-plant-image-strategy，分析我的产品素材或旧套图与3–6套竞品及评论，迁移已选布局和搭配，及时澄清产品细节并请求必要补图，交付自然融入图片的文案、独立英文Lovart提示词及Markdown/TXT合集。"
