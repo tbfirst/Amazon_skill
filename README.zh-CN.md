@@ -1,12 +1,24 @@
-# 植株商品图 Skill 集合
+# Amazon 商品视觉 Skill 集合
 
-当前包含两个独立 skill：**lovart-plant-product-images** 负责单图制作；**amazon-plant-image-strategy** 负责多轮引导、整套 Amazon 图片策略与 Lovart 提示词。两者都支持中文大白话输入。
+当前包含三个独立 skill：**lovart-plant-product-images** 负责植株单图制作；**amazon-plant-image-strategy** 负责整套 Amazon 植株图片策略与 Lovart 提示词；**amazon-video-generation** 负责产品视频的需求澄清、详细分镜表和即梦提示词。均支持中文大白话输入。
 
 本目录是独立的本地 Git 仓库，日期为 2026-10-14。第一版本纳入本地初始提交，后续由你配置远程仓库并推送；许可证按你的决定暂缓。生成的 dist/ 压缩包保留在本地，不重复纳入 Git。
 
+## Amazon 视频前期制作 · v3.1.0
+
+调用 `$amazon-video-generation`，源码见 [SKILL.md](skills/amazon_video_generation/SKILL.md)。默认21:9、四条各10秒、顺序衔接的中文即梦提示词：特写与缓推、空间多角度展示、有依据的卖点、右侧商品与左侧后期文案留白。
+
+交付详细文字分镜表（镜号、顺序、全局/段内时间、时长、景别、角度、运镜、画面、依据和接缝）及CSV，不生成故事板或编辑页。最后10秒为固定无人连续单镜头，不生成文字、Logo、数字或按钮。21:9为创作母版，Amazon具体版位的发布规格另核实。
+
+新增 [植物商品运镜库](skills/amazon_video_generation/references/camera-movement-library.md)：慢推拉、横移视差、短弧环绕、升降和前景揭示，按商品资料与镜头目的选用。附提示词片段、角度覆盖、失败简化方案及[研究边界](skills/amazon_video_generation/references/research/2026-10-29-camera-movements.md)。
+
+内置 [T01/T02模板](skills/amazon_video_generation/references/builtin-video-templates.md)，承接同SKU事实，保留旧项目已明确约定。[行为案例](skills/amazon_video_generation/evaluation/CASES.md)覆盖新流程；旧故事板工具仅保留历史兼容。
+
+示例：使用 $amazon-video-generation，根据我的商品图制作21:9的四段10秒视频方案，交详细分镜表与四条完整中文提示词，尾段留白供后期加字，不生成故事板。
+
 ## 整套 Amazon 图片策略
 
-2026-10-26 策略 skill 更新至 v1.20.0：扩展已审核竞品套图与 A+ 参考、版式和光影规则及便携参考图册。48 项离线回归测试通过；真实卖家端到端流程、生图和 Amazon 账户上传尚未验证。完整设计与验证范围见 [策略技能说明](docs/AMAZON-STRATEGY.zh-CN.md)。
+2026-10-27 策略 skill 更新至 v1.22.0：新增旧套图更新，基于竞品套图和评论分析迁移布局与搭配，按实际更新范围交付；细节不清时即时弹窗澄清或请求同SKU补图。文字优先融入完整背景或明确编辑区，不默认铺白色模糊底。200个独立模板继续保留，138张内置图未改。验证范围见 [策略技能说明](docs/AMAZON-STRATEGY.zh-CN.md)。
 
 入口：[amazon-plant-image-strategy/SKILL.md](skills/amazon-plant-image-strategy/SKILL.md)。按宿主支持的方式加载完整目录后，可输入：
 
@@ -14,7 +26,7 @@
 
 默认美国站；中文引导和策略文档；英文图上文案与提示词。先读原始素材，不要求用户先上传成品附图/A+。研究后弹框比较带来源的尺寸/细节版式、四场景处理与五A+序列，已选或委托的项跳过。独立浏览器会话/标签页并行研究；直链失败后继续实际浏览器、页面状态检查与公开搜索恢复，剩余受限内容才索要最小补充。
 
-固定交付 1 张尺寸图 + 1 张细节图 + 4 张场景图 + 5 张 A+ 图，共 11 份 Brief 和独立 `.txt` 提示词，默认不新增主图。核心技术文档 `design-strategy.md` 展示逐竞品与跨竞品分析，并说明每张图如何借鉴已观察到的布局、光线和阴影。另有单竞品记录、证据账本、决策记录和提示词索引。五张 A+ 图按真实模块适配，不因模块多图静默扩数；未就绪提示词单列在 `prompts/blocked/`。
+新品首套默认交付1张尺寸＋1张细节＋4张场景＋5张A+，共11份Brief和独立TXT，默认不新增主图。旧套图更新接受现有排版成图，按已定旧图范围重排；只有范围内已有主图才更新MAIN01，不自动扩成11张。核心技术文档 `design-strategy.md` 展示逐竞品与跨竞品分析，并说明每张图如何借鉴已观察到的布局、光线和阴影。另有单竞品记录、证据账本、决策记录和提示词索引。A+图按当前范围与真实模块适配，不因模块多图静默扩数；未就绪提示词单列在 `prompts/blocked/`。
 
 用户可直接打开 `all-prompts.md` 或 `all-prompts.txt`，按每张列出的顺序上传原图并复制完整提示词到Lovart；未就绪正文不混进可执行合集。每张包含选定版式骨架，并保持套图的字体、边距、配色与标注规范。这个skill不调用Lovart、不自动生图、不上传Amazon，也不凭空获得评论或关键词工具权限。
 
@@ -28,6 +40,7 @@
 | --- | --- |
 | [SKILL.md](skills/lovart-plant-product-images/SKILL.md) | Agent 安装后发现和执行的英文入口 |
 | [Amazon 策略 SKILL.md](skills/amazon-plant-image-strategy/SKILL.md) | 整套图的引导、证据、策略与提示词入口 |
+| [Amazon 视频 SKILL.md](skills/amazon_video_generation/SKILL.md) | 视频多轮需求拆解、产品事实承接、详细分镜表与即梦提示词 |
 | [完整 Lovart 指令](skills/lovart-plant-product-images/LOVART_INSTRUCTIONS.md) | 在 Lovart 内创建自定义 skill 的完整文本，不依赖读取本地模块 |
 | [references](skills/lovart-plant-product-images/references/) | 八个功能模块，以及 Lovart 执行适配说明 |
 | [设计与后续计划](docs/DESIGN.zh-CN.md) | 已确认决策、集合结构、后期整套 Amazon 图片开发 |
@@ -53,7 +66,7 @@
 
 ## 在其他 Agent 中安装和选择
 
-集合采用 skills/技能名/SKILL.md 结构。安装工具将各 skill 注册到目标 Agent 后，支持自动发现的 Agent 可根据名称和描述判断使用哪一项，再按需读取模块。当前有两个独立 skill，各自的 references 模块不需要分别安装。
+集合采用 skills/技能目录/SKILL.md 结构。安装工具将各 skill 注册到目标 Agent 后，支持自动发现的 Agent 可根据名称和描述判断使用哪一项，再按需读取模块。当前有三个独立 skill，各自的 references 模块不需要分别安装。
 
 **把仓库克隆下来不等于完成安装；安装指令也不等于获得 Lovart 生图能力。** Agent 必须实际有可用的 Lovart 工具或浏览器访问能力。没有连接时，会给出可粘贴到 Lovart 的提示词、参考图角色及缺失信息，并说明尚未执行出图。
 
@@ -76,7 +89,7 @@ npx skills add OWNER/REPOSITORY --skill '*'
 
 最后一条选择仓库当前所有 skill，由安装器提示选择目标 Agent；不表示今后新增 skill 会自动安装。当前仓库地址与许可证未确定，这些命令是发布后的使用模板。
 
-若在 Codex 项目内使用，完整目录结构为 `项目目录/.agents/skills/技能名/SKILL.md`，同时保留 references 等资源。本项目策略技能已有这个加载副本；源码更新后应一起同步。
+若在 Codex 项目内使用，完整目录结构为 `项目目录/.agents/skills/技能目录/SKILL.md`，同时保留 references 等资源。本项目图片策略与视频技能已有这个加载副本；源码更新后应一起同步。新技能是否立即出现在当前会话取决于宿主重新发现/加载机制，文件存在不代表当前会话已刷新技能列表。
 
 ## 日常工作规则
 

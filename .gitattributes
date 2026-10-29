@@ -4,3 +4,7 @@
 *.yaml text eol=lf
 .gitignore text eol=lf
 .gitattributes text eol=lf
+
+# Maintenance-only feedback images are excluded from source release archives.
+skills/amazon-plant-image-strategy/assets/design-examples export-ignore
+skills/amazon-plant-image-strategy/assets/design-examples/** export-ignore

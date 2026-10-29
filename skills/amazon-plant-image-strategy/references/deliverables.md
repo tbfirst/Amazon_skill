@@ -34,6 +34,8 @@ Readiness scope: 提示词可执行 / 平台复核 / 成图验收分别说明
 Campaign mode: new-set | set-refresh
 Refresh mapping: 旧文件/图位→商品区域或补充素材→竞品图位→新方案；忠实度/细节清晰度、补图状态；非更新模式不适用
 Execution method: bounded-edit | layout-rebuild；保留区、替换区与允许的依赖变更
+Design transfer mode: reference-replace | structure-adapt；参考迁移时记录选择、覆盖范围及必要适配；无参考的原创图注明不适用
+Refresh changes: 适用维度的旧值→新值→理由及有意保留；商品来源/新设计主参考/实际编辑底图分列；非更新模式不适用
 Placement: scoped existing MAIN01 | secondary dimension | secondary detail | secondary lifestyle | A+ image
 Scene type: single | four-grid | installation | comparison；非场景资产不适用
 Scene allocation: 本图在当前N张SCENE分配表中的位置；场景型A+不占SCENE名额
