@@ -2,7 +2,7 @@
 name: amazon-ordinary-generation
 description: Plan Amazon image campaigns for non-botanical physical products with the plant-strategy workflow adapted to the actual SKU. Research ordered competitor galleries, A+ and reviews; use iterative dialogue to select competitor-derived, built-in or hybrid references and resolve every asset's layout, scenes, copy and typography. Includes 200 ordinary-product planning templates and ordered campaign recipes, Amazon/TikTok/YouTube research, Chinese strategy and independent English Lovart prompts. New sets default to 11 assets; refreshes preserve agreed scope. Excludes botanical campaigns, direct image generation and video production.
 metadata:
-  version: "2.2.1"
+  version: "2.2.2"
 ---
 
 ## 竞品采集与存储
@@ -36,6 +36,8 @@ metadata:
 - **所有输入都进入采集范围。** 先保存完整竞品输入表，再逐个盘点gallery/A+/买家图/原评；3–6是主动寻找竞品的默认预算，不是截断用户链接的上限。首批可讨论就开始共创，但其余指定来源继续采集、恢复和记录，不因选中一套而停止。单张拼图、一个ASIN的成功或旧项目统计不能代替全量覆盖。按[批量入口与范围核对](references/competitor-collection.md#批量输入与逐竞品完成条件)执行。
 - **参考必须真正进入执行。** 选定具体竞品后，用大白话弹窗问“照着这张做，主要换成本品与准确文案”还是“保留排版，重新布景设计”；既有回答/明确委托沿用，不暗中选择后者。DIM/DETAIL/SCENE/A+都适用。选“照着做”时逐图传入实际竞品整图、保留完整画面关系；仅写ASIN或来源介绍不算参考输入。按[继承与对照](references/reference-fidelity.md)及[独立提示词](references/reverse-prompts.md)检查。
 - **围绕用途展示，主动安排差异。** 规划前分别列商品使用对象/实际动作、情境道具、平面点缀、可用机位与场景；按SKU决定使用哪些，不把它们一律删成空置静物。缺资料先问影响该用途的最小问题，空置图是有范围的替代，不自动覆盖整套。按[使用、道具与图形](references/scene-props.md)和[整套差异检查](references/scene-expansion.md)落实；纯换房间名/墙色而主体角度、状态与关系不变不算充分变化。使用限制、明确无道具选择及已选参考优先，无固定宠物、图标或机位配额。
+
+每个产品的套图策划都必须做[四项主动设计评估](references/scene-expansion.md#每项目的四项主动设计评估)：多角度、多场景、符合本品的实体道具与主题图形、早晚时段变化。各项给出具体候选或不采用的产品相关理由，不依赖竞品是否包含；实体道具与图形分别判断。评估不等于强制采用，不新增固定图片/机位/时段配额。选中内容按已有回答或设计委托落实到具体ID与独立prompt，保持SKU事实、尺度和已锁定参考关系。
 
 维护两版流程时按[植株流程对应表](references/workflow-parity.md)检查；复用阶段、交互与验收，植物专用事实换成本SKU判断和普通商品内置库，不复制植物动作、花器或身份。
 
