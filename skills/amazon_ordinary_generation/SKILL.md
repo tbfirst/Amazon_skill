@@ -2,12 +2,17 @@
 name: amazon-ordinary-generation
 description: Plan new or refreshed Amazon image campaigns across non-botanical physical product categories. Adapt research, buyer questions and visual storytelling to each SKU's form, use, fit, contents and supported functions; accept product photos, dimensions, details and competitor ASINs; research Amazon, TikTok and YouTube and translate observed layouts into Chinese strategy and independent English Lovart prompts. New sets default to 11 assets. Excludes botanical campaigns, direct image generation and video production.
 metadata:
-  version: "1.3.1"
+  version: "1.3.2"
 ---
 
 ## 竞品采集与存储
 
 采集前读取 [项目媒体存储与缓存复用](references/media-storage.md)。允许将竞品图片和manifest保存到技能目录外的项目研究目录；技能包不携带项目图库。
+
+
+## 有文案图片的背景融合优先规则
+
+策划有图内文案的图片时必读 [文案与真实背景融合](references/background-copy.md)。默认直接在实际场景留白排字，保持背景纹理、空间和光影连续，不另开文字底板；文字及全部效果避开完整主产品与缓冲区。此偏好优先于模板默认继承底板，明确的用户例外按其范围保留。无字及A+原生字段不变。
 
 
 # Amazon Ordinary Generation · 非绿植商品套图策划
