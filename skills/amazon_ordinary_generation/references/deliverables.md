@@ -59,9 +59,9 @@ policyReview与uploadReview允许verified/pending/not-applicable；pending只能
 ## 编译与实际验收
 
 ```powershell
-python scripts/build_prompt_summary.py outputs/<product-slug>
+python "<skill-root>/scripts/build_prompt_summary.py" "<project-root>/outputs/<product-slug>"
 ```
 
-脚本检查完所有记录后才重建两份合集；失败不会写入半份新合集。读取UTF-8；单图文本保留每个字符/换行，合集外层附状态、参考顺序与条件。BLOCKED只有缺口索引。它能发现结构性不一致，不能识别编造卖点、提示词的全部矛盾、图片内容或用户是否真实授权。
+脚本先检查所有记录再重建两份合集；校验失败不改写旧合集。写盘期间的系统错误不属于校验保障，需修复后重新编译。读取UTF-8；单图文本保留每个字符/换行，合集外层附状态、参考顺序与条件。BLOCKED只有缺口索引。它能发现结构性不一致，不能识别编造卖点、提示词的全部矛盾、图片内容或用户是否真实授权。
 
 人工核对manifest↔layout-decisions↔brief↔prompt的全部规格、文案、机制与数量；数值/事实逐条有P证据。覆盖不足的研究可以通过结构检查，但报告必须保留不足。未实际生图时只报告规划与静态校验通过；实际保真、文字渲染、平台接收仍未验证。

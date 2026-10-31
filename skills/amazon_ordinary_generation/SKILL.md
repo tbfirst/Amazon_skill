@@ -2,7 +2,7 @@
 name: amazon-ordinary-generation
 description: Plan new or refreshed Amazon image campaigns across non-botanical physical product categories. Adapt research, buyer questions and visual storytelling to each SKU's form, use, fit, contents and supported functions; accept product photos, dimensions, details and competitor ASINs; research Amazon, TikTok and YouTube and translate observed layouts into Chinese strategy and independent English Lovart prompts. New sets default to 11 assets. Excludes botanical campaigns, direct image generation and video production.
 metadata:
-  version: "1.4.0"
+  version: "1.4.1"
 ---
 
 ## 竞品采集与存储

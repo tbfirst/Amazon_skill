@@ -15,9 +15,9 @@
 
 ## 内置正常浏览器入口
 
-外部采集器不可用时，使用 `python3 scripts/collect_competitor.py --check` 检查依赖。此脚本需 Python Playwright 与 Chromium；在允许安装依赖的环境执行 `python3 -m pip install playwright` 和 `python3 -m playwright install chromium`，不得将依赖或浏览器打包进skill。缺依赖或浏览器启动受限时明确报告，不声称已采集。
+以下命令从项目工作区执行，不从技能安装目录执行；将 `<skill-root>` 替换为实际安装绝对路径。外部采集器不可用时，使用 `python3 "<skill-root>/scripts/collect_competitor.py" --check` 检查依赖。此脚本需 Python Playwright 与 Chromium；在允许安装依赖的环境执行 `python3 -m pip install playwright` 和 `python3 -m playwright install chromium`，不得将依赖或浏览器打包进skill。缺依赖或浏览器启动受限时明确报告，不声称已采集。
 
-执行：`python3 scripts/collect_competitor.py ASIN --out outputs/<product-slug>/research/competitor-media`。有图形环境时可加 `--headed`。脚本使用正常浏览器、新上下文、启用沙箱；逐缩略图切换、有限滚动、从A+容器收集媒体，不绕过登录或验证码。
+执行：`python3 "<skill-root>/scripts/collect_competitor.py" ASIN --out "<project-root>/outputs/<product-slug>/research/competitor-media"`。有图形环境时可加 `--headed`。脚本使用正常浏览器、新上下文、启用沙箱；逐缩略图切换、有限滚动、从A+容器收集媒体，不绕过登录或验证码。
 
 输出按ASIN及运行时间隔离，manifest保留来源和下载结果，不覆盖旧结果。该轻量入口仅捕获当前DOM可见候选，不保证所有变体、横向轮播和懒加载模块齐全；状态最多partial。需人工/视觉工具解码检查图片、核变体、打开轮播并逐模块补查，再按实际覆盖更新研究记录。它不会把下载标成已看，也不按宽高过滤标准A+。没有DOM模块边界时moduleIndex为-1，表示unknown。
 
