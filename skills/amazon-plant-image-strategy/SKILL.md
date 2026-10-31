@@ -2,8 +2,13 @@
 name: amazon-plant-image-strategy
 description: Plan new image campaigns or refresh existing finished image sets for Amazon flowers, plants, wreaths and trees. Analyze 3–6 competitors and reviews, adapt their layouts and styling to the actual SKU, request unclear product details, and deliver Chinese strategy plus independent English Lovart prompts and Markdown/TXT collections. New sets default to 11 assets; refreshes follow the agreed old-set scope. Not image generation or isolated edits.
 metadata:
-  version: "1.29.0"
+  version: "1.29.1"
 ---
+
+## 有文案图片的背景融合优先规则
+
+策划有图内文案的图片时必读 [文案与真实背景融合](references/background-copy.md)。默认直接在实际场景留白排字，保持背景纹理、空间和光影连续，不另开文字底板；文字及全部效果避开完整主产品与缓冲区。此偏好优先于模板默认继承底板，明确的用户例外按其范围保留。无字及A+原生字段不变。
+
 
 # Amazon Plant Image Strategy
 
@@ -89,7 +94,7 @@ For lifestyle and A+ planning, read [scene and occasion expansion](references/sc
 
 Broaden the shortlist with a bounded public-web inspiration pass when current references are repetitive or incomplete. Search for the actual product category, market, placement, time/season/occasion and styling; inspect useful sources, record what was genuinely read/viewed, and distinguish outside inspiration from competitor V records and our P facts. Select supporting objects for scale, lived-in context or occasion, then keep their salience below the merchandise. The final four scenes are not a fixed set of rooms, times, seasons or props.
 
-For autonomous typography, use one coherent type family/style for all in-image copy by default, including headings, dimensions and sale-content labels; create hierarchy with size, weight, spacing and color. If a display face cannot keep facts readable, choose a readable family for the whole image instead of silently switching the labels to unrelated sans-serif. In `reference-replace`, preserve the selected reference's type combinations and hierarchy; the uniform-family default must not override this choice. Honor explicit user typography and native A+ font limitations; clarify actual conflicts. Colored type and coordinated filled circles, rounded rectangles or panels are valid readability tools; preserve selected reference treatments unless product truth, clearance or a user decision requires adaptation. Specify fill, text color, bounds and padding, with the whole treatment outside the complete product and its buffer. See [typography](references/copy-typography.md) and [text layouts](references/text-layouts.md). A prompt font name is not a loaded font.
+For autonomous typography, use one coherent type family/style for all in-image copy by default, including headings, dimensions and sale-content labels; create hierarchy with size, weight, spacing and color. If a display face cannot keep facts readable, choose a readable family for the whole image instead of silently switching the labels to unrelated sans-serif. In `reference-replace`, preserve the selected reference's type combinations and hierarchy; the uniform-family default must not override this choice. Honor explicit user typography and native A+ font limitations; clarify actual conflicts. Use colored type directly on the continuous scene background by default; adapt reference backplates according to references/background-copy.md. Separate text panels require an explicit scoped user choice. Specify fill, text color, bounds and padding, with the whole treatment outside the complete product and its buffer. See [typography](references/copy-typography.md) and [text layouts](references/text-layouts.md). A prompt font name is not a loaded font.
 
 For lifestyle images, use the [per-scene palette and vessel plan](references/visual-art-direction.md#按场景选择配色与载体). One font family within an image does not require the same text/fill colors across the campaign. Select compatible styling vessels by room, task and geometry instead of copying one reference-photo vase into every scene; included or fixed product containers remain identity-locked. Carry each scene's resolved palette and vessel dimensions into its prompt.
 
