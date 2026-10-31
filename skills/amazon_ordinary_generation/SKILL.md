@@ -2,7 +2,7 @@
 name: amazon-ordinary-generation
 description: Plan Amazon image campaigns for non-botanical physical products with the plant-strategy workflow adapted to the actual SKU. Research ordered competitor galleries, A+ and reviews; use iterative dialogue to select competitor-derived, built-in or hybrid references and resolve every asset's layout, scenes, copy and typography. Includes 200 ordinary-product planning templates and ordered campaign recipes, Amazon/TikTok/YouTube research, Chinese strategy and independent English Lovart prompts. New sets default to 11 assets; refreshes preserve agreed scope. Excludes botanical campaigns, direct image generation and video production.
 metadata:
-  version: "2.2.0"
+  version: "2.2.1"
 ---
 
 ## 竞品采集与存储
@@ -81,6 +81,8 @@ metadata:
 用户明确要求批量收集榜单套图时，读同一参考中的`ranked-reference-study`流程；以实际榜单与已看套图为研究范围，不强套每商品11张。无用户SKU时分别交源图分析、研究练习提示词和待SKU映射配方，不伪装成生产READY套图。
 
 ## 4. 逐图策划与讨论
+
+涉及使用者、配套物或尺度参照时，按[整套尺度与适配一致性](references/scale-consistency.md)建立共用尺度约定，再落实到每张独立prompt。多角度、多场景、主题道具/图形与昼夜变化继续保留；同一SKU的真实尺寸和适用对象尺度不随设计变化。核对范围包括DIM、DETAIL、SCENE、A+及拼图的每格，不能只检查实际接触商品的对象。
 
 读 [套图规划](references/campaign-planning.md)、[空间摆放与透视](references/spatial-placement.md)、[欧美场景与道具](references/scene-props.md) 及 [场景及排版美术指导](references/visual-art-direction.md)。从购买决策分配任务，11图不等于11个重复卖点。每张先确定“买家疑问→有据答案→合适表达方式”，再说明来源、构图、拍摄角度、尺寸/规格或功能说明、适用的尺度/状态、文案、所需上传图和就绪状态。默认DIM用于尺寸/适配；尺寸非关键而规格、容量、净含量或销售单位更重要时，可在用户确认或设计委托内调整该图信息任务，保留ID并写明roleAdaptation，不能编造测量或擅减数量。
 

@@ -42,6 +42,8 @@ REFERENCE ADAPTATION — RETAIN AND CHANGE
 
 PHYSICAL SCALE AND ACTION
 [Applicable dimensions/specifications and measurement state; relevant scale basis, support/contact, material deformation, fit/connection or action; sale quantity, contents and prop boundaries. Omit inapplicable mechanisms.]
+[When relevant, state this asset's resolved user/companion object's body size or physical specification and natural pose, relative depth and relationship to the true-sized SKU. Expand the applicable campaign scale constraints here; do not refer to another prompt. Replace any conflicting source object explicitly; never enlarge the product or miniaturize a real object to force fit.]
+
 SPATIAL PLACEMENT
 [Support plane, product orientation relative to walls/table edges, camera viewpoint independently of product rotation, coherent horizon/vanishing relationships, clearance, contact points, scale basis and prop fit. Use the applicable resolved spatial blueprint.]
 
@@ -67,6 +69,8 @@ PRODUCT PROTECTION AND FINAL CHECK
 策划核查与生成正文分开。来源研究、用户问答、选择理由、证据ID、状态和“先检查/先询问/等待”等工作流留在brief/索引；执行正文只写本图唯一画面、实际附件、构图、事实、光影和准确文字。不要同时保留“全部机位道具不变”和本图已定的机位/道具调整。无字只省文字层，不压缩掉复杂场景需要的信息；没有容纳/穿戴/接口就不加入对应通用禁令。
 
 ## Consistency pass
+
+有使用者、配套物或尺度参照时按[整套尺度与适配一致性](scale-consistency.md)核对所有ID与拼图每格；相关共用约束必须在各自正文展开。无直接接触不能免除暗示检查；纯图形按语义角色核对，机位透视差异不能误判为尺度错误。
 
 核对画布/比例在decisions、brief、manifest、prompt一致；主次区域+间距不超画布；参考文件和上传顺序一致；只选择一个确定结构，不混入“方案A或B”。图片要求与提示词冲突时先解决，再交付。
 
