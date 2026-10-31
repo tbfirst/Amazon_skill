@@ -52,6 +52,50 @@ class PromptSummaryTests(unittest.TestCase):
             self.assertIn("rear view missing", content)
         self.assertIn("````text", outputs["all-prompts.md"])
 
+    def test_competitor_reference_cannot_be_replaced_by_provenance_text(self):
+        asset = self.manifest['assets'][0]
+        asset['referenceRoute'] = 'competitor-derived'
+        asset['visualTransfer'] = dict(mode='reference-replace', delivery='visual',
+                                       sourceReference='competitor.jpg', retained=['two photo columns and right sunlight'])
+        self.save()
+        with self.assertRaisesRegex(ValueError, 'uploaded layout reference'):
+            summary.load_campaign(self.root)
+        (self.root / 'competitor.jpg').write_bytes(b'fixture only')
+        asset['references'].append(dict(filename='competitor.jpg', role='layout', path='competitor.jpg'))
+        self.save()
+        with self.assertRaisesRegex(ValueError, 'prompt must name'):
+            summary.load_campaign(self.root)
+        with (self.root / asset['file']).open('a', encoding='utf-8') as stream:
+            stream.write('\nUpload competitor.jpg as full-scene layout reference.')
+        self.assertEqual(len(summary.load_campaign(self.root)), 11)
+
+    def test_text_only_downgrade_needs_explicit_record(self):
+        asset = self.manifest['assets'][0]
+        asset['referenceRoute'] = 'competitor-derived'
+        asset['visualTransfer'] = dict(mode='structure-adapt', delivery='text-only', retained=['four-window hierarchy'])
+        self.save()
+        with self.assertRaisesRegex(ValueError, 'user authorization'):
+            summary.load_campaign(self.root)
+        asset['visualTransfer'].update(sourceLocator='fixture://G02', reason='reference unavailable',
+                                       authorization='User explicitly selected text-only adaptation.')
+        self.save()
+        with (self.root / asset['file']).open('a', encoding='utf-8') as stream:
+            stream.write('\nText-only adaptation; no competitor image input supplied.')
+        self.assertEqual(len(summary.load_campaign(self.root)), 11)
+
+    def test_v2_handoff_cannot_omit_route_to_skip_source_checks(self):
+        self.manifest['handoffVersion'] = 2
+        self.save()
+        with self.assertRaisesRegex(ValueError, 'explicit referenceRoute'):
+            summary.load_campaign(self.root)
+        self.manifest['referenceRoute'] = 'original'
+        self.save()
+        self.assertEqual(len(summary.load_campaign(self.root)), 11)
+        self.manifest['assets'][0]['referenceRoute'] = 'competitor-derived'
+        self.save()
+        with self.assertRaisesRegex(ValueError, 'needs visualTransfer'):
+            summary.load_campaign(self.root)
+
     def test_missing_reference_does_not_replace_previous_output(self):
         output = self.root / "all-prompts.md"
         output.write_text("previous", encoding="utf-8")

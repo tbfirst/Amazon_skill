@@ -22,7 +22,7 @@ class CollectorBoundaryTests(unittest.TestCase):
         for root in [SCRIPT.parent.parent, SCRIPT.parent.parent / 'assets', '/tmp/skills/another-skill/images']:
             with self.subTest(root=root), self.assertRaises(ValueError):
                 collector.output_root(str(root))
-        self.assertEqual(collector.output_root('/tmp/ordinary-project/media'), Path('/tmp/ordinary-project/media'))
+        self.assertEqual(collector.output_root('/tmp/ordinary-project/media'), Path('/tmp/ordinary-project/media').resolve())
 
 
 # Offline browser fixture exercises the actual collection flow, not live Amazon.

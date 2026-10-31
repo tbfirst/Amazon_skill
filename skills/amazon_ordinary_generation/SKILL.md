@@ -1,8 +1,8 @@
 ---
 name: amazon-ordinary-generation
-description: Plan new or refreshed Amazon image campaigns across non-botanical physical product categories. Adapt research, buyer questions and visual storytelling to each SKU's form, use, fit, contents and supported functions; accept product photos, dimensions, details and competitor ASINs; research Amazon, TikTok and YouTube and translate observed layouts into Chinese strategy and independent English Lovart prompts. New sets default to 11 assets. Excludes botanical campaigns, direct image generation and video production.
+description: Plan Amazon image campaigns for non-botanical physical products with the plant-strategy workflow adapted to the actual SKU. Research ordered competitor galleries, A+ and reviews; use iterative dialogue to select competitor-derived, built-in or hybrid references and resolve every asset's layout, scenes, copy and typography. Includes 200 ordinary-product planning templates and ordered campaign recipes, Amazon/TikTok/YouTube research, Chinese strategy and independent English Lovart prompts. New sets default to 11 assets; refreshes preserve agreed scope. Excludes botanical campaigns, direct image generation and video production.
 metadata:
-  version: "1.4.2"
+  version: "2.2.0"
 ---
 
 ## 竞品采集与存储
@@ -19,6 +19,26 @@ metadata:
 
 把本 SKU 的真实结构、买家疑问和市场参考，转为可交给 Lovart 的整套图片方案与英文提示词。用户负责上传映射的参考图并执行生成；本 skill 不自动操作 Lovart、生图、发布 listing 或制作视频。TikTok/YouTube 在这里是研究来源。
 
+## 默认以多轮沟通推进
+
+每个套图策划项目开始就读取 [多轮沟通与逐图推进](references/discovery-layout.md#多轮沟通循环)，将其作为执行主线：**展示具体方案 → 实际弹窗 → 等用户回答 → 说明设计影响并记录 → 继续下一项未决问题**。默认积极使用多轮短弹窗，每批1–2题，不设固定轮数，不以少问或尽快填满11条提示词为目标。设计未选也是待问项，不仅在商品事实冲突时才问；第一轮参考选择之后继续逐图深化。仅做采集研究时不套生产问卷。
+
+逐图骨架、场景内容、是否要字、文案输入与字体选择需要明确回答或覆盖该项的委托。先读 [文案与字体问答](references/copy-typography.md) 和 [场景分配与细项问答](references/scene-types.md)，在对应最终brief/prompt前落实；不能用一个“简约”或“参考A套”的回答自动补齐所有项。已有回答、明确“你决定/直接出稿/跳过讨论”的委托按实际范围沿用，产品事实仍需依据。维护本技能时直接更新规则，不让用户回答未来商品的设计问卷。
+
+## 与植株版一致的分析主线
+
+按**素材身份与事实 → 全部竞品身份核查 → 有序gallery/A+/原评 → 买家疑问与关键词意图 → 实际来源展示及路线弹窗 → 具体套图/逐图分支与继承强度 → 多轮布局/场景/文案/字体 → 独立prompt与双向核对**推进。研究与沟通交错进行，不等全部评论恢复才问设计。主产品、可选配套物及相关事实条件按本SKU改写；不以跨类目为理由省略分析或互动。
+
+每项目按实际阶段读取 [研究与证据链](references/research-evidence.md)、[分区记录与审计](references/research-records.md)、[通用视觉结构分析](references/complex-layout-analysis.md)、[内置库与套图路线](references/reference-library.md) 和 [参考继承强度](references/reference-fidelity.md)。从整体到局部再回整图，分析元素角色、区域归属、几何/边界、图层遮挡、对齐节奏、视觉层级、空间尺度、配色光影和文字，按复杂度展开，不预设分区或场景数量。每个关键分析结论落实到对应绘制指令。
+
+### 三项执行约定
+
+- **所有输入都进入采集范围。** 先保存完整竞品输入表，再逐个盘点gallery/A+/买家图/原评；3–6是主动寻找竞品的默认预算，不是截断用户链接的上限。首批可讨论就开始共创，但其余指定来源继续采集、恢复和记录，不因选中一套而停止。单张拼图、一个ASIN的成功或旧项目统计不能代替全量覆盖。按[批量入口与范围核对](references/competitor-collection.md#批量输入与逐竞品完成条件)执行。
+- **参考必须真正进入执行。** 选定具体竞品后，用大白话弹窗问“照着这张做，主要换成本品与准确文案”还是“保留排版，重新布景设计”；既有回答/明确委托沿用，不暗中选择后者。DIM/DETAIL/SCENE/A+都适用。选“照着做”时逐图传入实际竞品整图、保留完整画面关系；仅写ASIN或来源介绍不算参考输入。按[继承与对照](references/reference-fidelity.md)及[独立提示词](references/reverse-prompts.md)检查。
+- **围绕用途展示，主动安排差异。** 规划前分别列商品使用对象/实际动作、情境道具、平面点缀、可用机位与场景；按SKU决定使用哪些，不把它们一律删成空置静物。缺资料先问影响该用途的最小问题，空置图是有范围的替代，不自动覆盖整套。按[使用、道具与图形](references/scene-props.md)和[整套差异检查](references/scene-expansion.md)落实；纯换房间名/墙色而主体角度、状态与关系不变不算充分变化。使用限制、明确无道具选择及已选参考优先，无固定宠物、图标或机位配额。
+
+维护两版流程时按[植株流程对应表](references/workflow-parity.md)检查；复用阶段、交互与验收，植物专用事实换成本SKU判断和普通商品内置库，不复制植物动作、花器或身份。
+
 ## 1. 职责与默认交付
 
 - 适用于**各类非绿植实体商品的套图策划**，没有封闭的类目名单。相框、挂钩、卡套、狗笼只是例子，不是支持范围或优先模板；遇到未列商品直接按其用途、形态、适配关系、售卖内容与有据功能建立画像。先确定买家需要理解什么，再选表达方式，不默认每件商品都有安装、内部空间或承重问题。
@@ -28,7 +48,7 @@ metadata:
 - `campaignMode: new-set`：默认 **11 张**，`DIM01`、`DETAIL01`、`SCENE01–04`、`APLUS01–05`，即六张附图和五张 A+ 图片资产。上传的主图首先是商品身份参考，不默认新增 MAIN。用户明确要求主图或改数量时记录完整 `targetAssetIds` 和原因后执行。
 - `campaignMode: set-refresh`：用户上传旧成品套图并要求更新时，先读 [旧套图更新](references/set-refresh.md)，按已定旧图范围交付，不自动补足11张。
 - DIM/DETAIL 默认1600×1600；SCENE 固定1:1、逐图确认1600/2000/2048方图或明确委托；A+桌面母版默认1464×600。**这些是制作默认值，不是通用于所有账户/模块的上传规格**。
-- 自包含，不依赖植物 skill 的脚本、图库、作者磁盘或付费工具。当前仅附真实来源研究笔记和文本配方，不声称内置完整竞品图库。
+- 自包含，内置 **200条普通商品文字模板与8套有序11资产策划配方**，使用 [本技能库入口](references/reference-library.md) 检索和按角色读取。均为策划文字，不是已看过的普通商品原图库；不依赖植物skill、作者磁盘或付费工具。
 
 ## 2. 先识别商品，再研究
 
@@ -36,7 +56,7 @@ metadata:
 
 先确认售卖的是什么、买家用它完成什么、销售单元/变体和实际可见外观，再按画像选择需核对的尺寸/规格、材料、包装/附件、接触与操作状态。索取3–6个不同竞品ASIN或链接；不足时用已知商品信息自行检索补充，并标注用户指定/自主发现。尚无足够身份信息时不能凭宽泛名称擅自选细分类。未列类目无需用户替我们补一套类目规则。
 
-事实不明就在影响决策时实际调用提问工具弹窗问清，遵循 [弹窗执行机制](references/discovery-layout.md#弹窗执行机制)，不能只写待确认清单代替工具。文字输入弹窗只收文字，补图在聊天请求。按实际可用工具提问，每批1–3个关联问题；已有回答与明确委托直接沿用，未答/预选不算同意。继续不受缺口影响的研究与资产。总体风格选择不自动委托每张图的布局、文字与像素；明确“全部你决定”则覆盖设计选择，但不能补造事实。
+事实不明就在影响决策时实际调用提问工具弹窗问清，遵循 [弹窗执行机制](references/discovery-layout.md#弹窗执行机制)，不能只写待确认清单代替工具。文字输入弹窗只收文字，补图在聊天请求。按实际可用工具提问，通常每批1–2题；已有回答与明确委托直接沿用，未答/预选不算同意。继续不受缺口影响的研究与资产。总体风格选择不自动委托每张图的布局、文字与像素；明确“全部你决定”则覆盖设计选择，但不能补造事实。
 
 涉及多张实拍差异时，先按 [产品状态确认](references/product-states.md) 建立状态映射；任何身份、结构或功能疑问直接弹窗确认。建立商品身份锁与设计风格锁，分别保存。材料名称不能推导不可见微观纹理；尺寸图的包装尺寸不当成实物尺寸；竞品、视频口播和生成图片不能证明本SKU功能。按资产记录缺口依赖：不适用的事实标not-applicable，有用但非必要的资料记optional，只有该图不可缺的事实记required。缺少关键背面/内部/动作照片时，仅阻塞依赖该视角或动作的图，或选择已有证据支持的替代方案；不把缺任一尺寸当成全套暂停理由。
 
@@ -44,13 +64,19 @@ metadata:
 
 读 [跨平台研究](references/research.md) 及 [完整图库与A+采集](references/competitor-collection.md)。每个项目主动尝试 Amazon、TikTok、YouTube：Amazon以实际竞争商品的有序图库/A+/评论为主；社交平台补充使用场景、操作、常见疑问和视觉叙事。由商品画像动态组合细分类、机制/形态、使用对象、任务与市场检索词。区分直接竞品、解决相同需求的替代品和仅借布局的跨类目来源，后两者不凑直接竞品数，也不提供本SKU功能证据。
 
+**采集后进入参考选择，不直接写整套提示词。** 首批可用竞品画面完成实际看图、足以比较方向时，立即执行 [采集后的参考选择弹窗](references/discovery-layout.md#采集后的参考选择弹窗)：展示真实套图候选、ASIN/变体/图序与覆盖，再实际调用提问工具，确认是否参考、选哪套/哪些图及参考程度。无需等三平台全部完成。只给ASIN、“帮我研究竞品”或下载成功均不代表已选择参考路线；只有已有明确选择或覆盖该决定的设计委托才跳过对应问题。未答继续独立研究，依赖该决定的资产保留提案，不进入最终可执行稿。
+
 默认研究3–6个独立直接竞品；TikTok与YouTube各筛选2–3条高相关候选，优先品牌演示和真实使用内容。数量是工作预算而非可伪造的完成指标；有效信息充足时停止，受限时按恢复流程记录缺口。图、评论、视频、字幕分别标记实际覆盖，检索命中不等于读过，读字幕不等于看过视频。
+
+用户给出的所有竞品链接全部核身份并逐区段保留进度，不为缩短研究静默只选其中一部分。先读详情页内嵌原评，再尝试完整列表；按唯一原文N和主题n记录样本及偏差。结合实际关键词报表、公开搜索观察或有标签的语义推测建立意图簇、购买任务、主张与风险链；无数据不填0、不造流量或高频排名。使用本技能research_audit.py检查记录一致性，脚本不证明真实研究或弹窗执行。
 
 对选定画面按 [反推与提示词](references/reverse-prompts.md) 记录区域、主体比例、视角、支撑/接触、信息层级、光影、字体与留白。反推的是**可观察的结构与可执行描述**，不声称恢复原作者的原始提示词。视频记录真实时间戳与动作状态；未播放时不造时间戳或逐镜描述。把视频中有证据的一帧/步骤转为静态图，不在一张图要求播放或环绕。
 
 区分 `P`本SKU事实、`V`竞品视觉、`R`评论样本、`S`社交内容、`D`设计提案和`POL`平台规则。每条事实性文案及画面暗示都必须追到支持本SKU、该条件的P记录；竞品/评论只支持需求与设计推断。多个平台重复转载不算独立验证，点赞/播放量不等于销量或转化。
 
-用户给出竞品且要求参考时默认贴近竞品逐图适配，先展示实际可见参考与覆盖，仅对未确定的具体来源或设计选择弹窗；未指定路线时再选择竞品反推、自主设计或具名混合路线；不提供不存在的图库选项。竞品来源默认按 [参考反推与设计改造](references/reference-redesign.md) 执行 `reference-adapt`：先忠实分析，再保留有效的信息关系，保留成熟构图、分区和层级，对配色/机位/布景/文字做适合本SKU的具体小幅调整。允许贴近参考的商品替换与局部调整，不要求为了差异重做全部版式。品牌、人物身份、私有照片、专有图案和未经证实卖点不随结构复制；改色或加道具本身不保证避免侵权或通过上架。历史示例见 [研究种子与配方](references/research-seeds.md)，只能作为有标签的历史/文本参考。
+路线弹窗与植株版一致：**刚抓取的竞品套图反推 / 内置套图提示词 / 具名混合**，允许用户明确选原创；已有参考选择/委托不重问。内置路线先检索ORD-SET并展示有序文字蓝图，再落实逐图模板；无配图如实标text-only。竞品路线不被内置默认覆盖，混合路线逐ID分配主辅来源；路线选择不等于具体套图、继承程度或其余细节已定。
+
+按 [参考继承强度](references/reference-fidelity.md) 区分reference-replace（完整画面替换式适配）和structure-adapt（保留结构重新定风格），落实尚未回答的程度与逐图例外。两者均允许已定的可选道具配色、受支持机位和少量装饰微调，不为每个已授权微调再求许可；商品本色/结构/数量、未知视角和用户锁定优先。品牌、人物身份、专有图案及未经证实卖点不随结构复制。历史 [研究种子](references/research-seeds.md) 只作有标签来源，不代替当前项目观察。
 
 用户明确要求批量收集榜单套图时，读同一参考中的`ranked-reference-study`流程；以实际榜单与已看套图为研究范围，不强套每商品11张。无用户SKU时分别交源图分析、研究练习提示词和待SKU映射配方，不伪装成生产READY套图。
 
@@ -58,9 +84,13 @@ metadata:
 
 读 [套图规划](references/campaign-planning.md)、[空间摆放与透视](references/spatial-placement.md)、[欧美场景与道具](references/scene-props.md) 及 [场景及排版美术指导](references/visual-art-direction.md)。从购买决策分配任务，11图不等于11个重复卖点。每张先确定“买家疑问→有据答案→合适表达方式”，再说明来源、构图、拍摄角度、尺寸/规格或功能说明、适用的尺度/状态、文案、所需上传图和就绪状态。默认DIM用于尺寸/适配；尺寸非关键而规格、容量、净含量或销售单位更重要时，可在用户确认或设计委托内调整该图信息任务，保留ID并写明roleAdaptation，不能编造测量或擅减数量。
 
-按 [沟通与布局决策](references/discovery-layout.md) 确认当前SCENE范围的四类分配：单场景、四宫格、安装/使用/维护、对比；类型可为0，不强求各一张。逐SCENE确认方图像素。每张资产分别确认无字/少字/信息标签/native-only；需要文字才收集中文或英文初稿、允许AI拟写的明确回答以及字体选择。允许批量回答或明确委托，仍逐ID落盘。
+参考路线选定后仍按 [多轮沟通循环](references/discovery-layout.md#多轮沟通循环) 推进：DIM/DETAIL分别讨论骨架与要展示的部位；SCENE按 [场景问答](references/scene-types.md) 逐步落实类型张数、ID映射、逐图方图像素及场所/每格/步骤/对比条件；A+先比较列明每个ID结构的有序方案，再补问未决细项。每次收到回答后说明它改变了什么，更新下一问题；“参考A套”不自动委托其余设计。
+
+按 [文案与字体问答](references/copy-typography.md) 给每张资产独立落实无字/少字/信息标签/native-only，可同批分别提问或接收逐ID的批量回答。选有字后，再给用户填写中文/英文基础文案或明确委托AI拟写的机会，随后落实字体偏好及最终文字布局。无字图跳过新增文案/字体；native-only按原生字段处理。文案模式、文案来源与字体是分别记录的决定，不因用户说“你帮我写文案”就默认每张都有标题。已有明确覆盖回答/委托直接沿用。
 
 文案先保留事实与限制条件，再润色自然英文，最后适配空间。给出精确字符串、语义换行、字号/字重、对齐和文字区域，不让生成器擅改尺寸、承重或附赠信息。无字图不强加标题；本身印在商品上的真实文字/标志按身份锁保留。字、渐变和面板不得遮挡商品轮廓与关键操作点。参考的文字层级可借鉴，具体文案、字系组合与排版按改造方向重做，不把所有图做成同样色块海报。
+
+场景候选按 [主动场景拓展](references/scene-expansion.md) 由技能研究和推荐，再让用户选择；必要时补有界公开灵感检索。图内有字时读 [八种文字布局与文字地图](references/text-layouts.md)，逐元素落实exact_text/line_texts/zone/type/emphasis/protection，用户字体选择和源图已选组合优先；无字不强加该层。图像骨架与文字层分别确认，文字地图不能改变商品事实或已选结构。
 
 道具优先从实际读到的竞品套图分析，按本SKU用途与尺度逐项保留、替换或删除；宠物/卡片只属个别产品示例，不作跨品类默认，道具可为零。适用性不明时弹窗询问。每个场景按其属性核对真实尺度、支撑/接触、材料形态、动作状态、使用对象、销售数量和道具；只对相关商品检查安装面、开合空间、连接协议、柔性变形或内容物等。只凭外形匹配不能证明兼容或安全。软体商品可合理弯折/垂落，消耗品可表现有据的取用状态，但不得改变材质、版型、容量/净含量、零件或随货物；小商品可放大特写并明确局部视图。
 
@@ -68,7 +98,7 @@ metadata:
 
 ## 5. 交付与校验
 
-读 [交付约定](references/deliverables.md)。输出至 `outputs/<product-slug>/`，保留源文件：中文 `design-strategy.md`、`discovery.md`、`layout-decisions.md`、`evidence-ledger.md`，逐竞品和社交研究记录，`prompt-index.md`、`prompt-manifest.json`，每图英文 `prompts/<ID>.txt`，以及完整 `all-prompts.md/.txt`。旧图更新另交旧→新映射。
+读 [交付约定](references/deliverables.md) 和 [独立提示词转译](references/reverse-prompts.md)。输出至 `outputs/<product-slug>/`，保留源文件：中文 `design-strategy.md`、`discovery.md`、`layout-decisions.md`、`evidence-ledger.md`，逐竞品和社交研究记录，`prompt-index.md`、`prompt-manifest.json`，每图英文 `prompts/<ID>.txt`，以及完整 `all-prompts.md/.txt`。旧图更新另交旧→新映射。
 
 每条可执行提示词必须独立包含：输出规格、按上传顺序命名的参考角色、商品身份锁、选中布局蓝图、实际尺度/状态、光影材料、精确文案/排版、不能改变的结构和检查要点。不能只给一句卖点，不能写“同上”，不能让Lovart读取本地路径、内部证据ID或猜另外十张图。
 
@@ -76,6 +106,6 @@ metadata:
 
 使用 `python scripts/build_prompt_summary.py outputs/<product-slug>` 从单图原文编译合集，检查ID/状态/引用文件/数量和阻塞隔离；Python不可用时手工保持原文完全一致。脚本不验证事实、画面质量或Amazon接受情况。
 
-交付前查：画像与任务是否适合本SKU、声明证据、三平台覆盖/缺口、源→决策→brief→prompt链、每图任务差异、销售单元/附件、已触发的尺度/适配/操作/内容物条件、文字与字体决定、场景类型/像素、A+图位、旧图更新范围、商品身份保护和两份合集一致性。按 [平台核查](references/platform-checks.md) 查当前官方规则与类目例外。不得把提示词审查说成实图验证、平台通过或转化提升。
+交付前查：参考选择及细节是否有实际弹窗回答或明确委托依据、画像与任务是否适合本SKU、声明证据、三平台覆盖/缺口、源→决策→brief→prompt链、每图任务差异、销售单元/附件、已触发的尺度/适配/操作/内容物条件、文字与字体决定、场景类型/像素、A+图位、旧图更新范围、商品身份保护和两份合集一致性。按 [平台核查](references/platform-checks.md) 查当前官方规则与类目例外。不得把提示词审查说成实图验证、平台通过或转化提升。
 
 维护时使用 [行为案例](evaluation/CASES.md) 验证迁移与边界，不通过不断增加无关硬规则来替代产品判断。

@@ -1,4 +1,4 @@
 interface:
   display_name: "amazon_ordinary_generation"
-  short_description: "跨类目非绿植商品套图策划，按商品用途与属性研究、反推布局及提示词"
-  default_prompt: "使用 $amazon-ordinary-generation，根据我上传的主图、尺寸图、细节图和竞品ASIN，研究Amazon、TikTok与YouTube，策划非绿植商品整套图片并交付独立英文Lovart提示词。"
+  short_description: "完整采集所有指定竞品，逐图确认复刻程度，主动规划使用、道具与多机位场景"
+  default_prompt: "使用 $amazon-ordinary-generation，沿用植株版完整流程处理我的普通商品。登记并采集全部指定竞品的有序图库、A+与原评，展示实际参考并让我选择照着做还是重新布景。逐图确定使用对象、动作、道具、图形点缀、机位、场景、光影、文字与字体，避免重复静物；缺资料只补问依赖项。竞品路线将实际参考图列入上传附件；内置路线使用普通产品模板。沿用已有回答与明确委托，交付中文策略及11条独立英文Lovart提示词或已定刷新范围。"

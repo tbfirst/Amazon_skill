@@ -42,6 +42,8 @@ def load_campaign(project):
     manifest = json.loads(read_exact(project / "prompt-manifest.json"))
     require(isinstance(manifest, dict), "manifest must be an object")
     require(manifest.get("schemaVersion") == 1, "schemaVersion must be 1")
+    handoff_version = manifest.get("handoffVersion", 1)
+    require(type(handoff_version) is int and handoff_version in {1, 2}, "unsupported handoffVersion")
     mode = manifest.get("campaignMode")
     require(mode in {"new-set", "set-refresh"}, "unknown campaignMode")
     ids = string_list(manifest.get("targetAssetIds"), "targetAssetIds")
@@ -108,6 +110,28 @@ def load_campaign(project):
             require(ref_path.is_file(), f"{asset_id}: reference file missing: {ref['filename']}")
         if status != "BLOCKED":
             require(any(r["role"] == "identity" for r in refs), f"{asset_id}: executable prompt needs identity input")
+            route = a.get("referenceRoute", manifest.get("referenceRoute"))
+            if handoff_version == 2:
+                require(route in {"competitor-derived", "hybrid", "library-template", "original"},
+                        f"{asset_id}: handoffVersion 2 needs an explicit referenceRoute")
+            if route in {"competitor-derived", "hybrid"}:
+                transfer = a.get("visualTransfer")
+                require(isinstance(transfer, dict), f"{asset_id}: competitor route needs visualTransfer")
+                require(transfer.get("mode") in {"reference-replace", "structure-adapt"},
+                        f"{asset_id}: resolve reference transfer mode")
+                retained = string_list(transfer.get("retained"), f"{asset_id}.visualTransfer.retained")
+                require(retained, f"{asset_id}: list concrete retained source relationships")
+                delivery = transfer.get("delivery")
+                if delivery == "visual":
+                    name = transfer.get("sourceReference")
+                    require(any(r["role"] == "layout" and r["filename"] == name for r in refs),
+                            f"{asset_id}: selected source must be an uploaded layout reference")
+                    require(name in body, f"{asset_id}: prompt must name the uploaded layout reference")
+                else:
+                    require(delivery == "text-only" and all(nonempty(transfer.get(k))
+                            for k in ("sourceLocator", "reason", "authorization")),
+                            f"{asset_id}: text-only downgrade needs source, reason and user authorization")
+                    require("text-only" in body.lower(), f"{asset_id}: disclose text-only adaptation in prompt")
         result.append((a, body))
     return result
 

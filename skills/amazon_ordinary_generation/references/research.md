@@ -76,31 +76,19 @@
 4. 社交来源先核标题/作者/商品身份，再观察相关视频片段或静态图。只读到描述/字幕时如实记录。视频帧记真实timestamp、前后状态、是否剪辑；画面结论基于实际播放/截图。
 5. 汇总共同买家疑问、各套图顺序与设计变化、值得迁移的关系和不适用之处。先由本项目任务驱动图片规划，不能被某条热视频反过来改成另一种商品定位。
 
+采集服务于本SKU图片策划时，参考选择按 [采集后的参考选择弹窗](discovery-layout.md#采集后的参考选择弹窗) 执行；首批可见候选已足以讨论就触发，不把上述研究完成作为弹窗前提。仅发现ASIN/下载文件不算用户已选参考；未答继续来源研究，目标设计保留proposed/pending。
+
 当核心购买问题已有相关证据或明确缺口、各目标资产已有可评估的来源/原创方向，且继续检索只重复相同机制与布局时停止扩搜；无需为“跨类目”遍历更多类目。发现关键矛盾才做针对性补查。三平台各自记录尝试与覆盖，不能因为其中一平台素材丰富就声称另外两个已完成。
 
 每个平台/区段最多一轮直链读取、一轮可用浏览器尝试、一轮精准公开搜索/官方关联页恢复；同一路径同一错误不无限重复。robots非重试错误不重试同工具；登录/验证码不代为绕过。浏览器不具备或已超时也算明确缺口；不把其他可读部分作废。停止后用已有证据继续，向用户请求最小必要截图/资料，或给标注限制的原创草案。可采用历史文本配方，但不声称当前竞品/评论研究已补齐。
 
 ## 数据记录
 
-`research/amazon/<ASIN>.json` 保存下面的结构（实际字段用真实值，未知用null，不存示例假数据）：
+指定来源范围以采集前的`research/competitor-inputs.json`为准，所有用户链接逐个处理；3–6是自主寻找来源的默认预算。用[批量入口](competitor-collection.md#批量输入与逐竞品完成条件)或实际可用的外部采集器遍历全部登记；媒体下载、完整原图目视、反推、原评分别记录。首批参考开始共创后，其余来源继续完成或有限恢复，不以选定主套替代研究全量。
 
-```json
-{
-  "asin": "ACTUAL_ASIN", "marketplace": "US", "url": "actual source URL",
-  "variant": {"label": "observed variant", "status": "confirmed"},
-  "referenceClass": "direct", "match": [], "mismatch": [],
-  "transferAllowed": [], "transferExcluded": [], "buyerQuestions": [],
-  "sections": {
-    "gallery": {"status": "partial", "discovered": 7, "viewed": 2, "sourceIds": ["V01", "V02"]},
-    "aplus": {"status": "blocked", "discovered": null, "viewed": 0, "sourceIds": []},
-    "reviews": {"status": "not-attempted", "sampleRead": 0, "sourceIds": []},
-    "customerPhotos": {"status": "not-attempted", "viewed": 0, "sourceIds": []}
-  },
-  "attempts": [], "gaps": []
-}
-```
+竞品JSON统一按[分区检查点与离线审计](research-records.md)记录，逐图visuals、逐条原评、区段盘点/已看数和实际恢复attempts分别保留。旧简表只作历史，缺少逐图观察不能凭计数升级完整。原始采集manifest与研究检查点分开；set-refresh的目标映射使用实际target_asset_ids，不强套11图。
 
-区段status用`observed/partial/blocked/not-attempted/not-present`；not-present必须有成功检查无该区段的依据，不是抓不到。逐节保存检查点。
+按[研究与证据链](research-evidence.md)建立素材角色、原评主题、关键词来源/意图簇、购买任务、拟用主张和风险，形成SRC/P/R/K→IC→J→C→ASSET及V→具体结构→用户选择/委托→brief→prompt两条链。用户给出的所有竞品链接全部核身份、逐区段保存；停止扩搜不等于跳过指定来源。来源可靠性、证明范围和推断信心分开。
 
 社交记录存 `research/social/<ID>.md`，包含platform、contentType（video/shop-image/shop-text/search-page）、URL、作者/卖家、标题、日期、访问日期、可识别产品、referenceClass与match/mismatch、读取模式（frame-viewed/video-viewed/transcript-only/text-only/search-only/blocked）、实际片段时间戳、观察、推断、候选用途与不可转移事实。看过的片段不等于完整视频覆盖。图像alt文本/页面里的图片URL只证明存在该引用，不构成目视布局证据。
 

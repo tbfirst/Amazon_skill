@@ -11,7 +11,25 @@
 7. 对gallery、A+、品牌故事分别记录发现数、实际查看数、反推数、变体范围、加载状态、失败原因及下一步。只有完整遍历已加载的对应区段、所有可见静态项都看过才标该区段完整；页面总量未知就标partial。成功检查且确无区段才记not-present；空抓取不是无A+。
 8. 每个失败区段按research.md有限恢复：一次直链、一次可用正常浏览器、一次精准公开搜索/官方关联页。真实登录/验证码门槛停止该路线。保留已读区段，必要补图在聊天请求；未看到的布局只能标原创提案，不能假称竞品反推。
 
-采集后逐图反推背景、机位、主体比例、分区、文字精确位置与层级、色彩、装饰和光影，再映射到DIM/DETAIL/SCENE/A+。研究套图保留源顺序，生产套图仍默认六张附图加五张A+，不得以抓取图片数改变交付数量。
+为本SKU策划图片时，首批可用画面完成实际看图、足以比较方向后，立即转入 [采集后的参考选择弹窗](discovery-layout.md#采集后的参考选择弹窗)：先展示真实候选与覆盖，再实际调用提问工具确认尚未决定的参考路线、来源与程度。不要等全部ASIN或三平台研究结束，也不要从“图片已下载”直接跳到11条prompt。明确回答/委托的范围沿用；待答期间继续独立采集与源图分析。
+
+逐图反推背景、机位、主体比例、分区、文字精确位置与层级、色彩、装饰和光影，选定参考后再形成DIM/DETAIL/SCENE/A+的确定映射。研究套图保留源顺序，生产套图仍默认六张附图加五张A+，不得以抓取图片数改变交付数量。
+
+## 批量输入与逐竞品完成条件
+
+先保留输入，再抓取。将本轮**所有**用户链接按站点+ASIN规范化去重，原始追踪链接留在inputs数组；同父不同子ASIN不能悄悄删掉，标关联变体。短链先正常展开，尚未解析的链接写入discovery待办，不丢弃。3–6只限制默认自主扩搜预算，不限制用户指定范围。
+
+```powershell
+python "<skill-root>/scripts/research_audit.py" normalize <全部ASIN或完整链接> --out "<project>/research/competitor-inputs.json"
+python "<skill-root>/scripts/collect_competitors.py" --inputs "<project>/research/competitor-inputs.json" --out "<project>/research/competitor-media"
+python "<skill-root>/scripts/research_audit.py" audit "<project>/research/amazon" --inputs "<project>/research/competitor-inputs.json"
+```
+
+输入登记已存在时保留旧版，用新revision记录新增范围，不以成功结果倒推/缩减输入。批量入口按输入表逐个调用正常浏览器采集器，独立输出，单个失败/超时仍继续后续来源；每完成一项保存batch-manifest，未执行项保持queued/running。它不抓原评、不做目视，也不把captured-partial标成整套已读。可用外部采集器时同样按输入表遍历，遵循其真实并发/锁约定；不要两个采集器同时重复抓同一来源。
+
+研究检查点与媒体采集清单分开：对输入表的每个唯一来源创建`research/amazon/<ASIN>.json`（多站点分目录），gallery/aplus/review_photos/reviews分别登记盘点、实际查看和恢复路线。只有文本读取不算画廊采集；一个成功不能代表全部。输出逐竞品覆盖表时列明请求/落地ASIN、变体、图序、下载/实际查看数量、A+模块、原评N及失败项。
+
+首批画面可讨论后允许进入选参考，但其余输入仍推进至实际完成、已有可复用证据已检查，或有限恢复耗尽；不能因为主参考已选就跳过其他指定来源。用户明确移除某来源时才修订范围，保留决定。审计中的“存在检查点”不等于“采集完成”，仍如实展示partial/access-blocked。
 
 ## 内置正常浏览器入口
 
