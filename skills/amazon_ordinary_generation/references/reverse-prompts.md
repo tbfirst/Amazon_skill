@@ -2,11 +2,11 @@
 
 有图内文案时先执行 [背景融合规则](background-copy.md)：默认在真实背景留白直接排字；下文继承底板、羽化或独立信息面的规则仅用于用户明确选择的例外。保留图像任务所需的分区及文字层级，不自动为文字新增背景层。
 
-先按[参考反推与设计改造](reference-redesign.md)区分源图分析与新设计。反推准确性与改造充分性分别审查，不交只换商品、其余照搬的生产提示词。
+先按[参考反推与设计改造](reference-redesign.md)区分源图分析与新设计。默认按具体竞品逐图适配，审查参考忠实度与本品事实；允许替换产品并仅调整机位、装饰、文案或配色，不强制重新设计构图。
 
 ## 从参考到可执行方向
 
-每个选中来源建一条观察卡：URL/ASIN/变体/图片顺序或视频时间戳、实际查看方式、画布比例、任务、区块坐标、视图/窗口数量与形状、产品覆盖、机位/透视、背景/道具、文字分层、配色、光与影、层级/阅读顺序。不可辨部分写unknown，不凭缩略图猜小字或材质。
+先读 [空间摆放](spatial-placement.md) 与 [场景和道具](scene-props.md)。每个选中来源建一条观察卡：URL/ASIN/变体/图片顺序或视频时间戳、实际查看方式、画布比例、任务、区块坐标、视图/窗口数量与形状、产品覆盖、机位/透视、背景/道具、文字分层、配色、光与影、层级/阅读顺序。不可辨部分写unknown，不凭缩略图猜小字或材质。
 
 另写迁移卡：retained、replaced、removed、adapted、why。结构保留和新品真实适配可以并存，但必须具体解释差异：例如参考是多尺寸横表，本品只有一尺寸，因此保留上方测量示意与下方信息区，改成一个有证据的选择卡，不能复制六列虚构SKU。
 
@@ -35,11 +35,14 @@ PRODUCT IDENTITY AND SALE CONTENT
 LAYOUT BLUEPRINT
 [One resolved composition: regions in normalized coordinates, margins/gutters, main view, detail-window count/shapes, scale, reading order, background and whitespace. Explain exact retained and changed source features.]
 
-REFERENCE-INSPIRED REDESIGN
-[Name the useful information relationships retained, then specify the exact new composition, palette, typography, camera, setting or subordinate props used where appropriate. Remove source-specific brand expression and copied advertising text. Keep the target product identity unchanged. Do not merely replace the source product.]
+REFERENCE ADAPTATION — RETAIN AND CHANGE
+[Name the observed source composition, spatial setting, hierarchy and lighting to retain. Replace the source product with the exact target SKU. Specify only the selected bounded changes to viewpoint, subordinate props, copy and palette; preserve successful layout relationships rather than inventing a new composition. Remove source branding and unsupported claims.]
 
 PHYSICAL SCALE AND ACTION
 [Applicable dimensions/specifications and measurement state; relevant scale basis, support/contact, material deformation, fit/connection or action; sale quantity, contents and prop boundaries. Omit inapplicable mechanisms.]
+
+SPATIAL PLACEMENT
+[Support plane, product orientation relative to walls/table edges, camera viewpoint independently of product rotation, coherent horizon/vanishing relationships, clearance, contact points, scale basis and prop fit. Use the applicable resolved spatial blueprint.]
 
 CAMERA, MATERIAL AND LIGHT
 [Evidence-supported angle, perspective, visible details, realistic material response, key-light direction/softness, contact/cast shadows and depth.]
