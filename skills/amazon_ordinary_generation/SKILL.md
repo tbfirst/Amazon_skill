@@ -2,7 +2,7 @@
 name: amazon-ordinary-generation
 description: Plan new or refreshed Amazon image campaigns across non-botanical physical product categories. Adapt research, buyer questions and visual storytelling to each SKU's form, use, fit, contents and supported functions; accept product photos, dimensions, details and competitor ASINs; research Amazon, TikTok and YouTube and translate observed layouts into Chinese strategy and independent English Lovart prompts. New sets default to 11 assets. Excludes botanical campaigns, direct image generation and video production.
 metadata:
-  version: "1.4.1"
+  version: "1.4.2"
 ---
 
 ## 竞品采集与存储
@@ -62,7 +62,7 @@ metadata:
 
 文案先保留事实与限制条件，再润色自然英文，最后适配空间。给出精确字符串、语义换行、字号/字重、对齐和文字区域，不让生成器擅改尺寸、承重或附赠信息。无字图不强加标题；本身印在商品上的真实文字/标志按身份锁保留。字、渐变和面板不得遮挡商品轮廓与关键操作点。参考的文字层级可借鉴，具体文案、字系组合与排版按改造方向重做，不把所有图做成同样色块海报。
 
-每个场景按其属性核对真实尺度、支撑/接触、材料形态、动作状态、使用对象、销售数量和道具；只对相关商品检查安装面、开合空间、连接协议、柔性变形或内容物等。只凭外形匹配不能证明兼容或安全。软体商品可合理弯折/垂落，消耗品可表现有据的取用状态，但不得改变材质、版型、容量/净含量、零件或随货物；小商品可放大特写并明确局部视图。
+道具优先从实际读到的竞品套图分析，按本SKU用途与尺度逐项保留、替换或删除；宠物/卡片只属个别产品示例，不作跨品类默认，道具可为零。适用性不明时弹窗询问。每个场景按其属性核对真实尺度、支撑/接触、材料形态、动作状态、使用对象、销售数量和道具；只对相关商品检查安装面、开合空间、连接协议、柔性变形或内容物等。只凭外形匹配不能证明兼容或安全。软体商品可合理弯折/垂落，消耗品可表现有据的取用状态，但不得改变材质、版型、容量/净含量、零件或随货物；小商品可放大特写并明确局部视图。
 
 五张A+是五个资产，不是无限扩张的模块。按实际账户的Content Manager映射图位；未知账户时仍可做默认母版并标PROVISIONAL。额外移动版/模块多图要先说明范围变化。原生文本字段留在交付文档，不自动烧进图片。
 
