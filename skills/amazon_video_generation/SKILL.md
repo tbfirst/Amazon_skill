@@ -2,7 +2,7 @@
 name: amazon-video-generation
 description: "Plan Jimeng showcase videos for Amazon products across categories, from product photos or selected image campaigns. Direct scenes, camera paths, mechanisms, human interactions and prop continuity; retain dedicated flower and foliage workflows. Deliver only C01/C02 folders with self-contained Chinese draft prompts and all upload images, plus an analysis Markdown, README and shot CSV. Upload images are preferably square, at least 350 px high, with width/height between 0.6 and 1.6. Reuse selected images and generate missing storyboard states when needed. Does not submit or generate videos automatically."
 metadata:
-  version: "6.0.0"
+  version: "6.1.0"
 ---
 
 # Amazon Video Generation
@@ -38,6 +38,8 @@ metadata:
 
 复杂接触优先清楚、稳定的观察机位，减少无信息价值的同时动作。补图只覆盖必要角度/状态，生成预演不证明隐藏结构。无论提示词多详细，静态起终图正确都不代表中间视频物理一致；按[连续性验收](references/physical-continuity.md)检查实际过程，失败时简化具体事件/补参考/调整机位或切镜。
 
+涉及装配/布置、中间态、多场景或手持细节时，读[终态倒推与真实运动](references/terminal-state-and-motion.md)：先确定完成态，按真实可操作关系倒推基础态及步骤，再正向展示；多场景写清空间证据，主体/柔性部分/投影按真实驱动联动；可手持件优先小幅转看，触摸或弯折以材料依据为限。
+
 ## 研究说明与执行内容分开
 
 按[整段提示词与交接](references/full-film-prompt.md)编写。研究来源、模板代号、原片禁用元素、未试听声明、平台/文件规则属于agent和用户的说明，留在分析说明书/README。**最终TXT、上传分镜表文字、宫格简述只含当前SKU、实际上传素材及本段画面/声音要求**；不把未上传底层模板作为模型已知上下文。
@@ -50,7 +52,7 @@ S-ID表示镜头，C-ID表示生成任务；一个C-ID可含多个镜头/场景�
 
 ## 花卉专用偏好
 
-仅flowers默认：相机环绕→空间尺寸→1–2个动态细节→多次插花/整理摆放→2–3个动态生活场景→成品收尾。可选相机空间绕行/尺寸线、真实售卖分组悬浮或已核可调整结构；固定成品不擅自拆枝。逐次插入默认3次落位松手，可从已有花材开始；或先手中整理再成束1次插入，二选一记录。花材随真实操作累积，不将“身份一致”写成每帧排列冻结。
+仅flowers默认：相机环绕→空间尺寸→1–2个动态细节→多次插花/整理摆放→2–3个动态生活场景→成品收尾。可选相机空间绕行/尺寸线、真实售卖分组悬浮或已核可调整结构；固定成品不擅自拆枝。逐次插入默认3次落位松手，先从选定完成态倒推三次补入及基础花材，不等于空瓶插三枝就结束；或先手中整理再成束1次插入，二选一记录。花材随真实操作累积，不将“身份一致”写成每帧排列冻结。
 
 选择展示台时读[背景库](references/display-background-library.md)，按商品配色适配室内/室外环境，产品保色；模板背景中的花材/品牌/数量不继承为SKU事实。BG代号和此迁移说明仅供策划；最终执行内容写实际选择的空间与配色。一般商品不默认读完整植物背景库。
 

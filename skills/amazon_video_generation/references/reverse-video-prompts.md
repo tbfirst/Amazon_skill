@@ -74,6 +74,8 @@
 
 > Enter a close view of [FEATURE] on [PRODUCT], framing enough of its attachment and neighboring forms to keep the detail recognizably part of the same item. Under [LIGHT], the visible [SURFACE] holds delicate tonal variation rather than artificial gloss, anchored to the film's [STYLE] palette and the softly separated [SCENE] behind it. Show [ACTION: a fingertip approaching a verified contact point, gently brushing and releasing it, or a light airflow moving only the verified flexible parts], with a small, material-appropriate response that settles naturally while the vessel and supporting stems remain grounded. Keep the camera [PATH] and the contact unobscured, allowing the action to reveal the visible feature without pretending to prove softness, durability or recovery performance. For proposed sound, use low [AUDIO] with a subtle, appropriate contact or air texture only where useful, no narration, and finish on the readable detail. Technical target: [SECONDS] seconds, [ASPECT], [OUTPUT_SETTINGS]; avoid microscopic structures absent from the product references.
 
+T03–T06用于新项目时追加[终态与运动规则](terminal-state-and-motion.md)：从本SKU选定完成态倒推操作，不从空瓶任意拼三枝；场景区分空间与用途，手持及环境响应按材质与真实支撑决定。模板研究措辞不直接复制为执行正文。
+
 ## T04 花材逐次累积：默认3次
 
 借用原片B“材料辨认→插入→调整→下一组”的连续性。具体3次是用户默认，不等于原片每个花材组的实拍次数。

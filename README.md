@@ -14,7 +14,7 @@ A collection of three Agent Skills, with a [Chinese guide](README.zh-CN.md): ind
 
 The image skills support real and artificial plant merchandise. The video skill supports product video preproduction, including botanical products. The image strategy skill produces plans and prompts for the user to execute in Lovart.
 
-## Amazon 通用商品视频前期制作 · v6.0.0
+## Amazon 通用商品视频前期制作 · v6.1.0
 
 调用 `$amazon-video-generation`，源码见[SKILL.md](skills/amazon_video_generation/SKILL.md)。面向各类Amazon商品，按用途、结构、可动部件和交互任务策划视频；花卉与草木保留专门路线，花卉初始用例不再限制整个技能范围。接受产品原图、部分成图或已选最终套图，不要求先凑11张。
 
@@ -25,6 +25,8 @@ The image skills support real and artificial plant merchandise. The video skill 
 默认15–30秒、16:9，按已核入口决定一段或两段；用户既有Mini全能参考单次15秒设置仅在相同入口复用。只交C01/C02文件夹（各含本段draft.txt和全部上传图），根目录仅分析说明书.md、README.md及shot-list.csv。所有上传图高度≥350px，宽高比0.6–1.6，优先1:1；表与宫格保持同源S-ID和格下说明。
 
 花卉分支保留F07综合展示、3次逐次插入或整理成束后1次插入、展示台适配等既定偏好；一般商品不被要求插花或强制环绕。前期图/词检查不等于视频实际通过，生成后的几何、数量、接触与道具连续性仍需验片。研究与能力边界见[本轮一手资料记录](skills/amazon_video_generation/references/research/2026-11-01-general-product-video.md)。
+
+新增终态倒推：先选定好看的真实完成态，再设计基础布置与逐步补入，按正常动作顺序展示。多场景明确空间变化与用途，主体、柔性部件和可见光影按真实驱动联动；可手持细节优先稳定小转，触摸/弯折以材质为依据。规则见[终态倒推与真实运动](skills/amazon_video_generation/references/terminal-state-and-motion.md)。
 
 每个明确版本独立本地提交并附中文说明，详见[版本历史与回滚索引](docs/AMAZON-VIDEO-VERSION-HISTORY.zh-CN.md)。示例：使用 $amazon-video-generation，为我的家具、器具、穿戴或花卉商品设计两段视频方案，先确认真实结构和用途，再交精简分段包。
 
