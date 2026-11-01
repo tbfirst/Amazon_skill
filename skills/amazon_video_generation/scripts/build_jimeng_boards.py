@@ -94,18 +94,31 @@ def build(plan: Path, output_dir: Path, *, font: str | None = None,
             rows.append((height, cells))
         specs.append(("storyboard", rows, columns * (cell_width + gutter) + gutter))
     for begin in range(0, len(data["shots"]), table_page_size):
-        rows = []
-        for shot in data["shots"][begin:begin + table_page_size]:
-            texts = [lines(label(shot) + "\n对应格号：\n" + "\n".join(
-                f"{shot['id']}/{frame['state']}" for frame in shot["frames"]), 300)]
-            for group in GROUPS:
-                texts.append(lines("\n".join(f"{name}：{shot['details'][key]}" for key, name in group), 600))
-            rows.append((max(map(len, texts)) * line_height + 32, [(shot, texts)]))
-        specs.append(("shot-table", rows, 2 * gutter + 324 + 3 * 624))
+        # Reflow columns before adding square margins, so sparse pages do not
+        # become a very wide strip above a mostly empty square.
+        candidates = []
+        for table_width in (1000, 1200, 1400, 1600, 1800, 2000, 2244):
+            usable = table_width - 2 * gutter
+            first = max(200, round(usable * 0.15))
+            other = (usable - first) // 3
+            widths = (first, other, other, usable - first - 2 * other)
+            rows = []
+            for shot in data["shots"][begin:begin + table_page_size]:
+                texts = [lines(label(shot) + "\n对应格号：\n" + "\n".join(
+                    f"{shot['id']}/{frame['state']}" for frame in shot["frames"]), widths[0] - 24)]
+                for group, col_width in zip(GROUPS, widths[1:]):
+                    texts.append(lines("\n".join(f"{name}：{shot['details'][key]}" for key, name in group), col_width - 24))
+                rows.append((max(map(len, texts)) * line_height + 32, [(shot, texts, widths)]))
+            content_height = header + sum(row[0] + gutter for row in rows) + gutter
+            side = max(table_width, content_height)
+            candidates.append((side, abs(table_width - content_height), rows, table_width))
+        _, _, rows, table_width = min(candidates, key=lambda choice: choice[:2])
+        specs.append(("shot-table", rows, table_width))
+    specs.sort(key=lambda spec: spec[0] != "shot-table")
     for kind, rows, width in specs:
         height = header + sum(row[0] + gutter for row in rows) + gutter
         # A very tall single row should be rewritten or given a separate readable page.
-        if width * height > MAX_CANVAS_PIXELS or height > 12000:
+        if max(width, height, 350) ** 2 > MAX_CANVAS_PIXELS:
             raise ValueError(f"{kind}: page too large; reduce page size or shorten redundant detail")
 
     output_dir.mkdir(parents=True)
@@ -113,7 +126,8 @@ def build(plan: Path, output_dir: Path, *, font: str | None = None,
     for kind, rows, width in specs:
         counts[kind] += 1
         height = header + sum(row[0] + gutter for row in rows) + gutter
-        board = Image.new("RGB", (width, height), "#edf1f3")
+        side = max(width, height, 350)
+        board = Image.new("RGB", (side, side), "#edf1f3")
         draw = ImageDraw.Draw(board)
         heading = f"{data['generation_id']} · {data['revision']} · {'宫格故事板' if kind == 'storyboard' else '详细分镜表'} · {counts[kind]:02d}"
         draw.text((gutter, 12), heading, font=heading_font, fill="#142b3b")
@@ -138,9 +152,9 @@ def build(plan: Path, output_dir: Path, *, font: str | None = None,
                                     "image_box": [x, y, cell_width, image_height],
                                     "caption_box": [x, y + image_height, cell_width, row_height - image_height]})
             else:
-                shot, texts = cells[0]
+                shot, texts, widths = cells[0]
                 x = gutter
-                for col_width, text_lines in zip((324, 624, 624, 624), texts):
+                for col_width, text_lines in zip(widths, texts):
                     draw.rectangle((x, y, x + col_width, y + row_height), fill="white", outline="#a5b6c0", width=2)
                     for index, line in enumerate(text_lines):
                         draw.text((x + 12, y + 16 + index * line_height), line, font=body_font, fill="#142b3b")
@@ -148,15 +162,15 @@ def build(plan: Path, output_dir: Path, *, font: str | None = None,
                 records.append({"shot_id": shot["id"], "timeline_label": label(shot), "frame_ids": [f"{shot['id']}/{f['state']}" for f in shot["frames"]],
                                 "details": shot["details"], "row_box": [gutter, y, width - 2 * gutter, row_height]})
             y += row_height + gutter
-        filename = f"{data['generation_id']}-{kind}-{counts[kind]:02d}.png"
+        filename = f"{len(pages) + 1:02d}-{data['generation_id']}-{kind}-{counts[kind]:02d}.png"
         board.save(output_dir / filename)
         pages.append({"kind": kind, "file": filename, "sha256": file_sha256(output_dir / filename),
-                      "size": [width, height], "records": records})
+                      "size": [side, side], "content_size": [width, height], "records": records})
     manifest = {"schema_version": 1, "title": title, "revision": data["revision"],
                 "generation_id": data["generation_id"], "plan_sha256": hashlib.sha256(raw).hexdigest(),
                 "plan_snapshot": data, "pages": pages,
                 "scope": "Shared plan ensures paired IDs, times and revision; visual review, prompt alignment and product truth still require review."}
-    (output_dir / "boards-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Metadata stays in memory; the delivery directory contains upload PNGs only.
     return manifest
 
 

@@ -14,7 +14,7 @@ A collection of three Agent Skills, with a [Chinese guide](README.zh-CN.md): ind
 
 The image skills support real and artificial plant merchandise. The video skill supports product video preproduction, including botanical products. The image strategy skill produces plans and prompts for the user to execute in Lovart.
 
-## Amazon 视频前期制作 · v5.4.0
+## Amazon 视频前期制作 · v5.5.0
 
 调用 `$amazon-video-generation`，源码见 [SKILL.md](skills/amazon_video_generation/SKILL.md)。花卉承接已生成并精修选定的11张最终套图，也可从部分产品图开始；默认16:9、25–30秒综合展示：相机环绕、空间尺寸、1–2个动态细节、多次插花/整理、多场景和成品收尾。环绕时花器与花卉不自转，背景有真实视差；细节采用微风或轻抚等响应，生活场景有真实机位移动或动作，避免静图缩放轮播。
 
@@ -22,15 +22,15 @@ The image skills support real and artificial plant merchandise. The video skill 
 
 新增[双参考六维英文逆推与适配模板](skills/amazon_video_generation/references/reverse-video-prompts.md)：保留两片逐镜报告，并将镜头、动作、材质、风格光照、音景和技术规格整合为可替换SKU的模块。原片观察与复现建议分开，最终仍交完整中文即梦执行词。
 
-通过3–4轮弹窗收敛，交付完整中文即梦提示词、中文分析说明书、可上传即梦的详细分镜表PNG、每格下方附中文说明的宫格故事板PNG及MD/CSV及精选上传素材。优先复用套图，缺少动作或角度画面时使用Codex内置图像工具补成。
+通过3–4轮弹窗收敛，按实际一段/两段交付C01/C02文件夹，每段只放该段draft.txt和全部上传图；根目录仅分析说明书.md、README.md和shot-list.csv。上传图包含详细分镜表、带格下说明的宫格故事板及精选产品图；所有图片高度至少350像素，宽高比0.6–1.6且优先1:1。优先复用套图，缺少动作或角度画面时使用Codex内置图像工具补成。
 
 优先整片生成。当前用户Seedance 2.0 Mini全能参考单次15秒，较长方案交前后两段自足词与衔接；更换Seedance 2.5后按实际入口核实整片能力。默认英文卖点与尺寸标注、轻音乐、无旁白，文字出错提供后期修正说明。视频由用户提交即梦生成，草木保留原有展示、安装和灯效路线。
 
 详见[展示台背景库](skills/amazon_video_generation/references/display-background-library.md)、[动态导演规则](skills/amazon_video_generation/references/dynamic-flower-direction.md)、[花卉整片工作流](skills/amazon_video_generation/references/flower-showcase-workflow.md)、[双参考逐帧研究](skills/amazon_video_generation/references/research/2026-10-31-two-reference-showcase.md)及[分镜输出规范](skills/amazon_video_generation/references/flower-storyboard-package.md)。
 
-示例：使用 $amazon-video-generation，把我的最终花卉套图做成30秒综合展示方案，通过弹窗明确需求，给我完整提示词、分析说明书、两种分镜图和Mini前后两段执行词。
+示例：使用 $amazon-video-generation，把我的花卉套图做成30秒综合展示方案；交C01/C02文件夹，各含本段draft.txt和全部上传图，根目录仅分析说明书、README与分镜CSV，图片优先正方形。
 
-版本均以本地提交/标签保存，详见[中文版本历史与回滚索引](docs/AMAZON-VIDEO-VERSION-HISTORY.zh-CN.md)。v5.4.0两类PNG从同一镜头计划生成，镜号跨分页/分段保持一致，分段执行词与本段附件对应。
+版本均以本地提交/标签保存，详见[中文版本历史与回滚索引](docs/AMAZON-VIDEO-VERSION-HISTORY.zh-CN.md)。v5.5.0保持两类PNG同源与稳定镜号，新增精简目录和全量上传图片规格校验，分段执行词与本段文件夹附件对应。
 
 ## Use the campaign strategy skill
 

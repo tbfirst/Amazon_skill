@@ -1,3 +1,5 @@
+> v5.5交付覆盖规则：新项目仅交C01/C02目录（各含本段draft.txt和全部合格上传图）及根目录分析说明书.md、README.md、shot-list.csv。本文旧独立brief/input-map/overlay/manifest等文件要求只属历史约定；其内容合并进上述三个根文件，不另生成。所有上传图高≥350px、宽高比0.6–1.6、优先1:1；详见[当前交付规范](flower-storyboard-package.md)。
+
 # 从 jvlang 服装故事板迁移的方法
 
 本轮于 2026-10-27 只读检查用户指定 `/mnt/e/jvlang` 源码。以下说明已迁移的设计与保留的差异；本技能无需启动 jvlang、调用其接口或读取其配置。属于源码分析，不是服装系统的端到端生成实测。

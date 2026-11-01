@@ -49,15 +49,19 @@ class JimengBoardTests(unittest.TestCase):
         for page in result['pages']:
             with Image.open(self.out / page['file']) as image:
                 self.assertEqual(list(image.size), page['size'])
+                self.assertEqual(image.width, image.height)
+                self.assertGreaterEqual(image.height, 350)
                 for record in page['records']:
                     if 'image_box' in record:
                         x, y, width, height = record['image_box']
                         self.assertEqual(image.getpixel((x + width // 2, y + height // 2)), (255, 0, 0))
                         self.assertEqual(record['caption_box'][1], y + height)
-        before = (self.out / 'boards-manifest.json').read_bytes()
+        before = {p.name: p.read_bytes() for p in self.out.iterdir()}
+        self.assertTrue(all(p.suffix == '.png' for p in self.out.iterdir()))
+        self.assertEqual([int(p['file'].split('-')[0]) for p in result['pages']], list(range(1, len(result['pages']) + 1)))
         with self.assertRaisesRegex(ValueError, 'already exists'):
             build(self.plan, self.out)
-        self.assertEqual((self.out / 'boards-manifest.json').read_bytes(), before)
+        self.assertEqual({p.name: p.read_bytes() for p in self.out.iterdir()}, before)
 
     def test_missing_details_summary_and_bad_timing_fail_without_output(self):
         original = copy.deepcopy(self.data)
@@ -89,8 +93,15 @@ class JimengBoardTests(unittest.TestCase):
         expanded = build(self.plan, self.root / 'long', table_page_size=1)
         before = next(p for p in baseline['pages'] if p['kind'] == 'shot-table')
         after = next(p for p in expanded['pages'] if p['kind'] == 'shot-table')
-        self.assertGreater(after['size'][1], before['size'][1])
+        self.assertGreater(after['content_size'][1], before['content_size'][1])
         self.assertEqual(after['records'][0]['details']['action'], self.data['shots'][0]['details']['action'])
+
+    def test_square_canvas_budget_checked_before_writing(self):
+        self.data['shots'][0]['details']['action'] = '逐次插入落位松手并检查容器状态。' * 1000
+        self.write()
+        with self.assertRaisesRegex(ValueError, 'page too large'):
+            build(self.plan, self.out)
+        self.assertFalse(self.out.exists())
 
 
 if __name__ == '__main__':

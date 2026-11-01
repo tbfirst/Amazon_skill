@@ -1,11 +1,11 @@
 # 同源镜头数据与排版
 
-新项目用`build_jimeng_boards.py`。每C-ID一份JSON，表图和宫格图一次导出；MD/CSV和TXT也从此已确认镜头记录整理，不各自重新编镜号。兼容旧`assemble_storyboard.py`的基础时间/帧字段，但新工具新增必填的分段标识、详细执行信息和逐帧短说明。
+新项目用`build_jimeng_boards.py`。临时工作区每C-ID一份JSON（不交付），表图和宫格图一次导出；CSV和TXT也从此已确认镜头记录整理，不各自重新编镜号。兼容旧`assemble_storyboard.py`的基础时间/帧字段，但新工具新增必填的分段标识、详细执行信息和逐帧短说明。
 
 ## 字段
 
 - 顶层：`title`、非空`revision`、`generation_id`（如C02）、`global_offset_s`（该段在全片起点）、`aspect_ratio`（视频及格内画幅）、`total_duration_s`（本段时长）、有序`shots`。
-- 镜头：稳定`id`（如S05，第二段不改为S01）、本段`start_s`、`duration_s`、`details`、`frames`。同段从0连续，无重叠/空洞；完整项目另检查跨段全局衔接与S-ID不重复。任务生成时长/裁切保留范围记录于上传清单。
+- 镜头：稳定`id`（如S05，第二段不改为S01）、本段`start_s`、`duration_s`、`details`、`frames`。同段从0连续，无重叠/空洞；完整项目另检查跨段全局衔接与S-ID不重复。任务生成时长/裁切保留范围记录于README。
 - `details`：以下13个字段全部为非空字符串，确实不适用时明确写“无”及必要原因，不能用占位词填满。脚本只检查字段存在，不理解语义。
 
 |字段|上传表图需要读到的内容|
@@ -63,9 +63,13 @@
 ## 输出和检查
 
 ```sh
-python3 scripts/build_jimeng_boards.py PROJECT/C02-plan.json --output-dir PROJECT/storyboard/C02-v1 --font CJK_FONT
+python3 scripts/build_jimeng_boards.py WORK/C02-plan.json --output-dir DELIVERY/C02 --font CJK_FONT
 ```
 
 默认3列、每页6格；详细表每页3镜，文字全量换行不省略。`--columns 2`、`--grid-page-size 4`、`--table-page-size 1`可提高实际上传可读性。超大页报错要求拆页，不悄悄缩字；输出目录已存在时报错，使用新版本目录。
 
-输出`C02-storyboard-01.png`等宫格页、`C02-shot-table-01.png`等表页、`boards-manifest.json`。清单含相同输入快照与SHA-256、表行与状态格映射、每格说明、源图哈希及输出哈希；它不证明商品真实性或实际动态效果。逐页看图并对照TXT/MD/CSV和上传清单，尤其检查：编号/秒段、格下说明、插入次数、字幕、文件版本、中文字体、缩放可读性、画面是否被遮挡。跨C-ID不重置S-ID，不重复计时；缺帧或事实时保持draft，不能靠空白图和“见上一段”交终稿。
+仅输出连续编号的`01-C02-shot-table-01.png`等表页与后续编号的`02-C02-storyboard-01.png`等宫格页；有多页时编号连续递增。每页使用正方形画布、不裁切拉伸内容，像素高度≥350。分页后的实际文件顺序决定TXT中的上传引用。保持文字可读，空白过多时可调整每页镜数；内容过高导致方形画布超资源上限时要求拆页，不悄悄缩字。
+
+共同输入快照、SHA-256、表行/状态格映射和说明在函数返回值中，**不写`boards-manifest.json`**。CLI仅打印输出图片清单。后续将该段draft.txt和已核合格的精选产品图片放入同一目录，素材图继续使用下一个上传序号。不要将临时计划JSON、原始帧目录或预览文件复制进交付。
+
+逐页看图并对照TXT/CSV及README映射，检查编号、秒段、格下说明、插入次数、字幕、文件版本、字体和缩放可读性。运行`check_delivery_package.py`检查所有上传图，产品图也必须满足高度≥350与宽高比0.6–1.6，优先1。跨C-ID不重置S-ID、不重复计时；`.draft.txt`为固定命名，实际齐备状态见README，缺帧不能拿空白图交终稿。

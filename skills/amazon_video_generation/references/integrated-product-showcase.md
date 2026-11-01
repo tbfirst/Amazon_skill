@@ -1,3 +1,5 @@
+> v5.5交付覆盖规则：新项目仅交C01/C02目录（各含本段draft.txt和全部合格上传图）及根目录分析说明书.md、README.md、shot-list.csv。本文旧独立brief/input-map/overlay/manifest等文件要求只属历史约定；其内容合并进上述三个根文件，不另生成。所有上传图高≥350px、宽高比0.6–1.6、优先1:1；详见[当前交付规范](flower-storyboard-package.md)。
+
 > 适用范围（v5）：本文保留草木与旧项目约定。新花卉项目使用[整片工作流](flower-showcase-workflow.md)、[完整提示词](full-film-prompt.md)和[分镜输出包](flower-storyboard-package.md)；本文旧版一镜一生成、固定15秒上限、禁换场/禁秒点、无字无故事板等规则不用于v5花卉。
 
 # F07 植株花卉通用展示模板：信息、景别、动作与场景
