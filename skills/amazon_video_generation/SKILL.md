@@ -2,7 +2,7 @@
 name: amazon-video-generation
 description: "Plan Jimeng showcase videos for Amazon products across categories, from product photos or selected image campaigns. Direct scenes, camera paths, mechanisms, human interactions and prop continuity; retain dedicated flower and foliage workflows. Deliver only C01/C02 folders with self-contained Chinese draft prompts and all upload images, plus an analysis Markdown, README and shot CSV. Each segment has at most nine upload images; storyboard pages have fixed 3x3 slots and tables use ten director columns. Upload images are preferably square, at least 350 px high, with width/height between 0.6 and 1.6. Reuse selected images and generate missing storyboard states when needed. Does not submit or generate videos automatically."
 metadata:
-  version: "6.2.0"
+  version: "6.4.0"
 ---
 
 # Amazon Video Generation
@@ -19,11 +19,11 @@ metadata:
 
 接受实际选定的最终套图、产品原图或部分素材。可承接`amazon-ordinary-generation`或`amazon-plant-image-strategy`，但计划/提示词不等于成图已存在；不要求启动前重新做11张，也不把资产数当作镜头数。同SKU多角度/状态绑定同一物件，不从竞品继承结构与功能。
 
-## 干净场景与画内微动作
+## 干净场景与三维动态演绎
 
 商品实拍仅提取身份/结构，默认重建干净用途场景或按配色选[文字展台库](references/display-background-library.md)，不沿用杂乱实拍背景；用户明确选定的干净最终场景可复用。尺寸展示优先洁白影棚/白色无缝空间，保持轮廓、承重与尺度，不让白底抹掉白色商品边缘。
 
-生活场景优先一个与用途相关的细微画内事件，并写可见响应：如动物自然抬头/眨眼、手指按键带来相应屏幕变化、柔性部分随轻风微动。按已选主体及材质设计，不硬塞人物/动物，不让刚性商品为动而动；固定机位也可真实，单纯静图横移不作为生活场景默认。具体取舍见[真实运动](references/terminal-state-and-motion.md)。
+生活场景优先一个与用途相关的细微画内事件，并写可见响应：如动物自然抬头/眨眼、手指按键带来相应屏幕变化、柔性部分随轻风微动。按已选主体及材质设计，不硬塞人物/动物，不让刚性商品为动而动；固定机位也可真实，单纯静图横移不作为生活场景默认。编镜时读[三维场景演绎](references/volumetric-scene-direction.md)：把参考图展开为空间、可达机位路径、可见面/遮挡变化与连续事件；整图平移缩放、景深模糊或分层视差不能独自冒充三维动态。人物动作与物体响应写清触发、进行及暂停后的状态；光影只按真实驱动改变。多机位按信息需要选用，不强制每镜移动或为未知侧面补造结构。
 
 ## 按决定推进的弹窗
 
