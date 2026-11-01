@@ -2,7 +2,7 @@
 name: amazon-video-generation
 description: "Turn final Amazon flower image campaigns or product photos into 15–30 second Jimeng showcase packages through iterative popup direction. Deliver a complete Chinese film prompt, analysis manual, visual storyboard PNG, detailed shot table PNG/MD/CSV, and selected upload references. Reuse final images and generate missing storyboard states. Prefer whole-film generation; split into two connected parts when the selected model requires it. Also retain foliage display, assembly and lighting planning. Does not submit or generate videos automatically."
 metadata:
-  version: "5.2.0"
+  version: "5.3.0"
 ---
 
 # Amazon Video Generation
@@ -35,6 +35,8 @@ metadata:
 选择开场展示台时读[背景参考与提示词库](references/display-background-library.md)：内置11张用户参考对应的布景卡及室外衍生方案，按产品配色适配环境、不改变商品颜色。以用户最终产品图为身份依据，用图像工具放入合适主位，前几秒相机环绕，再接尺寸、细节、插花及其他场景；已有合适成图可复用。参考中的异种花材、品牌和陈列数量不继承为SKU内容。
 
 ## 整片提示词与实际入口
+
+借鉴用户两段参考片时读[六维逆推与模板库](references/reverse-video-prompts.md)：内含两片完整逐镜英文复现建议和可替换SKU的适配模板。原片时间码、人物、材质、动作和音轨核实程度属于研究记录；现行花卉规则优先，不能迁移玩具折叠/机洗、恢复主体自转或把原片混合花材当本SKU。英文库用于分析与学习，项目最终仍交完整中文即梦执行词；原片的镜头数与总长不决定生成任务数或本片时长。
 
 读[整片提示词与即梦交接](references/full-film-prompt.md)。S-ID表示镜头，C-ID表示一次生成任务；**一个C-ID可以包含多个镜头和多个场景**。主提示词写全片顺序、节奏、运镜、动作、切镜、字和声音，不再只给散落的逐镜短词。
 
