@@ -14,7 +14,7 @@ A collection of three Agent Skills, with a [Chinese guide](README.zh-CN.md): ind
 
 The image skills support real and artificial plant merchandise. The video skill supports product video preproduction, including botanical products. The image strategy skill produces plans and prompts for the user to execute in Lovart.
 
-## Amazon 通用商品视频前期制作 · v6.3.0
+## Amazon 通用商品视频前期制作 · v6.2.0
 
 调用 `$amazon-video-generation`，源码见[SKILL.md](skills/amazon_video_generation/SKILL.md)。面向各类Amazon商品，按用途、结构、可动部件和交互任务策划视频；花卉与草木保留专门路线，花卉初始用例不再限制整个技能范围。接受产品原图、部分成图或已选最终套图，不要求先凑11张。
 
@@ -29,8 +29,6 @@ The image skills support real and artificial plant merchandise. The video skill 
 新增终态倒推：先选定好看的真实完成态，再设计基础布置与逐步补入，按正常动作顺序展示。多场景明确空间变化与用途，主体、柔性部件和可见光影按真实驱动联动；可手持细节优先稳定小转，触摸/弯折以材质为依据。规则见[终态倒推与真实运动](skills/amazon_video_generation/references/terminal-state-and-motion.md)。
 
 v6.2固定每张宫格3×3九槽，前页填满才续页；每段全部上传图最多9张。详细分镜表按横向十列输出，台词与字幕分列。新增BG12–BG18通用配色展台及WHITE01洁白尺寸空间，生活场景优先轻微画内动作与因果响应。assets参考图已文字化并从当前树移除，历史研究截图按用户选择保留，编辑器模板迁至scripts/templates；旧素材可从v6.1.0恢复。
-
-v6.3优先展示实际使用关系；连续镜头状态变化加入自然桥接，小幅机位轨迹配持续微动作与可观察的触发/响应。新增[商品参考图选择](skills/amazon_video_generation/references/product-reference-selection.md)：主图＋本段必要视角/状态，不固定凑三视图，不将AI隐藏面当作事实，继续遵守每段九图预算。
 
 每个明确版本独立本地提交并附中文说明，详见[版本历史与回滚索引](docs/AMAZON-VIDEO-VERSION-HISTORY.zh-CN.md)。示例：使用 $amazon-video-generation，为我的家具、器具、穿戴或花卉商品设计两段视频方案，先确认真实结构和用途，再交精简分段包。
 
