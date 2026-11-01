@@ -1,8 +1,8 @@
 ---
 name: amazon-video-generation
-description: "Plan Jimeng showcase videos for Amazon products across categories, from product photos or selected image campaigns. Direct scenes, camera paths, mechanisms, human interactions and prop continuity; retain dedicated flower and foliage workflows. Deliver only C01/C02 folders with self-contained Chinese draft prompts and all upload images, plus an analysis Markdown, README and shot CSV. Upload images are preferably square, at least 350 px high, with width/height between 0.6 and 1.6. Reuse selected images and generate missing storyboard states when needed. Does not submit or generate videos automatically."
+description: "Plan Jimeng showcase videos for Amazon products across categories, from product photos or selected image campaigns. Direct scenes, camera paths, mechanisms, human interactions and prop continuity; retain dedicated flower and foliage workflows. Deliver only C01/C02 folders with self-contained Chinese draft prompts and all upload images, plus an analysis Markdown, README and shot CSV. Each segment has at most nine upload images; storyboard pages have fixed 3x3 slots and tables use ten director columns. Upload images are preferably square, at least 350 px high, with width/height between 0.6 and 1.6. Reuse selected images and generate missing storyboard states when needed. Does not submit or generate videos automatically."
 metadata:
-  version: "6.1.0"
+  version: "6.2.0"
 ---
 
 # Amazon Video Generation
@@ -18,6 +18,12 @@ metadata:
 - **foliage 草木**：绿植、盆栽、树/圣诞树追加[草木路线](references/foliage-video-workflow.md)，保留展示、整形、安装和灯效，不强加花卉插入动作。花盆/容器为售卖主角时按该SKU任务进入general。
 
 接受实际选定的最终套图、产品原图或部分素材。可承接`amazon-ordinary-generation`或`amazon-plant-image-strategy`，但计划/提示词不等于成图已存在；不要求启动前重新做11张，也不把资产数当作镜头数。同SKU多角度/状态绑定同一物件，不从竞品继承结构与功能。
+
+## 干净场景与画内微动作
+
+商品实拍仅提取身份/结构，默认重建干净用途场景或按配色选[文字展台库](references/display-background-library.md)，不沿用杂乱实拍背景；用户明确选定的干净最终场景可复用。尺寸展示优先洁白影棚/白色无缝空间，保持轮廓、承重与尺度，不让白底抹掉白色商品边缘。
+
+生活场景优先一个与用途相关的细微画内事件，并写可见响应：如动物自然抬头/眨眼、手指按键带来相应屏幕变化、柔性部分随轻风微动。按已选主体及材质设计，不硬塞人物/动物，不让刚性商品为动而动；固定机位也可真实，单纯静图横移不作为生活场景默认。具体取舍见[真实运动](references/terminal-state-and-motion.md)。
 
 ## 按决定推进的弹窗
 
@@ -54,13 +60,15 @@ S-ID表示镜头，C-ID表示生成任务；一个C-ID可含多个镜头/场景�
 
 仅flowers默认：相机环绕→空间尺寸→1–2个动态细节→多次插花/整理摆放→2–3个动态生活场景→成品收尾。可选相机空间绕行/尺寸线、真实售卖分组悬浮或已核可调整结构；固定成品不擅自拆枝。逐次插入默认3次落位松手，先从选定完成态倒推三次补入及基础花材，不等于空瓶插三枝就结束；或先手中整理再成束1次插入，二选一记录。花材随真实操作累积，不将“身份一致”写成每帧排列冻结。
 
-选择展示台时读[背景库](references/display-background-library.md)，按商品配色适配室内/室外环境，产品保色；模板背景中的花材/品牌/数量不继承为SKU事实。BG代号和此迁移说明仅供策划；最终执行内容写实际选择的空间与配色。一般商品不默认读完整植物背景库。
+选择展示台时读[背景库](references/display-background-library.md)，按商品配色适配室内/室外环境，产品保色；模板背景中的花材/品牌/数量不继承为SKU事实。BG代号和此迁移说明仅供策划；最终执行内容写实际选择的空间与配色。通用商品优先看库中的BG12–BG18几何展台及WHITE01白棚；BG01–BG11保留为花卉/活动布景文字分支。库内参考图已转为文字，原图可从v6.1.0标签恢复，不作为执行依赖。
 
 ## 固定交付与检查
 
 读[精简分镜输出规范](references/flower-storyboard-package.md)。最终仅交`C01/`、需要第二段时的`C02/`、`分析说明书.md`、`README.md`、`shot-list.csv`。每段目录平铺`C01.draft.txt`或`C02.draft.txt`及该段全部详细表PNG、宫格PNG和精选上传图；单段不建空C02。draft是固定文件名，实际齐备状态在README说明。其余总提示词、分镜MD、JSON清单、HTML、音频文件或其他交付均不默认生成，必要中间数据放内存或交付目录外临时区。
 
 所有上传图片（含表、宫格、产品/细节/场景/锚帧）解码并处理EXIF方向后的高度≥350px，`0.6≤宽÷高≤1.6`含边界，优先1:1；这是用户交付约束，不冒称平台普遍规则。视频和格内画面仍可16:9。表/板通过重排、分页和留白达标，不压扁商品或缩成不可读小字。实际图片编辑/补帧按imagegen工作流且使用已查看的本SKU参考；不以画布放大声称低清细节已恢复。
+
+每C-ID全部上传图片合计最多9张（表页、宫格页、产品/场景/锚帧等全部计入），先预算再补图，TXT不占图片数。每张宫格固定3×3九槽，按顺序填充，只有前页填满9槽才开下一页；末页空槽无假图片或假镜号。一格的一个状态不等于一镜，也不单独计作上传文件。详细表固定十列：时间、镜头编号、景别、摄像机角度与运动、画面内容、演员动作、产品展示重点、台词/旁白、音效/音乐、字幕。
 
 两类PNG同源生成；S-ID全片稳定，分页/分段不重编号，同镜多状态为S05/start、S05/key、S05/end，对应同一表行。宫格每格下方有本镜状态简述，详细表的执行信息完整可读。PNG实际产出并逐页查看；表/格说明不是成片字幕。
 

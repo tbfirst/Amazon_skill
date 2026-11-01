@@ -134,7 +134,7 @@ def build_editor(plan_path: Path, output: Path):
     if output.exists():
         raise ValueError("Output already exists; choose a new version")
     payload = build_payload(plan_path)
-    template = Path(__file__).resolve().parent.parent / "assets/storyboard-editor.html"
+    template = Path(__file__).resolve().parent / "templates/storyboard-editor.html"
     data = json.dumps(payload, ensure_ascii=False).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
     html = template.read_text(encoding="utf-8").replace("__STORYBOARD_DATA__", data)
     output.parent.mkdir(parents=True, exist_ok=True)

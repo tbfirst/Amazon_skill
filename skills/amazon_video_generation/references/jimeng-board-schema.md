@@ -6,11 +6,13 @@
 
 - 顶层：`title`、非空`revision`、`generation_id`（如C02）、`global_offset_s`（该段在全片起点）、`aspect_ratio`（视频及格内画幅）、`total_duration_s`（本段时长）、有序`shots`。
 - 镜头：稳定`id`（如S05，第二段不改为S01）、本段`start_s`、`duration_s`、`details`、`frames`。同段从0连续，无重叠/空洞；完整项目另检查跨段全局衔接与S-ID不重复。任务生成时长/裁切保留范围记录于README。
-- `details`：以下13个字段全部为非空字符串，确实不适用时明确写“无”及必要原因，不能用占位词填满。脚本只检查字段存在，不理解语义。
+- `details`：以下15个字段全部为非空字符串，确实不适用时明确写“无”及必要原因，不能用占位词填满。脚本只检查字段存在，不理解语义。
 
 |字段|上传表图需要读到的内容|
 |---|---|
-|scene|场景ID、背景/台面、室内外、景别、角度、主体位置与比例|
+|scene|场景ID、干净背景/台面、室内外、角度、主体位置与比例|
+|shot_size|全景/中景/近景/特写等景别，与画面一致|
+|dialogue|准确台词/旁白及出声主体，无则明确无旁白/台词；不混入字幕|
 |purpose|此镜传递的唯一主要信息/卖点|
 |camera|起终机位、主运动路径、方向、速度、停稳读图时间|
 |lighting|主光方向、色调与固定光源关系；运动实际影响的投影/反射及跨场合理变化|
@@ -45,7 +47,9 @@
   "shots": [{
     "id": "S05", "start_s": 0, "duration_s": 4,
     "details": {
-      "scene": "L02，窗边台面，中景斜前方，成品居中完整入画",
+      "scene": "L02，干净窗边台面，斜前方，成品居中完整入画",
+      "shot_size": "中景",
+      "dialogue": "无旁白、无台词",
       "purpose": "展示摆放完成后的空间效果",
       "camera": "相机从正前偏左向右横移，0–3秒匀速，3–4秒停稳",
       "lighting": "左侧柔和窗光，商品颜色与身份图一致",
@@ -67,13 +71,15 @@
 ## 输出和检查
 
 ```sh
-python3 scripts/build_jimeng_boards.py WORK/C02-plan.json --output-dir DELIVERY/C02 --font CJK_FONT
+python3 scripts/build_jimeng_boards.py WORK/C02-plan.json --output-dir DELIVERY/C02 --font CJK_FONT --reference-image-count 2
 ```
 
-默认3列、每页6格；详细表每页3镜，文字全量换行不省略。`--columns 2`、`--grid-page-size 4`、`--table-page-size 1`可提高实际上传可读性。超大页报错要求拆页，不悄悄缩字；输出目录已存在时报错，使用新版本目录。
+宫格固定3列×3行，每页9槽，仅末页可空；列数和格数不可改为2/6/4。详细表默认每页3镜，可用`--table-page-size 1`提高阅读性，但表页、宫格页和`--reference-image-count`（默认1）合计不得超过9；超预算在写文件前报错。超大页需精简冗余文字或调整表分页，不缩字、不把宫格改少槽提前分页。输出目录存在时报错，使用新版本目录。
+
+表图固定十列，与用户截图一致：时间 / 镜头编号 / 景别 / 摄像机角度与运动 / 画面内容 / 演员动作 / 产品展示重点 / 台词/旁白 / 音效/音乐 / 字幕。scene/lighting/states进入画面内容，action/environment进入演员动作（含动物/物件），purpose/constraints/reference/transition进入产品重点列；camera/parallax进入机位列，shot_size、dialogue独立成列。旧13字段计划需补齐这两项，不从字幕猜旁白。所有执行信息保留，内部planning_notes不渲染。
 
 仅输出连续编号的`01-C02-shot-table-01.png`等表页与后续编号的`02-C02-storyboard-01.png`等宫格页；有多页时编号连续递增。每页使用正方形画布、不裁切拉伸内容，像素高度≥350。分页后的实际文件顺序决定TXT中的上传引用。保持文字可读，空白过多时可调整每页镜数；内容过高导致方形画布超资源上限时要求拆页，不悄悄缩字。
 
-共同输入快照、SHA-256、表行/状态格映射和说明在函数返回值中，**不写`boards-manifest.json`**。CLI仅打印输出图片清单。后续将该段draft.txt和已核合格的精选产品图片放入同一目录，素材图继续使用下一个上传序号。不要将临时计划JSON、原始帧目录或预览文件复制进交付。
+共同输入快照、SHA-256、表行/状态格映射、9槽占用信息与上传预算在函数返回值中，**不写`boards-manifest.json`**。CLI仅打印输出图片清单。后续将该段draft.txt和已核合格的精选产品图片放入同一目录，素材图继续使用下一个上传序号。不要将临时计划JSON、原始帧目录或预览文件复制进交付。
 
 逐页看图并对照TXT/CSV及README映射，检查编号、秒段、格下说明、插入次数、字幕、文件版本、字体和缩放可读性。运行`check_delivery_package.py`检查所有上传图，产品图也必须满足高度≥350与宽高比0.6–1.6，优先1。跨C-ID不重置S-ID、不重复计时；`.draft.txt`为固定命名，实际齐备状态见README，缺帧不能拿空白图交终稿。

@@ -53,7 +53,7 @@ def check(root: Path) -> dict:
     if len(rows) < 2 or not rows[0] or any(len(row) != len(rows[0]) for row in rows[1:]):
         raise ValueError("shot-list.csv must have a header and consistently sized shot rows")
     report = {"segments": {}, "warnings": [],
-              "scope": "Checks files and image dimensions only; prompt/shot identity, facts and readability need review."}
+              "scope": "Checks file scope, per-segment image count and image dimensions only; prompt/shot identity, facts and readability need review."}
     for segment in segments:
         folder = entries[segment]
         if folder.is_symlink() or not folder.is_dir():
@@ -63,6 +63,7 @@ def check(root: Path) -> dict:
             raise ValueError(f"{segment}: missing nonempty {segment}.draft.txt")
         images = []
         numbers = []
+        board_roles = []
         for p in sorted(folder.iterdir()):
             if p.is_symlink() or not p.is_file():
                 raise ValueError(f"{segment}/{p.name}: nested folders and links are not allowed")
@@ -72,14 +73,21 @@ def check(root: Path) -> dict:
             if p.suffix.lower() not in IMAGE_EXTENSIONS or not match:
                 raise ValueError(f"{segment}/{p.name}: only numbered upload PNG/JPEG images and the prompt are allowed")
             numbers.append(int(match[1]))
+            board_match = re.fullmatch(r"\d{2,}-(?:(C\d+)-)?(shot-table|storyboard)(?:-\d+)?", p.stem)
+            if board_match:
+                if board_match[1] and board_match[1] != segment:
+                    raise ValueError(f"{segment}/{p.name}: board C-ID does not match its folder")
+                board_roles.append(board_match[2])
             info = check_image(p)
             images.append(info)
             if not info["square"]:
                 report["warnings"].append(f"{segment}/{p.name}: allowed ratio; prefer 1:1 if legibility permits")
+        if len(images) > 9:
+            raise ValueError(f"{segment}: at most 9 upload images across all roles; found {len(images)}")
         if sorted(numbers) != list(range(1, len(images) + 1)):
             raise ValueError(f"{segment}: image upload numbers must be unique and contiguous from 01")
         for role in ("shot-table", "storyboard"):
-            if not any(role in image["file"] for image in images):
+            if role not in board_roles:
                 raise ValueError(f"{segment}: missing {role} upload image")
         report["segments"][segment] = images
     return report

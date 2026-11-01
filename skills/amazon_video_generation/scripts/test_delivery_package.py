@@ -32,6 +32,28 @@ class DeliveryTests(unittest.TestCase):
         self.segment('C02')
         self.assertEqual(list(check(self.root)['segments']), ['C01', 'C02'])
 
+    def test_nine_image_limit_is_per_segment_and_counts_all_roles(self):
+        for segment in ('C01', 'C02'):
+            folder = self.root / segment if segment == 'C01' else self.segment(segment)
+            for i in range(4, 10):
+                Image.new('RGB', (400,400)).save(folder / f'{i:02d}-scene.png')
+        result = check(self.root)
+        self.assertEqual([len(v) for v in result['segments'].values()], [9,9])
+        Image.new('RGB', (400,400)).save(self.root / 'C02/10-product.png')
+        with self.assertRaisesRegex(ValueError, 'C02: at most 9'):
+            check(self.root)
+
+    def test_distinct_board_roles_and_matching_segment_names(self):
+        folder = self.root / 'C01'
+        table, board = folder/'01-shot-table.png', folder/'02-storyboard.png'
+        table.rename(folder/'01-shot-table-storyboard.png')
+        board.rename(folder/'02-other.png')
+        with self.assertRaisesRegex(ValueError, 'missing shot-table'):
+            check(self.root)
+        (folder/'01-shot-table-storyboard.png').rename(folder/'01-C02-shot-table-01.png')
+        with self.assertRaisesRegex(ValueError, 'C-ID'):
+            check(self.root)
+
     def test_height_and_ratio_inclusive_boundaries(self):
         path = Path(self.tmp.name) / 'test.png'
         for size in ((210, 350), (560, 350), (350, 350), (600, 1000)):

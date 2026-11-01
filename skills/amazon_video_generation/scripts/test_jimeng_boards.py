@@ -8,7 +8,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from PIL import Image
-from build_jimeng_boards import build, FIELDS
+from build_jimeng_boards import build, FIELDS, TABLE_HEADERS
 
 
 class JimengBoardTests(unittest.TestCase):
@@ -34,7 +34,7 @@ class JimengBoardTests(unittest.TestCase):
 
     def test_paired_ids_and_states_across_pages(self):
         self.write()
-        result = build(self.plan, self.out, grid_page_size=3, table_page_size=1)
+        result = build(self.plan, self.out, table_page_size=1)
         grids = [p for p in result['pages'] if p['kind'] == 'storyboard']
         tables = [p for p in result['pages'] if p['kind'] == 'shot-table']
         records = [r for p in grids for r in p['records']]
@@ -62,6 +62,70 @@ class JimengBoardTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'already exists'):
             build(self.plan, self.out)
         self.assertEqual({p.name: p.read_bytes() for p in self.out.iterdir()}, before)
+
+    def test_fixed_nine_slots_and_full_pages_before_overflow(self):
+        self.data['shots'] = [self.shot(f'S{i+1:02}', i*4) for i in range(5)]
+        self.data['total_duration_s'] = 20
+        self.write()
+        result = build(self.plan, self.out, reference_image_count=5)
+        grids = [p for p in result['pages'] if p['kind'] == 'storyboard']
+        self.assertEqual([len(p['slots']) for p in grids], [9, 9])
+        self.assertEqual([len(p['records']) for p in grids], [9, 1])
+        self.assertTrue(all(s['occupied'] for s in grids[0]['slots']))
+        self.assertEqual([s['occupied'] for s in grids[1]['slots']], [True] + [False]*8)
+        self.assertEqual(result['upload_budget']['total'], 9)
+        for page in grids:
+            self.assertEqual(len({s['box'][0] for s in page['slots']}), 3)
+            self.assertEqual(len({s['box'][1] for s in page['slots']}), 3)
+        with Image.open(self.out / grids[1]['file']) as image:
+            for slot in grids[1]['slots'][1:]:
+                x,y,w,h = slot['box']
+                self.assertEqual(image.getpixel((x+w//2,y+20)), (255,255,255))
+
+    def test_non_nine_grid_and_over_budget_leave_no_output(self):
+        self.write()
+        for kwargs in ({'columns': 2}, {'grid_page_size': 6},
+                       {'reference_image_count': 8}, {'reference_image_count': -1}):
+            with self.subTest(kwargs=kwargs):
+                with self.assertRaises(ValueError):
+                    build(self.plan, self.out, **kwargs)
+                self.assertFalse(self.out.exists())
+
+    def test_unsupported_segment_ids_rejected_before_output(self):
+        for cid in ('C1', 'C03'):
+            self.data['generation_id'] = cid
+            self.write()
+            with self.assertRaisesRegex(ValueError, 'C01 or C02'):
+                build(self.plan, self.out)
+            self.assertFalse(self.out.exists())
+
+    def test_exact_nine_panels_do_not_create_empty_page(self):
+        self.data['shots'] = [self.shot(f'S{i+1:02}', i*4) for i in range(3)]
+        for shot in self.data['shots']:
+            shot['frames'].insert(1, {'state':'key', 'file':'frame.png', 'summary':'关键接触'})
+        self.data['total_duration_s'] = 12
+        self.write()
+        result = build(self.plan, self.out)
+        grids = [p for p in result['pages'] if p['kind'] == 'storyboard']
+        self.assertEqual(len(grids), 1)
+        self.assertEqual(len(grids[0]['records']), 9)
+
+    def test_ten_column_table_preserves_every_execution_field(self):
+        self.data['shots'][0]['details']['dialogue'] = '无旁白'
+        self.data['shots'][0]['details']['copy'] = '画面文字：Ready'
+        self.write()
+        result = build(self.plan, self.out, table_page_size=1)
+        for page in result['pages']:
+            if page['kind'] != 'shot-table': continue
+            self.assertEqual(page['headers'], list(TABLE_HEADERS))
+            for row in page['records']:
+                self.assertEqual(list(row['columns']), list(TABLE_HEADERS))
+                rendered = '\n'.join(row['columns'].values())
+                for value in row['details'].values():
+                    self.assertIn(value, rendered)
+        first = result['pages'][0]['records'][0]['columns']
+        self.assertEqual(first['台词/旁白'], '无旁白')
+        self.assertEqual(first['字幕'], '画面文字：Ready')
 
     def test_missing_details_summary_and_bad_timing_fail_without_output(self):
         original = copy.deepcopy(self.data)
