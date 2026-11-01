@@ -4,17 +4,23 @@
 
 本目录是独立的本地 Git 仓库，日期为 2026-10-14。第一版本纳入本地初始提交，后续由你配置远程仓库并推送；许可证按你的决定暂缓。生成的 dist/ 压缩包保留在本地，不重复纳入 Git。
 
-## Amazon 视频前期制作 · v3.1.0
+## Amazon 视频前期制作 · v5.4.0
 
-调用 `$amazon-video-generation`，源码见 [SKILL.md](skills/amazon_video_generation/SKILL.md)。默认21:9、四条各10秒、顺序衔接的中文即梦提示词：特写与缓推、空间多角度展示、有依据的卖点、右侧商品与左侧后期文案留白。
+调用 `$amazon-video-generation`，源码见 [SKILL.md](skills/amazon_video_generation/SKILL.md)。花卉承接已生成并精修选定的11张最终套图，也可从部分产品图开始；默认16:9、25–30秒综合展示：相机环绕、空间尺寸、1–2个动态细节、多次插花/整理、多场景和成品收尾。环绕时花器与花卉不自转，背景有真实视差；细节采用微风或轻抚等响应，生活场景有真实机位移动或动作，避免静图缩放轮播。
 
-交付详细文字分镜表（镜号、顺序、全局/段内时间、时长、景别、角度、运镜、画面、依据和接缝）及CSV，不生成故事板或编辑页。最后10秒为固定无人连续单镜头，不生成文字、Logo、数字或按钮。21:9为创作母版，Amazon具体版位的发布规格另核实。
+内置11种展示台背景提示词及室外衍生方案，按产品配色适配开场；插花默认3次，可从已有花材继续，也可先在手中整理成束后一次插入。
 
-新增 [植物商品运镜库](skills/amazon_video_generation/references/camera-movement-library.md)：慢推拉、横移视差、短弧环绕、升降和前景揭示，按商品资料与镜头目的选用。附提示词片段、角度覆盖、失败简化方案及[研究边界](skills/amazon_video_generation/references/research/2026-10-29-camera-movements.md)。
+新增[双参考六维英文逆推与适配模板](skills/amazon_video_generation/references/reverse-video-prompts.md)：保留两片逐镜报告，并将镜头、动作、材质、风格光照、音景和技术规格整合为可替换SKU的模块。原片观察与复现建议分开，最终仍交完整中文即梦执行词。
 
-内置 [T01/T02模板](skills/amazon_video_generation/references/builtin-video-templates.md)，承接同SKU事实，保留旧项目已明确约定。[行为案例](skills/amazon_video_generation/evaluation/CASES.md)覆盖新流程；旧故事板工具仅保留历史兼容。
+通过3–4轮弹窗收敛，交付完整中文即梦提示词、中文分析说明书、可上传即梦的详细分镜表PNG、每格下方附中文说明的宫格故事板PNG及MD/CSV及精选上传素材。优先复用套图，缺少动作或角度画面时使用Codex内置图像工具补成。
 
-示例：使用 $amazon-video-generation，根据我的商品图制作21:9的四段10秒视频方案，交详细分镜表与四条完整中文提示词，尾段留白供后期加字，不生成故事板。
+优先整片生成。当前用户Seedance 2.0 Mini全能参考单次15秒，较长方案交前后两段自足词与衔接；更换Seedance 2.5后按实际入口核实整片能力。默认英文卖点与尺寸标注、轻音乐、无旁白，文字出错提供后期修正说明。视频由用户提交即梦生成，草木保留原有展示、安装和灯效路线。
+
+详见[展示台背景库](skills/amazon_video_generation/references/display-background-library.md)、[动态导演规则](skills/amazon_video_generation/references/dynamic-flower-direction.md)、[花卉整片工作流](skills/amazon_video_generation/references/flower-showcase-workflow.md)、[双参考逐帧研究](skills/amazon_video_generation/references/research/2026-10-31-two-reference-showcase.md)及[分镜输出规范](skills/amazon_video_generation/references/flower-storyboard-package.md)。
+
+示例：使用 $amazon-video-generation，把我的最终花卉套图做成30秒综合展示方案，通过弹窗明确需求，给我完整提示词、分析说明书、两种分镜图和Mini前后两段执行词。
+
+版本均以本地提交/标签保存，详见[中文版本历史与回滚索引](docs/AMAZON-VIDEO-VERSION-HISTORY.zh-CN.md)。v5.4.0两类PNG从同一镜头计划生成，镜号跨分页/分段保持一致，分段执行词与本段附件对应。
 
 ## 整套 Amazon 图片策略
 
