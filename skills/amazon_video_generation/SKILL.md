@@ -2,7 +2,7 @@
 name: amazon-video-generation
 description: "Plan Jimeng showcase videos for Amazon products across categories, from product photos or selected image campaigns. Direct scenes, camera paths, mechanisms, human interactions and prop continuity; retain dedicated flower and foliage workflows. Deliver only C01/C02 folders with self-contained Chinese draft prompts and all upload images, plus an analysis Markdown, README and shot CSV. Each segment has at most nine upload images; storyboard pages have fixed 3x3 slots and tables use ten director columns. Upload images are preferably square, at least 350 px high, with width/height between 0.6 and 1.6. Reuse selected images and generate missing storyboard states when needed. Does not submit or generate videos automatically."
 metadata:
-  version: "6.5.0"
+  version: "6.6.0"
 ---
 
 # Amazon Video Generation
@@ -23,7 +23,7 @@ metadata:
 
 商品实拍仅提取身份/结构，默认重建干净用途场景或按配色选[文字展台库](references/display-background-library.md)，不沿用杂乱实拍背景；用户明确选定的干净最终场景可复用。尺寸展示优先洁白影棚/白色无缝空间，保持轮廓、承重与尺度，不让白底抹掉白色商品边缘。
 
-生活场景优先一个与用途相关的细微画内事件，并写可见响应：如动物自然抬头/眨眼、手指按键带来相应屏幕变化、柔性部分随轻风微动。按已选主体及材质设计，不硬塞人物/动物，不让刚性商品为动而动；固定机位也可真实，单纯静图横移不作为生活场景默认。编镜时读[三维场景演绎](references/volumetric-scene-direction.md)：把参考图展开为空间、可达机位路径、可见面/遮挡变化与连续事件；整图平移缩放、景深模糊或分层视差不能独自冒充三维动态。人物动作与物体响应写清触发、进行及暂停后的状态；光影只按真实驱动改变。多机位按信息需要选用，不强制每镜移动或为未知侧面补造结构。
+按[镜头任务](references/volumetric-scene-direction.md)选择商品阅读、空间展示或动作展示：阅读镜允许清晰静止停留，生活场景优先适合主体的微动作；已选环绕、摆动等动态要求继续保留。
 
 ## 按决定推进的弹窗
 
@@ -36,15 +36,16 @@ metadata:
 
 用可用的异步文本弹窗；未答/关闭/预选不算同意。缺商品事实时只暂停依赖该事实的镜头，其他工作继续。图片上传在普通对话请求，不用文本弹窗收图片。素材/决定/缺口合并到分析说明书，不额外产生过程文档。
 
-## 身份、空间与动作的通用约束
+## 编镜时按任务读取规则
 
-从本SKU参考确认关键实体身份、数量、固定/可动关系与允许变化。每镜分开写相机路径、主体/部件动作、环境响应；相机位移不是主体自转。固定的是世界中的结构与落点，透视投影随视角合理变化：斜视梯形不必然是错误；正面读形节点须明确机位条件。角落环绕先检查相机是否会穿墙或暴露无参考的面，再决定可达弧段或匹配剪辑。
+|需要决定什么|规则所在文件|
+|---|---|
+|参考图冲突、原镜头任务与细节定位|[商品与镜头保真](references/reference-and-shot-fidelity.md)|
+|身份、数量、连接、接触支撑与材质响应|[物理连续性](references/physical-continuity.md)|
+|布置/装配的完成目标、步骤与相邻状态是否可达|[终态倒推](references/terminal-state-and-motion.md)|
+|相机路径、可见面、光影及按任务验收|[空间与动态](references/volumetric-scene-direction.md)|
 
-操作明确初态→接触/支撑→移动→结果，同一个活动件持续保持身份及真实连接。道具也需管理：柔性绳/带允许弯曲与松垂，但已核端点、环、扣具与归属不能凭空变化。遮挡后的再现是同一物件；真正切分/倒出/装入等已核变化按动作记录，不能机械禁止一切数量变化。
-
-复杂接触优先清楚、稳定的观察机位，减少无信息价值的同时动作。细节镜保留必要的邻接/连接参照、清楚的起终构图和可读停留；不为写孔壁/视差丢失原有定位信息。补图只覆盖必要角度/状态，生成预演不证明隐藏结构。无论提示词多详细，静态起终图正确都不代表中间视频物理一致；按[连续性验收](references/physical-continuity.md)检查实际过程，失败时简化具体事件/补参考/调整机位或切镜。
-
-涉及装配/布置、中间态、多场景或手持细节时，读[终态倒推与真实运动](references/terminal-state-and-motion.md)：先确定完成态，按真实可操作关系倒推基础态及步骤，逐对检查新增组件与落位是否足以得到下一态，再正向展示；多场景写清空间证据，主体/柔性部分/投影按真实驱动联动；可手持件优先小幅转看，触摸或弯折以材料依据为限。
+规则用于做决定，执行词只保留本镜需要的内容；具体失败案例留在evaluation，花卉特例只在花卉分支使用。
 
 ## 研究说明与执行内容分开
 
@@ -72,7 +73,7 @@ S-ID表示镜头，C-ID表示生成任务；一个C-ID可含多个镜头/场景�
 
 两类PNG同源生成；S-ID全片稳定，分页/分段不重编号，同镜多状态为S05/start、S05/key、S05/end，对应同一表行。宫格每格下方有本镜状态简述，详细表的执行信息完整可读。PNG实际产出并逐页查看；表/格说明不是成片字幕。
 
-通用运镜按需查[运镜库](references/camera-movement-library.md)和[机位覆盖](references/multi-angle-coverage.md)，只借工具，不恢复其中植物/旧时长默认。每个卖点须有本SKU依据；植物可另查[证据例库](references/claims-and-evidence.md)，AI画面不能替代商品事实或测试。
+通用运镜按需查[运镜库](references/camera-movement-library.md)和[机位覆盖](references/multi-angle-coverage.md)，按任务和参考覆盖选择，不按机位数增加生成任务。每个卖点须有本SKU依据；植物可另查[证据例库](references/claims-and-evidence.md)，AI画面不能替代商品事实或测试。
 
 运行`python3 scripts/check_camera_plan.py shot-list.csv --profile general --max-generation-seconds 15 --strict`；flowers显式改为`--profile flowers --flower-format F07`，草木用foliage，实际入口更长时才改上限。另运行`python3 scripts/check_delivery_package.py 交付目录`检查层级与所有上传图。脚本不核实商品真实性、几何/道具连续性或音乐匹配，不代替实际视频验收。
 
