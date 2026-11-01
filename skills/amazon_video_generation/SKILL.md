@@ -1,59 +1,69 @@
 ---
 name: amazon-video-generation
-description: "Turn final Amazon flower image campaigns or product photos into 15–30 second Jimeng showcase packages through iterative popup direction. Deliver compact C01/C02 folders containing each Chinese draft prompt and all upload images, plus only an analysis Markdown, README and shot CSV. Upload images are preferably square, at least 350 px high, with width/height between 0.6 and 1.6. Reuse final images and generate missing storyboard states. Prefer whole-film generation; split into two connected parts when the selected model requires it. Also retain foliage display, assembly and lighting planning. Does not submit or generate videos automatically."
+description: "Plan Jimeng showcase videos for Amazon products across categories, from product photos or selected image campaigns. Direct scenes, camera paths, mechanisms, human interactions and prop continuity; retain dedicated flower and foliage workflows. Deliver only C01/C02 folders with self-contained Chinese draft prompts and all upload images, plus an analysis Markdown, README and shot CSV. Upload images are preferably square, at least 350 px high, with width/height between 0.6 and 1.6. Reuse selected images and generate missing storyboard states when needed. Does not submit or generate videos automatically."
 metadata:
-  version: "5.5.0"
+  version: "6.0.0"
 ---
 
 # Amazon Video Generation
 
-把最终商品套图转为可执行的视频展示方案。用户把详细分镜表图片、带格下说明的宫格故事板图片、完整或分段提示词及精选产品图提交即梦生成视频；本技能完成前期策划、必要分镜补图、排版和交接。仅研究或修改本技能时不为未知商品自动生图。
+面向各类Amazon商品的视频前期策划与即梦交接。花卉是最初使用场景，不是主产品范围限制。用户上传详细分镜表、带格下说明的宫格故事板、精选产品图，并复制本段提示词生成视频。本技能策划、补必要预演帧、排版及检查，不自动提交即梦或付费生成视频；仅修改技能时不为未知SKU生图。
 
-## 方向与入口
+## 通用主流程与专用路线
 
-- **花卉 flowers**：鲜切、干花、仿真花枝、花束、固定插花。先读[花卉整片工作流](references/flower-showcase-workflow.md)，默认F07综合展示，25–30秒，允许15–30秒按信息量调整，16:9。新流程优先于旧花卉项目中的F01、固定5秒开场、一镜一生成及无故事板约定。
-- **草木 foliage**：绿植、盆栽、树、圣诞树。继续用[草木路线](references/foliage-video-workflow.md)，保留展示、整形、安装和灯效能力；不强行迁移花卉的摄影偏好；新项目共用下述精简目录与编号规则。按该路线读取素材承接、分镜、输出和交付参考。
-- 旧项目按已明确约定继续，用户要求迁移时再改；不恢复弃用素材或覆盖旧交付。
+所有商品先读[通用商品工作流](references/product-video-workflow.md)，按实际用途、形态、结构、材质、可动部件和交互任务选镜；编镜必读[物理空间与实体连续性](references/physical-continuity.md)。默认15–30秒、16:9，按信息量/已核入口调整，旧项目已明确约定优先。
 
-花卉优先承接 `amazon-plant-image-strategy` 规划后**实际生成、精修并选定的11张最终图片**及同SKU事实。图片策略本身交付提示词，不等于成图已经存在。用户可在Codex用这些提示词完成生图/精修；视频阶段只读取实际选定版本，不能仅据提示词假称已看11张成品。也接受产品原图或部分最终图，不要求为启动视频重新制作11张。11张资产不是11个视频镜头，精选少量承担身份、细节、尺寸和场景职责。
+- **general 通用商品**：家具、宠物用品、电子、家居器具、穿戴、包装及其他商品均可进入；未列类目直接按任务分析。不硬套插花、环绕、固定场景数或植物模板。使用`--profile general`检查。
+- **flowers 花卉**：鲜切/干花/仿真花枝、花束、固定插花追加[花卉整片工作流](references/flower-showcase-workflow.md)与[花卉动态导演](references/dynamic-flower-direction.md)。保留用户已选F07、优先25–30秒综合主线和动作偏好，仅在本分支应用。
+- **foliage 草木**：绿植、盆栽、树/圣诞树追加[草木路线](references/foliage-video-workflow.md)，保留展示、整形、安装和灯效，不强加花卉插入动作。花盆/容器为售卖主角时按该SKU任务进入general。
 
-## 花卉多轮弹窗
+接受实际选定的最终套图、产品原图或部分素材。可承接`amazon-ordinary-generation`或`amazon-plant-image-strategy`，但计划/提示词不等于成图已存在；不要求启动前重新做11张，也不把资产数当作镜头数。同SKU多角度/状态绑定同一物件，不从竞品继承结构与功能。
 
-通常3–4轮，每轮1–3个关键问题，已有答案/委托直接复用：
+## 按决定推进的弹窗
 
-1. 素材与卖点：确认SKU、最终文件版本、真实售卖内容及影响镜头的事实缺口。
-2. 结构与模块：展示具体时间线，比较同一综合主线下的两种侧重；选择空间展示模块和时长，不重新要求用户从零决定主线。
-3. 场景、人物与动作：按商品配色选择室内/室外展示台、后续用途、人物范围；插花默认3次，或采用先在手中整理成束再一次插入，明确容器起态、构图和转场。
-4. 分镜预览微调：展示实际画面分镜板与详细分镜表，按稳定S-ID修改，并同步提示词和上传清单。
+通常3–4轮，每轮1–3个关键问题；已有答案或委托复用，不凑轮数：
 
-使用可用的异步文本弹窗；每次选择影响下一轮。未答、关闭或预选不算同意；与答案无关的素材盘点可继续。上传图片在普通对话请求，不能让文本弹窗收图片。不为流程凑轮数，也不把总风格选择当成所有具体镜头已确认。
+1. 确认SKU与最终素材、售卖内容、用途/卖点，以及会影响拍摄的结构/连接/尺寸缺口。
+2. 给具体时间线，比较两种有意义侧重，明确镜头和生成任务的区别；不要求用户从零写导演脚本。
+3. 确认场景空间、人物范围、要展示的真实动作和关键道具；检查相机可达范围、同一部件的动作与连接、握持/遮挡/落位。通用商品不默认三次动作。
+4. 展示实际表图与宫格，按稳定S-ID修改，同步TXT、CSV和README附件映射。
 
-用户已选默认：**相机环绕→空间尺寸→1–2个动态细节卖点→多次插花/整理摆放→2–3个动态生活场景→成品收尾**。三种空间模块均可选：相机空间绕行与尺寸线、售卖花枝/套装分组悬浮、真实可调整结构。跨场以匹配构图和运动方向的剪辑为主，必要时遮挡转场。默认简短英文卖点、准确尺寸标注、轻音乐、无旁白；文字先在即梦生成，出错提供后期修正方案。具体商品不适用的模块须说明替代，不硬造结构。
+用可用的异步文本弹窗；未答/关闭/预选不算同意。缺商品事实时只暂停依赖该事实的镜头，其他工作继续。图片上传在普通对话请求，不用文本弹窗收图片。素材/决定/缺口合并到分析说明书，不额外产生过程文档。
 
-分镜与写词必读[花卉动态导演规则](references/dynamic-flower-direction.md)：环绕时花器和花卉整体在空间中固定，背景随相机位移产生真实透视与视差；尺寸段同样用相机空间绕行，不让主体自转。细节用适合材质的微风、轻抚等连续响应；逐次插花默认3次可辨认的插入—落位—松手，容器可预先已有部分花材；也可选“手中整理部分花材→成束一次插入→落位松手”的完整替代。多色/多花型按实际售卖组合累积。每个场景必须有真实相机位移或画内事件，禁止以静图缩放轮播代替生活展示。
+## 身份、空间与动作的通用约束
 
-选择开场展示台时读[背景参考与提示词库](references/display-background-library.md)：内置11张用户参考对应的布景卡及室外衍生方案，按产品配色适配环境、不改变商品颜色。以用户最终产品图为身份依据，用图像工具放入合适主位，前几秒相机环绕，再接尺寸、细节、插花及其他场景；已有合适成图可复用。参考中的异种花材、品牌和陈列数量不继承为SKU内容。
+从本SKU参考确认关键实体身份、数量、固定/可动关系与允许变化。每镜分开写相机路径、主体/部件动作、环境响应；相机位移不是主体自转。固定的是世界中的结构与落点，透视投影随视角合理变化：斜视梯形不必然是错误；正面读形节点须明确机位条件。角落环绕先检查相机是否会穿墙或暴露无参考的面，再决定可达弧段或匹配剪辑。
 
-## 整片提示词与实际入口
+操作明确初态→接触/支撑→移动→结果，同一个活动件持续保持身份及真实连接。道具也需管理：柔性绳/带允许弯曲与松垂，但已核端点、环、扣具与归属不能凭空变化。遮挡后的再现是同一物件；真正切分/倒出/装入等已核变化按动作记录，不能机械禁止一切数量变化。
 
-借鉴用户两段参考片时读[六维逆推与模板库](references/reverse-video-prompts.md)：内含两片完整逐镜英文复现建议和可替换SKU的适配模板。原片时间码、人物、材质、动作和音轨核实程度属于研究记录；现行花卉规则优先，不能迁移玩具折叠/机洗、恢复主体自转或把原片混合花材当本SKU。英文库用于分析与学习，项目最终仍交完整中文即梦执行词；原片的镜头数与总长不决定生成任务数或本片时长。
+复杂接触优先清楚、稳定的观察机位，减少无信息价值的同时动作。补图只覆盖必要角度/状态，生成预演不证明隐藏结构。无论提示词多详细，静态起终图正确都不代表中间视频物理一致；按[连续性验收](references/physical-continuity.md)检查实际过程，失败时简化具体事件/补参考/调整机位或切镜。
 
-读[整片提示词与即梦交接](references/full-film-prompt.md)。S-ID表示镜头，C-ID表示一次生成任务；**一个C-ID可以包含多个镜头和多个场景**。主提示词写全片顺序、节奏、运镜、动作、切镜、字和声音，不再只给散落的逐镜短词。
+## 研究说明与执行内容分开
 
-本次用户入口是 **Seedance 2.0 Mini / 全能参考 / 单次15秒**，来源为用户2026-10-31说明。优先一份完整脚本，目标超过实际时长时分前后两段，分别给自足执行词、局部时间线、对应详细分镜表PNG和宫格故事板PNG及素材映射，明确接缝。允许用户在提示词成熟后选更贵的Seedance 2.5；单次可用时长/参考数量/声音能力仍按实际入口核实，不能从模型名或参考片标题推定。不要把30秒总脚本标成Mini可直接一次运行，也不要无理由退回每镜一个任务。
+按[整段提示词与交接](references/full-film-prompt.md)编写。研究来源、模板代号、原片禁用元素、未试听声明、平台/文件规则属于agent和用户的说明，留在分析说明书/README。**最终TXT、上传分镜表文字、宫格简述只含当前SKU、实际上传素材及本段画面/声音要求**；不把未上传底层模板作为模型已知上下文。
 
-## 画面、事实与交付
+参考片可按[六维逆推库](references/reverse-video-prompts.md)提炼拍法；该库是内部研究资料，T04/T05等花卉模块不自动套给其他商品。新研究及适用边界见[通用商品研究记录](references/research/2026-11-01-general-product-video.md)。优先具体正向动作，必要的本项目限制仍可保留，不用无关黑名单或全局禁词替代商品事实。
 
-读[分镜板与输出包](references/flower-storyboard-package.md)。最终仅交：`C01/`、需要第二段时的`C02/`、`分析说明书.md`、`README.md`和`shot-list.csv`。每段目录平铺该段`C01.draft.txt`或`C02.draft.txt`以及所有实际上传图片：详细分镜表PNG、宫格故事板PNG、精选产品图。统一保留`.draft.txt`命名，是否齐备由README标明，不另导出`.txt`终稿或总提示词。单段只建C01，不建空C02。素材事实、决定、衔接、文案与上传映射合并进说明书/README/CSV，不额外生成独立MD、JSON清单、总览板、编辑页或其他交付文件。必要排版中间数据只放内存或交付目录之外的临时目录。
+S-ID表示镜头，C-ID表示生成任务；一个C-ID可含多个镜头/场景。每段独立说明身份、附件、动作、节奏、切镜、文案和声音，不写“同上”或让用户拼词。秒段是导演预算，复杂动作按事件顺序与相对节奏表达，不承诺模型精确按时点执行。
 
-**所有实际上传图片**（含表、宫格、产品图、场景图和锚帧）须高度≥350像素，`0.6≤宽÷高≤1.6`（含边界），默认优先1:1。以实际文件解码并处理EXIF方向后的尺寸验收，不按文件名猜测，不把这项用户上传约束宣称为已查证的平台规则。视频本身可为16:9，宫格内画面也可为16:9，限制作用于整张上传文件。表与宫格通过分页、重排和画布留白达标，不压扁画面或缩小文字凑比例；不合格产品参考先按图像工作流重新构图/扩画布并查看，不能仅放大低清图声称细节已恢复。
+用户2026-10-31说明的入口是Seedance 2.0 Mini/全能参考/单次15秒。可用设置按实际入口核实，不从更贵型号、API或源片标题推定。优先整片，超实际上限才拆前后两段；两段仍容不下时弹窗决定，不默默增段。保留轻音乐、无旁白与简短英文文案的已选偏好，具体项目可改。**两次独立生成相同音乐词连同旋律也不能保证**；每段写自足风格目标，同一连续音轨的后期方案留在说明书，不假定模型记得前段，不默认新增音频交付。
 
-两类PNG从同一份镜头数据生成；S-ID全片稳定，分页/分段不重编号，同镜多格以S05/start、S05/key、S05/end对应同一表行。宫格每格下方保留简短中文状态说明；表内执行细节完整可读。格下说明和表内导演信息不作为成片字幕。PNG必须实际产出并查看，不用文字表或空框代替画面故事板。
+## 花卉专用偏好
 
-优先复用最终套图；缺少的动作起止或角度画面按 `imagegen` 技能，用内置图像工具和实际产品参考补成，再排版。生成图是预演，不新增商品事实；角度推断标明，隐藏结构/尺寸缺失要补事实，不能用生图“证明”。程序可排版、加编号和文字，不能以色块或手绘假商品冒充真实画面。不自动建网站/编辑器，不提交即梦或自动付费生成视频。
+仅flowers默认：相机环绕→空间尺寸→1–2个动态细节→多次插花/整理摆放→2–3个动态生活场景→成品收尾。可选相机空间绕行/尺寸线、真实售卖分组悬浮或已核可调整结构；固定成品不擅自拆枝。逐次插入默认3次落位松手，可从已有花材开始；或先手中整理再成束1次插入，二选一记录。花材随真实操作累积，不将“身份一致”写成每帧排列冻结。
 
-卖点查[证据规范](references/claims-and-evidence.md)；运镜按需查[运镜库](references/camera-movement-library.md)和[机位覆盖](references/multi-angle-coverage.md)。每镜分别写相机移动、主体动作、环境响应及空间视差，给起中终状态、主路径与稳定读图时间。花器固定指世界坐标中的落点和朝向，不是冻结屏幕中的透视；真实摆放/整理动作另行描述。花枝布局可因真实操作改变，身份、花型、颜色、数量与售卖内容须一致。固定成品不擅自拆成散枝，不从竞品继承功能。
+选择展示台时读[背景库](references/display-background-library.md)，按商品配色适配室内/室外环境，产品保色；模板背景中的花材/品牌/数量不继承为SKU事实。BG代号和此迁移说明仅供策划；最终执行内容写实际选择的空间与配色。一般商品不默认读完整植物背景库。
 
-实际镜头起止、README附件顺序、表行与格下编号/状态说明、字幕、TXT与CSV版本一致；插删镜头保留已有S-ID，以顺序字段控制播放次序。详细执行信息须在上传表图可读，不能仅藏在说明书/CSV。按[分镜板与输出包](references/flower-storyboard-package.md)的同源排版命令生成两类图片，并按实际上传缩放检查可读性。静态分镜验收、提示词齐备、视频生成、动态验收与发布是不同状态。参考片的逐帧序列结论见[双参考研究](references/research/2026-10-31-two-reference-showcase.md)；它提炼拍法，不证明模型成功率或销售效果。
+## 固定交付与检查
 
-CSV运镜与时长检查：`python scripts/check_camera_plan.py shot-list.csv --profile flowers --flower-format F07 --max-generation-seconds 15 --strict`；仅在实际选定入口支持更长时填写相应上限。此脚本不核实模型能力、不检查商品真伪，也不代替时间轴/画面验收。另运行`python3 scripts/check_delivery_package.py 交付目录`检查唯一目录结构及所有上传图片。修改技能后运行技能校验及受影响脚本测试，源码与`.agents/skills/amazon-video-generation`安装副本同步；每次可见版本独立本地提交、中文说明并加版本标签。
+读[精简分镜输出规范](references/flower-storyboard-package.md)。最终仅交`C01/`、需要第二段时的`C02/`、`分析说明书.md`、`README.md`、`shot-list.csv`。每段目录平铺`C01.draft.txt`或`C02.draft.txt`及该段全部详细表PNG、宫格PNG和精选上传图；单段不建空C02。draft是固定文件名，实际齐备状态在README说明。其余总提示词、分镜MD、JSON清单、HTML、音频文件或其他交付均不默认生成，必要中间数据放内存或交付目录外临时区。
+
+所有上传图片（含表、宫格、产品/细节/场景/锚帧）解码并处理EXIF方向后的高度≥350px，`0.6≤宽÷高≤1.6`含边界，优先1:1；这是用户交付约束，不冒称平台普遍规则。视频和格内画面仍可16:9。表/板通过重排、分页和留白达标，不压扁商品或缩成不可读小字。实际图片编辑/补帧按imagegen工作流且使用已查看的本SKU参考；不以画布放大声称低清细节已恢复。
+
+两类PNG同源生成；S-ID全片稳定，分页/分段不重编号，同镜多状态为S05/start、S05/key、S05/end，对应同一表行。宫格每格下方有本镜状态简述，详细表的执行信息完整可读。PNG实际产出并逐页查看；表/格说明不是成片字幕。
+
+通用运镜按需查[运镜库](references/camera-movement-library.md)和[机位覆盖](references/multi-angle-coverage.md)，只借工具，不恢复其中植物/旧时长默认。每个卖点须有本SKU依据；植物可另查[证据例库](references/claims-and-evidence.md)，AI画面不能替代商品事实或测试。
+
+运行`python3 scripts/check_camera_plan.py shot-list.csv --profile general --max-generation-seconds 15 --strict`；flowers显式改为`--profile flowers --flower-format F07`，草木用foliage，实际入口更长时才改上限。另运行`python3 scripts/check_delivery_package.py 交付目录`检查层级与所有上传图。脚本不核实商品真实性、几何/道具连续性或音乐匹配，不代替实际视频验收。
+
+修改技能后运行技能校验及受影响测试，源码与`.agents/skills/amazon-video-generation`同步；每次可见版本独立本地提交、中文说明并加版本标签。

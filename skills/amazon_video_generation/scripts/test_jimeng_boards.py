@@ -103,6 +103,19 @@ class JimengBoardTests(unittest.TestCase):
             build(self.plan, self.out)
         self.assertFalse(self.out.exists())
 
+    def test_internal_planning_notes_do_not_change_upload_pixels(self):
+        self.write()
+        baseline = build(self.plan, self.out)
+        self.data['planning_notes'] = {'research': '内部参考模板与未知音轨；不属于执行内容'}
+        self.data['shots'][0]['planning_notes'] = {'evidence': '内部讨论与待核来源记录'}
+        self.write()
+        other = self.root / 'with-internal-notes'
+        updated = build(self.plan, other)
+        self.assertNotEqual(baseline['plan_sha256'], updated['plan_sha256'])
+        self.assertEqual([p['sha256'] for p in baseline['pages']], [p['sha256'] for p in updated['pages']])
+        self.assertEqual([p['records'] for p in baseline['pages']], [p['records'] for p in updated['pages']])
+        self.assertTrue(all(p.suffix == '.png' for p in other.iterdir()))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -14,23 +14,19 @@ A collection of three Agent Skills, with a [Chinese guide](README.zh-CN.md): ind
 
 The image skills support real and artificial plant merchandise. The video skill supports product video preproduction, including botanical products. The image strategy skill produces plans and prompts for the user to execute in Lovart.
 
-## Amazon 视频前期制作 · v5.5.0
+## Amazon 通用商品视频前期制作 · v6.0.0
 
-调用 `$amazon-video-generation`，源码见 [SKILL.md](skills/amazon_video_generation/SKILL.md)。花卉承接已生成并精修选定的11张最终套图，也可从部分产品图开始；默认16:9、25–30秒综合展示：相机环绕、空间尺寸、1–2个动态细节、多次插花/整理、多场景和成品收尾。环绕时花器与花卉不自转，背景有真实视差；细节采用微风或轻抚等响应，生活场景有真实机位移动或动作，避免静图缩放轮播。
+调用 `$amazon-video-generation`，源码见[SKILL.md](skills/amazon_video_generation/SKILL.md)。面向各类Amazon商品，按用途、结构、可动部件和交互任务策划视频；花卉与草木保留专门路线，花卉初始用例不再限制整个技能范围。接受产品原图、部分成图或已选最终套图，不要求先凑11张。
 
-内置11种展示台背景提示词及室外衍生方案，按产品配色适配开场；插花默认3次，可从已有花材继续，也可先在手中整理成束后一次插入。
+[通用主流程](skills/amazon_video_generation/references/product-video-workflow.md)与[物理连续性](skills/amazon_video_generation/references/physical-continuity.md)区分相机运动、主体运动和部件操作：先核空间可达性与真实连接，再设计接触、受力、移动、遮挡与结果。合理透视收缩不是结构变形；刚性结构、同一活动件和柔性道具的连接关系分别验收，不把所有商品锁成静止。
 
-新增[双参考六维英文逆推与适配模板](skills/amazon_video_generation/references/reverse-video-prompts.md)：保留两片逐镜报告，并将镜头、动作、材质、风格光照、音景和技术规格整合为可替换SKU的模块。原片观察与复现建议分开，最终仍交完整中文即梦执行词。
+[执行词规范](skills/amazon_video_generation/references/full-film-prompt.md)要求TXT、上传表图和宫格说明仅写本SKU及真实上传附件；模板溯源、原片禁用清单、未试听声明和平台文件规则留在分析说明书/README。独立两段采用自足音景描述，同词不保证同旋律；需要统一音轨时规划实际共同输入或后期，不假定模型记得前段。
 
-通过3–4轮弹窗收敛，按实际一段/两段交付C01/C02文件夹，每段只放该段draft.txt和全部上传图；根目录仅分析说明书.md、README.md和shot-list.csv。上传图包含详细分镜表、带格下说明的宫格故事板及精选产品图；所有图片高度至少350像素，宽高比0.6–1.6且优先1:1。优先复用套图，缺少动作或角度画面时使用Codex内置图像工具补成。
+默认15–30秒、16:9，按已核入口决定一段或两段；用户既有Mini全能参考单次15秒设置仅在相同入口复用。只交C01/C02文件夹（各含本段draft.txt和全部上传图），根目录仅分析说明书.md、README.md及shot-list.csv。所有上传图高度≥350px，宽高比0.6–1.6，优先1:1；表与宫格保持同源S-ID和格下说明。
 
-优先整片生成。当前用户Seedance 2.0 Mini全能参考单次15秒，较长方案交前后两段自足词与衔接；更换Seedance 2.5后按实际入口核实整片能力。默认英文卖点与尺寸标注、轻音乐、无旁白，文字出错提供后期修正说明。视频由用户提交即梦生成，草木保留原有展示、安装和灯效路线。
+花卉分支保留F07综合展示、3次逐次插入或整理成束后1次插入、展示台适配等既定偏好；一般商品不被要求插花或强制环绕。前期图/词检查不等于视频实际通过，生成后的几何、数量、接触与道具连续性仍需验片。研究与能力边界见[本轮一手资料记录](skills/amazon_video_generation/references/research/2026-11-01-general-product-video.md)。
 
-详见[展示台背景库](skills/amazon_video_generation/references/display-background-library.md)、[动态导演规则](skills/amazon_video_generation/references/dynamic-flower-direction.md)、[花卉整片工作流](skills/amazon_video_generation/references/flower-showcase-workflow.md)、[双参考逐帧研究](skills/amazon_video_generation/references/research/2026-10-31-two-reference-showcase.md)及[分镜输出规范](skills/amazon_video_generation/references/flower-storyboard-package.md)。
-
-示例：使用 $amazon-video-generation，把我的花卉套图做成30秒综合展示方案；交C01/C02文件夹，各含本段draft.txt和全部上传图，根目录仅分析说明书、README与分镜CSV，图片优先正方形。
-
-版本均以本地提交/标签保存，详见[中文版本历史与回滚索引](docs/AMAZON-VIDEO-VERSION-HISTORY.zh-CN.md)。v5.5.0保持两类PNG同源与稳定镜号，新增精简目录和全量上传图片规格校验，分段执行词与本段文件夹附件对应。
+每个明确版本独立本地提交并附中文说明，详见[版本历史与回滚索引](docs/AMAZON-VIDEO-VERSION-HISTORY.zh-CN.md)。示例：使用 $amazon-video-generation，为我的家具、器具、穿戴或花卉商品设计两段视频方案，先确认真实结构和用途，再交精简分段包。
 
 ## Use the campaign strategy skill
 

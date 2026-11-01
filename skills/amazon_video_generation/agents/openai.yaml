@@ -1,4 +1,4 @@
 interface:
-  display_name: "Amazon 花卉与草木视频导演"
-  short_description: "最终套图转花卉展示视频方案：多轮弹窗、分段素材文件夹、方形分镜图及精简交付"
-  default_prompt: "使用 $amazon-video-generation，将我的商品图转为即梦视频方案；按实际一段或两段交C01/C02文件夹，各含本段draft.txt及全部上传图片，根目录仅分析说明书.md、README.md与shot-list.csv；镜号对应、宫格附简述，上传图高至少350像素、宽高比0.6–1.6并优先正方形。"
+  display_name: "Amazon 通用商品视频导演"
+  short_description: "各类商品视频策划：空间与结构、道具连续性、自足执行词和精简分段交付"
+  default_prompt: "使用 $amazon-video-generation，将我的商品图按实际结构与用途转为即梦视频方案，关注空间透视、部件与道具连续性，执行词仅含本SKU和真实上传素材；按实际一段或两段交C01/C02文件夹，各含本段draft.txt及全部上传图片，根目录仅分析说明书.md、README.md与shot-list.csv；镜号对应、宫格附简述，上传图高至少350像素、宽高比0.6–1.6并优先正方形。"

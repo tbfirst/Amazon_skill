@@ -4,12 +4,15 @@
 from __future__ import annotations
 
 import sys
+import io
+import contextlib
+import tempfile
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from check_camera_plan import check_rows, parse_table  # noqa: E402
+from check_camera_plan import check_rows, parse_table, main  # noqa: E402
 
 
 GOOD_CSV = """镜号,片段,出镜时长,运镜方式与起终点
@@ -266,6 +269,27 @@ class FullFilmCapacityTests(unittest.TestCase):
         text = "镜号,片段,出镜时长,生成任务长度,运镜方式与起终点\nS01,C01,30,30,M04 环绕；起幅正面，终点侧面停稳\n"
         self.assertEqual(errors(self.check(text, 30)), [])
         self.assertTrue(errors(self.check(text, 15)))
+
+
+class GeneralProductTests(unittest.TestCase):
+    PLAN = "镜号,片段,出镜时长,生成任务长度,运镜方式与起终点\nS01,C01,4,8,M00：固定近景；起态完整灯体；灯头转动后停稳\nS02,C01,4,8,M03：从正前起幅横移至右前终点停稳\n"
+
+    def test_generic_mechanism_has_no_botanical_opening_requirement(self):
+        header, rows = parse_table(self.PLAN)
+        self.assertEqual(errors(check_rows(header, rows, strict=True, profile="general")), [])
+        self.assertTrue(errors(check_rows(header, rows, strict=True, profile="flowers", flower_format="F01")))
+
+    def test_general_still_rejects_generation_over_actual_limit(self):
+        header, rows = parse_table(self.PLAN.replace(",8,", ",16,"))
+        self.assertTrue(errors(check_rows(header, rows, strict=True, profile="general", max_generation_seconds=15)))
+
+    def test_cli_default_accepts_general_product(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "shot-list.csv"
+            path.write_text(self.PLAN, encoding="utf-8-sig")
+            with contextlib.redirect_stdout(io.StringIO()):
+                result = main([str(path), "--strict"])
+            self.assertEqual(result, 0)
 
 
 if __name__ == "__main__":

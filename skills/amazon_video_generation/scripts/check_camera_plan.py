@@ -2,6 +2,7 @@
 """Check camera/length structure by direction, not product truth or footage quality.
 
 CLI: check_camera_plan.py shot-list.csv --profile flowers --strict
+general: product-specific camera/actions, with no botanical opening requirement.
 flowers: F01 defaults to a 5s orbit; F02-F07 use the selected structure; total <=30s.
 foliage: project-selected camera movements; total <=30s.
 Generation capacity is supplied by --max-generation-seconds, not inferred from a model name.
@@ -141,7 +142,7 @@ def check_rows(header: list[str], rows: list[list[str]], strict: bool = False, p
     if (type(max_generation_seconds) not in (int, float)
             or not math.isfinite(max_generation_seconds) or max_generation_seconds <= 0):
         raise ValueError("max_generation_seconds must be a positive finite number")
-    if profile not in {"flowers", "foliage", "legacy"}:
+    if profile not in {"general", "flowers", "foliage", "legacy"}:
         raise ValueError(f"Unknown profile: {profile}")
     if flower_format not in {"F01", "F02", "F03", "F04", "F05", "F06", "F07"}:
         raise ValueError(f"Unknown flower format: {flower_format}")
@@ -293,7 +294,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("path", type=Path, help="shot-list.csv or shot-list.md")
     parser.add_argument("--strict", action="store_true", help="treat warnings as errors")
-    parser.add_argument("--profile", choices=["flowers", "foliage", "legacy"], default="foliage", help="direction; legacy preserves pre-v4 contracts")
+    parser.add_argument("--profile", choices=["general", "flowers", "foliage", "legacy"], default="general", help="direction; legacy preserves pre-v4 contracts")
     parser.add_argument("--flower-format", choices=["F01", "F02", "F03", "F04", "F05", "F06", "F07"], default="F01", help="selected flower structure; F01 preserves the 5s orbit contract; ignored for other profiles")
     parser.add_argument("--max-generation-seconds", type=float, default=15, help="verified capacity of the selected entry; default 15, not a model-wide claim")
     args = parser.parse_args(argv)

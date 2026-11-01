@@ -1,6 +1,6 @@
 # 双参考视频：六维英文逆推与SKU适配模板
 
-本库分为**原片分析**和**项目适配**两层。英文段落是根据可见画面逆向设计的复现建议，不是恢复原作者提示词，也不证明作者用了某种模型、镜头或3D工作流。技能默认最终交付仍是中文整片即梦词；只有用户明确要求英文执行版时才另交。
+本库是供策划agent使用的研究与适配资料，分为**原片分析**和**项目适配**两层。英文段落是根据可见画面逆向设计的复现建议，不是恢复原作者提示词，也不证明作者用了某种模型、镜头或3D工作流。技能默认最终交付仍是中文整片即梦词；只有用户明确要求英文执行版时才另交。
 
 ## 原片完整报告
 
@@ -22,7 +22,9 @@
 |沉浸式音景|本项目轻音乐/环境音/接触音/无旁白策略；逐项标来源或设计|未试听就断言原片音乐类型、节拍或无音乐|
 |整合与规格|每镜一段连贯高密度正文，随后给目标时长、画幅、入口适用规格|假定焦距、ISO、帧率是模型可控参数；一镜等于一次生成|
 
-原片A的叙事方法是“生活用途→可见状态/结构→接触或使用反馈→多个用途结果”；原片B的方法是“成品先行→制作过程→花材逐组增加→接触细节→回到成品”。可组合两种方法，重新规划成15–30秒，默认25–30秒。既有[整片时间线](flower-showcase-workflow.md)与[动态规则](dynamic-flower-direction.md)优先：前几秒相机环绕、尺寸段主体固定、细节有响应、插花默认3次或手中整理成束后1次，场景有真实过程。原片中的折叠、拆解、机洗、材料填充、季节道具、儿童情节不是花卉功能或必须复制的元素。
+原片A提供用途→状态/结构→接触反馈→用途结果的叙事；原片B提供成品→过程→累积→细节→成品的叙事。一般商品按[通用流程](product-video-workflow.md)挑选信息任务，不强制环绕/插花；flowers才沿用[花卉时间线](flower-showcase-workflow.md)与[动态规则](dynamic-flower-direction.md)。T04/T05是花卉特例，T01/T02/T03/T06的具体物件/声音措辞也要重写，不能逐字拼成终稿。
+
+**编译边界**：原片功能/道具的“不继承”规则、观察与推断、音轨是否听审、源片时间码和模板ID只留分析说明书；不把它们转成TXT、分镜表或宫格的禁用清单。执行内容仅描述当前SKU需要的结果和实际附件。只迁移有用拍法，不禁用恰好也是本SKU真实功能的词。跨C-ID的声音按[执行词声音规则](full-film-prompt.md)处理，内部模板的“继续”只可指同一次任务内已选音景，不指向模型没有收到的前段。
 
 ## 模板到源片的溯源
 
@@ -88,11 +90,11 @@
 
 借用原片A的多用途收束与原片B的首尾成品呼应；花卉跨场景运动连续性按当前要求重新设计。
 
-> Reveal the same completed [PRODUCT] in [SCENE], its [COLORS], [VESSEL] and [FINAL_LAYOUT] immediately recognizable from the preceding shot. Begin on a matching position, scale or motion direction and let [SCENE_EVENT or CAMERA_PATH] unfold as a real interval: the near [NEAR_ANCHOR] and distant [FAR_ANCHOR] separate through parallax, or a visible placement-and-release action establishes the arrangement's use without changing what is sold. Preserve the documented [SURFACE] and a plausible contact with [DISPLAY], adapting [LIGHT] to the new room or sheltered outdoor setting while retaining the film's [STYLE] color discipline. Let the final composition echo the opening and settle on the product, leaving [APPROVED_COPY_OR_NONE] readable if requested. For the proposed sound design, continue the same restrained [AUDIO], bridge the edit gently with appropriate ambience, and avoid a new musical restart or narration. Technical target: [SECONDS] seconds, [ASPECT], [OUTPUT_SETTINGS]; this is a dynamic scene, not a still photograph enlarged before the next cut.
+> Reveal the same completed [PRODUCT] in [SCENE], its [COLORS], [VESSEL] and [FINAL_LAYOUT] immediately recognizable from the preceding shot. Begin on a matching position, scale or motion direction and let [SCENE_EVENT or CAMERA_PATH] unfold as a real interval: the near [NEAR_ANCHOR] and distant [FAR_ANCHOR] separate through parallax, or a visible placement-and-release action establishes the arrangement's use without changing what is sold. Preserve the documented [SURFACE] and a plausible contact with [DISPLAY], adapting [LIGHT] to the new room or sheltered outdoor setting while retaining the film's [STYLE] color discipline. Let the final composition echo the opening and settle on the product, leaving [APPROVED_COPY_OR_NONE] readable if requested. For this generation task, specify a restrained [AUDIO_STYLE] and suitable room ambience, without narration; any shared soundtrack across separate tasks is a separate production decision. Technical target: [SECONDS] seconds, [ASPECT], [OUTPUT_SETTINGS]; this is a dynamic scene, not a still photograph enlarged before the next cut.
 
 ## 从库到项目的最短路径
 
 1. 选叙事方法与相关模块，记录完整报告中的来源镜号/时间码；新增用户创意标“项目扩展”，不硬找源片证据。
 2. 写全片风格锚点与各镜真实任务，填写SKU事实和动作状态，按选定片长重新分配时间。未核事实只阻塞相应模块。
 3. 将适配后的英文语义整合成中文主提示词；Mini单次15秒时按自然切点分C01/C02，每段独立自足，逐镜英文模块不意味着逐镜生成。
-4. 同步实际分镜板、导演表、上传参考与说明书；动态动作只有实际生成后才能验收。不得把本库段落齐全当成已经完成该SKU的视频包。
+4. 将内部来源/研究说明留在分析说明书，检查最终TXT、上传表与格下说明仅含本SKU执行信息；同步实际分镜板、导演表和上传参考；动态动作只有实际生成后才能验收。不得把本库段落齐全当成已经完成该SKU的视频包。

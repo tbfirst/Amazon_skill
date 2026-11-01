@@ -20,7 +20,7 @@ GROUPS = (
     (("states", "起→中→终"), ("action", "主体动作/接触/次数"),
      ("environment", "环境响应"), ("parallax", "空间参照/视差")),
     (("copy", "成片文字/时间/位置"), ("sound", "声音"), ("transition", "转场/接缝"),
-     ("reference", "参考文件/事实来源"), ("constraints", "连续性/约束")),
+     ("reference", "本段附件/身份绑定"), ("constraints", "连续性/约束")),
 )
 FIELDS = {key for group in GROUPS for key, _ in group}
 
