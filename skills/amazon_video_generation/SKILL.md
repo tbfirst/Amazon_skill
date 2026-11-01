@@ -2,7 +2,7 @@
 name: amazon-video-generation
 description: "Turn final Amazon flower image campaigns or product photos into 15–30 second Jimeng showcase packages through iterative popup direction. Deliver a complete Chinese film prompt, analysis manual, visual storyboard PNG, detailed shot table PNG/MD/CSV, and selected upload references. Reuse final images and generate missing storyboard states. Prefer whole-film generation; split into two connected parts when the selected model requires it. Also retain foliage display, assembly and lighting planning. Does not submit or generate videos automatically."
 metadata:
-  version: "5.1.0"
+  version: "5.2.0"
 ---
 
 # Amazon Video Generation
@@ -23,14 +23,16 @@ metadata:
 
 1. 素材与卖点：确认SKU、最终文件版本、真实售卖内容及影响镜头的事实缺口。
 2. 结构与模块：展示具体时间线，比较同一综合主线下的两种侧重；选择空间展示模块和时长，不重新要求用户从零决定主线。
-3. 场景、人物与动作：场景各增加什么用途，人物出现范围，插花/整理/摆放动作，构图和转场。
+3. 场景、人物与动作：按商品配色选择室内/室外展示台、后续用途、人物范围；插花默认3次，或采用先在手中整理成束再一次插入，明确容器起态、构图和转场。
 4. 分镜预览微调：展示实际画面分镜板与详细分镜表，按稳定S-ID修改，并同步提示词和上传清单。
 
 使用可用的异步文本弹窗；每次选择影响下一轮。未答、关闭或预选不算同意；与答案无关的素材盘点可继续。上传图片在普通对话请求，不能让文本弹窗收图片。不为流程凑轮数，也不把总风格选择当成所有具体镜头已确认。
 
 用户已选默认：**相机环绕→空间尺寸→1–2个动态细节卖点→多次插花/整理摆放→2–3个动态生活场景→成品收尾**。三种空间模块均可选：相机空间绕行与尺寸线、售卖花枝/套装分组悬浮、真实可调整结构。跨场以匹配构图和运动方向的剪辑为主，必要时遮挡转场。默认简短英文卖点、准确尺寸标注、轻音乐、无旁白；文字先在即梦生成，出错提供后期修正方案。具体商品不适用的模块须说明替代，不硬造结构。
 
-分镜与写词必读[花卉动态导演规则](references/dynamic-flower-direction.md)：环绕时花器和花卉整体在空间中固定，背景随相机位移产生真实透视与视差；尺寸段同样用相机空间绕行，不让主体自转。细节用适合材质的微风、轻抚等连续响应；选择插花时至少两次可辨认的插入—落位—松手，多色/多花型按实际售卖组合累积。每个场景必须有真实相机位移或画内事件，禁止以静图缩放轮播代替生活展示。
+分镜与写词必读[花卉动态导演规则](references/dynamic-flower-direction.md)：环绕时花器和花卉整体在空间中固定，背景随相机位移产生真实透视与视差；尺寸段同样用相机空间绕行，不让主体自转。细节用适合材质的微风、轻抚等连续响应；逐次插花默认3次可辨认的插入—落位—松手，容器可预先已有部分花材；也可选“手中整理部分花材→成束一次插入→落位松手”的完整替代。多色/多花型按实际售卖组合累积。每个场景必须有真实相机位移或画内事件，禁止以静图缩放轮播代替生活展示。
+
+选择开场展示台时读[背景参考与提示词库](references/display-background-library.md)：内置11张用户参考对应的布景卡及室外衍生方案，按产品配色适配环境、不改变商品颜色。以用户最终产品图为身份依据，用图像工具放入合适主位，前几秒相机环绕，再接尺寸、细节、插花及其他场景；已有合适成图可复用。参考中的异种花材、品牌和陈列数量不继承为SKU内容。
 
 ## 整片提示词与实际入口
 

@@ -1,0 +1,90 @@
+[
+  {
+    "id": "BG01",
+    "user_image_number": 1,
+    "file": "BG01.png",
+    "source": "user-provided display reference; not SKU identity",
+    "original_filename": "tmp894D.png",
+    "sha256": "f89d558e953c4c13bc69ab9fd9bd3a6d3364d4d19d7a7e6b966d30fcd20c9e14"
+  },
+  {
+    "id": "BG02",
+    "user_image_number": 2,
+    "file": "BG02.png",
+    "source": "user-provided display reference; not SKU identity",
+    "original_filename": "tmpEB04.png",
+    "sha256": "466aeafb2aa1b5923830b089aa01e7922395e1d650889c968c5ae85ea08b1ba7"
+  },
+  {
+    "id": "BG03",
+    "user_image_number": 3,
+    "file": "BG03.png",
+    "source": "user-provided display reference; not SKU identity",
+    "original_filename": "tmp256D.png",
+    "sha256": "d025ece49efbe30a4c39671432b8ef0c2e77abf8b3f8e93f906b3cc1c3f9e08c"
+  },
+  {
+    "id": "BG04",
+    "user_image_number": 4,
+    "file": "BG04.png",
+    "source": "user-provided display reference; not SKU identity",
+    "original_filename": "tmp9D8B.png",
+    "sha256": "cc9481b41bbd0855bb7b46e7d7cb4df52e0f26b99ddd61433c6cd47f6b7ca003"
+  },
+  {
+    "id": "BG05",
+    "user_image_number": 5,
+    "file": "BG05.png",
+    "source": "user-provided display reference; not SKU identity",
+    "original_filename": "tmpF10A.png",
+    "sha256": "31b39d080f268a313055e6d6b0249ebeb91a3115ae1e74806a44201f1149743e"
+  },
+  {
+    "id": "BG06",
+    "user_image_number": 6,
+    "file": "BG06.png",
+    "source": "user-provided display reference; not SKU identity",
+    "original_filename": "tmp32B7.png",
+    "sha256": "9cbe5fcb7a3472cbca7bad5ef40d634851a48d91607a32f88289b6513b97f785"
+  },
+  {
+    "id": "BG07",
+    "user_image_number": 7,
+    "file": "BG07.png",
+    "source": "user-provided display reference; not SKU identity",
+    "original_filename": "tmp7C05.png",
+    "sha256": "1ca731cc308f51480363640e454fc9bc5b9cf3a0938787401e53552be45e0cbe"
+  },
+  {
+    "id": "BG08",
+    "user_image_number": 8,
+    "file": "BG08.png",
+    "source": "user-provided display reference; not SKU identity",
+    "original_filename": "tmpF849.png",
+    "sha256": "cbfdf722eff19b6e76563d6f3a9eb124af1e472beda9ef284358526aab66880b"
+  },
+  {
+    "id": "BG09",
+    "user_image_number": 9,
+    "file": "BG09.png",
+    "source": "user-provided display reference; not SKU identity",
+    "original_filename": "tmp3E99.png",
+    "sha256": "19d9027c85a35e115962599dacb6d44ef95a566b0fa0cbe106ae42e25e623b1b"
+  },
+  {
+    "id": "BG10",
+    "user_image_number": 10,
+    "file": "BG10.png",
+    "source": "user-provided display reference; not SKU identity",
+    "original_filename": "tmp725B.png",
+    "sha256": "2c76368db8f124e10da73ef5fc88bd70baf3189543a52bb0fe3f76fc4643c87c"
+  },
+  {
+    "id": "BG11",
+    "user_image_number": 11,
+    "file": "BG11.png",
+    "source": "user-provided display reference; not SKU identity",
+    "original_filename": "tmpBED5.png",
+    "sha256": "19097340e4166506173355c4fd261f4b4832b074b317c55703b1b7d4209ab0d7"
+  }
+]
