@@ -2,7 +2,7 @@
 name: amazon-video-generation
 description: "Plan Jimeng showcase videos for Amazon products across categories, from product photos or selected image campaigns. Direct scenes, camera paths, mechanisms, human interactions and prop continuity; retain dedicated flower and foliage workflows. Deliver only C01/C02 folders with self-contained Chinese draft prompts and all upload images, plus an analysis Markdown, README and shot CSV. Each segment has at most nine upload images; storyboard pages have fixed 3x3 slots and tables use ten director columns. Upload images are preferably square, at least 350 px high, with width/height between 0.6 and 1.6. Reuse selected images and generate missing storyboard states when needed. Does not submit or generate videos automatically."
 metadata:
-  version: "6.4.0"
+  version: "6.5.0"
 ---
 
 # Amazon Video Generation
@@ -11,7 +11,7 @@ metadata:
 
 ## 通用主流程与专用路线
 
-所有商品先读[通用商品工作流](references/product-video-workflow.md)，按实际用途、形态、结构、材质、可动部件和交互任务选镜；编镜必读[物理空间与实体连续性](references/physical-continuity.md)。默认15–30秒、16:9，按信息量/已核入口调整，旧项目已明确约定优先。
+所有商品先读[通用商品工作流](references/product-video-workflow.md)，按实际用途、形态、结构、材质、可动部件和交互任务选镜；编镜必读[物理空间与实体连续性](references/physical-continuity.md)及[商品与镜头保真](references/reference-and-shot-fidelity.md)。先保留商品结构、镜头展示目标与已选运动，再增加动态描述；逐张排除身份/场景/状态图冲突，不能仅凭“以主图为准”放行错误图。默认15–30秒、16:9，按信息量/已核入口调整，旧项目已明确约定优先。
 
 - **general 通用商品**：家具、宠物用品、电子、家居器具、穿戴、包装及其他商品均可进入；未列类目直接按任务分析。不硬套插花、环绕、固定场景数或植物模板。使用`--profile general`检查。
 - **flowers 花卉**：鲜切/干花/仿真花枝、花束、固定插花追加[花卉整片工作流](references/flower-showcase-workflow.md)与[花卉动态导演](references/dynamic-flower-direction.md)。保留用户已选F07、优先25–30秒综合主线和动作偏好，仅在本分支应用。
@@ -42,9 +42,9 @@ metadata:
 
 操作明确初态→接触/支撑→移动→结果，同一个活动件持续保持身份及真实连接。道具也需管理：柔性绳/带允许弯曲与松垂，但已核端点、环、扣具与归属不能凭空变化。遮挡后的再现是同一物件；真正切分/倒出/装入等已核变化按动作记录，不能机械禁止一切数量变化。
 
-复杂接触优先清楚、稳定的观察机位，减少无信息价值的同时动作。补图只覆盖必要角度/状态，生成预演不证明隐藏结构。无论提示词多详细，静态起终图正确都不代表中间视频物理一致；按[连续性验收](references/physical-continuity.md)检查实际过程，失败时简化具体事件/补参考/调整机位或切镜。
+复杂接触优先清楚、稳定的观察机位，减少无信息价值的同时动作。细节镜保留必要的邻接/连接参照、清楚的起终构图和可读停留；不为写孔壁/视差丢失原有定位信息。补图只覆盖必要角度/状态，生成预演不证明隐藏结构。无论提示词多详细，静态起终图正确都不代表中间视频物理一致；按[连续性验收](references/physical-continuity.md)检查实际过程，失败时简化具体事件/补参考/调整机位或切镜。
 
-涉及装配/布置、中间态、多场景或手持细节时，读[终态倒推与真实运动](references/terminal-state-and-motion.md)：先确定完成态，按真实可操作关系倒推基础态及步骤，再正向展示；多场景写清空间证据，主体/柔性部分/投影按真实驱动联动；可手持件优先小幅转看，触摸或弯折以材料依据为限。
+涉及装配/布置、中间态、多场景或手持细节时，读[终态倒推与真实运动](references/terminal-state-and-motion.md)：先确定完成态，按真实可操作关系倒推基础态及步骤，逐对检查新增组件与落位是否足以得到下一态，再正向展示；多场景写清空间证据，主体/柔性部分/投影按真实驱动联动；可手持件优先小幅转看，触摸或弯折以材料依据为限。
 
 ## 研究说明与执行内容分开
 

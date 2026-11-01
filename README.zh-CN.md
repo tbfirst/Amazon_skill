@@ -4,7 +4,7 @@
 
 本目录是独立的本地 Git 仓库，日期为 2026-10-14。第一版本纳入本地初始提交，后续由你配置远程仓库并推送；许可证按你的决定暂缓。生成的 dist/ 压缩包保留在本地，不重复纳入 Git。
 
-## Amazon 通用商品视频前期制作 · v6.4.0
+## Amazon 通用商品视频前期制作 · v6.5.0
 
 调用 `$amazon-video-generation`，源码见[SKILL.md](skills/amazon_video_generation/SKILL.md)。面向各类Amazon商品，按用途、结构、可动部件和交互任务策划视频；花卉与草木保留专门路线，花卉初始用例不再限制整个技能范围。接受产品原图、部分成图或已选最终套图，不要求先凑11张。
 
@@ -21,6 +21,8 @@
 v6.2固定每张宫格3×3九槽，前页填满才续页；每段全部上传图最多9张。详细分镜表按横向十列输出，台词与字幕分列。新增BG12–BG18通用配色展台及WHITE01洁白尺寸空间，生活场景优先轻微画内动作与因果响应。assets参考图已文字化并从当前树移除，历史研究截图按用户选择保留，编辑器模板迁至scripts/templates；旧素材可从v6.1.0恢复。
 
 v6.4在回退后的v6.2基础上新增[三维场景演绎](skills/amazon_video_generation/references/volumetric-scene-direction.md)：每镜落实空间关系、可达相机路径、可见面/遮挡变化，以及持续动作的触发与响应。整图平移缩放和分层滑动不作为三维演示；按任务选机位，不强制人物或环绕，不虚构未知背面，也不强制光影闪动。规则直接映射到现有表/板/TXT，未恢复整套v6.3规则。
+
+v6.5针对真实回归新增[商品与镜头保真](skills/amazon_video_generation/references/reference-and-shot-fidelity.md)：保留细节的部件定位与原有任务；逐张排除身份/状态/场景图结构冲突；检查每一步操作能否达到下一态；已选环绕与主体摆动不静默替换为微横移。TXT合并字段重复，终态落实轮廓、局部覆盖与落位关系。调查证据与未证实原因见[回归记录](skills/amazon_video_generation/evaluation/v65-regression-findings.md)，不是已完成视频修复的声明。
 
 每个明确版本独立本地提交并附中文说明，详见[版本历史与回滚索引](docs/AMAZON-VIDEO-VERSION-HISTORY.zh-CN.md)。示例：使用 $amazon-video-generation，为我的家具、器具、穿戴或花卉商品设计两段视频方案，先确认真实结构和用途，再交精简分段包。
 
