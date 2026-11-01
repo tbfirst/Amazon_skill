@@ -2,7 +2,7 @@
 name: amazon-video-generation
 description: "Turn final Amazon flower image campaigns or product photos into 15–30 second Jimeng showcase packages through iterative popup direction. Deliver a complete Chinese film prompt, analysis manual, visual storyboard PNG, detailed shot table PNG/MD/CSV, and selected upload references. Reuse final images and generate missing storyboard states. Prefer whole-film generation; split into two connected parts when the selected model requires it. Also retain foliage display, assembly and lighting planning. Does not submit or generate videos automatically."
 metadata:
-  version: "5.0.0"
+  version: "5.1.0"
 ---
 
 # Amazon Video Generation
@@ -28,7 +28,9 @@ metadata:
 
 使用可用的异步文本弹窗；每次选择影响下一轮。未答、关闭或预选不算同意；与答案无关的素材盘点可继续。上传图片在普通对话请求，不能让文本弹窗收图片。不为流程凑轮数，也不把总风格选择当成所有具体镜头已确认。
 
-用户已选默认：**整体环绕→空间尺寸→1–2个卖点→简短插花/摆放→2–3个场景→成品收尾**。三种空间模块均可选：整体旋转与尺寸线、售卖花枝/套装分组悬浮、真实可调整结构。跨场以匹配构图和运动方向的剪辑为主，必要时遮挡转场。默认简短英文卖点、准确尺寸标注、轻音乐、无旁白；文字先在即梦生成，出错提供后期修正方案。具体商品不适用的模块须说明替代，不硬造结构。
+用户已选默认：**相机环绕→空间尺寸→1–2个动态细节卖点→多次插花/整理摆放→2–3个动态生活场景→成品收尾**。三种空间模块均可选：相机空间绕行与尺寸线、售卖花枝/套装分组悬浮、真实可调整结构。跨场以匹配构图和运动方向的剪辑为主，必要时遮挡转场。默认简短英文卖点、准确尺寸标注、轻音乐、无旁白；文字先在即梦生成，出错提供后期修正方案。具体商品不适用的模块须说明替代，不硬造结构。
+
+分镜与写词必读[花卉动态导演规则](references/dynamic-flower-direction.md)：环绕时花器和花卉整体在空间中固定，背景随相机位移产生真实透视与视差；尺寸段同样用相机空间绕行，不让主体自转。细节用适合材质的微风、轻抚等连续响应；选择插花时至少两次可辨认的插入—落位—松手，多色/多花型按实际售卖组合累积。每个场景必须有真实相机位移或画内事件，禁止以静图缩放轮播代替生活展示。
 
 ## 整片提示词与实际入口
 
@@ -42,7 +44,7 @@ metadata:
 
 优先复用最终套图；缺少的动作起止或角度画面按 `imagegen` 技能，用内置图像工具和实际产品参考补成，再排版。生成图是预演，不新增商品事实；角度推断标明，隐藏结构/尺寸缺失要补事实，不能用生图“证明”。程序可排版、加编号和文字，不能以色块或手绘假商品冒充真实画面。不自动建网站/编辑器，不提交即梦或自动付费生成视频。
 
-卖点查[证据规范](references/claims-and-evidence.md)；运镜按需查[运镜库](references/camera-movement-library.md)和[机位覆盖](references/multi-angle-coverage.md)。每镜清楚区分相机移动、商品旋转和物件展开；给起止状态、主路径与稳定读图时间。花枝布局可因真实操作改变，身份、花型、颜色、数量与售卖内容须一致。固定成品不擅自拆成散枝，不从竞品继承功能。
+卖点查[证据规范](references/claims-and-evidence.md)；运镜按需查[运镜库](references/camera-movement-library.md)和[机位覆盖](references/multi-angle-coverage.md)。每镜分别写相机移动、主体动作、环境响应及空间视差，给起中终状态、主路径与稳定读图时间。花器固定指世界坐标中的落点和朝向，不是冻结屏幕中的透视；真实摆放/整理动作另行描述。花枝布局可因真实操作改变，身份、花型、颜色、数量与售卖内容须一致。固定成品不擅自拆成散枝，不从竞品继承功能。
 
 实际镜头起止、附件顺序、板上编号、字幕、TXT与清单版本一致。静态分镜验收、提示词齐备、视频生成、动态验收与发布是不同状态。参考片的逐帧序列结论见[双参考研究](references/research/2026-10-31-two-reference-showcase.md)；它提炼拍法，不证明模型成功率或销售效果。
 
