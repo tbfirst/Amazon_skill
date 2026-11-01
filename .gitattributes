@@ -8,3 +8,6 @@
 # Maintenance-only feedback images are excluded from source release archives.
 skills/amazon-plant-image-strategy/assets/design-examples export-ignore
 skills/amazon-plant-image-strategy/assets/design-examples/** export-ignore
+
+# Preserve the exact bytes of recovered video-skill snapshots, including mixed line endings.
+skills/amazon_video_generation/** -text
