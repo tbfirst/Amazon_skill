@@ -2,12 +2,14 @@
 name: amazon-video-generation
 description: "Plan Jimeng showcase videos for Amazon products across categories, from product photos or selected image campaigns. Direct scenes, camera paths, mechanisms, human interactions and prop continuity; retain dedicated flower and foliage workflows. Deliver only C01/C02 folders with self-contained Chinese draft prompts and all upload images, plus an analysis Markdown, README and shot CSV. Each segment has at most nine upload images; storyboard pages have fixed 3x3 slots and tables use ten director columns. Upload images are preferably square, at least 350 px high, with width/height between 0.6 and 1.6. Reuse selected images and generate missing storyboard states when needed. Does not submit or generate videos automatically."
 metadata:
-  version: "6.6.0"
+  version: "6.7.0"
 ---
 
 # Amazon Video Generation
 
 面向各类Amazon商品的视频前期策划与即梦交接。花卉是最初使用场景，不是主产品范围限制。用户上传详细分镜表、带格下说明的宫格故事板、精选产品图，并复制本段提示词生成视频。本技能策划、补必要预演帧、排版及检查，不自动提交即梦或付费生成视频；仅修改技能时不为未知SKU生图。
+
+当前默认发布目标为Amazon欧美市场商品详情页：商品信息与用途优先，执行词中文，买家可见文案按已选站点语言。其他版位按[版位适配](references/amazon-placements.md)另核。
 
 ## 通用主流程与专用路线
 
@@ -44,6 +46,7 @@ metadata:
 |身份、数量、连接、接触支撑与材质响应|[物理连续性](references/physical-continuity.md)|
 |布置/装配的完成目标、步骤与相邻状态是否可达|[终态倒推](references/terminal-state-and-motion.md)|
 |相机路径、可见面、光影及按任务验收|[空间与动态](references/volumetric-scene-direction.md)|
+|顺叙、交叉、重复等蒙太奇及镜间时空关系|[商品蒙太奇与接镜](references/montage-for-product-video.md)|
 
 规则用于做决定，执行词只保留本镜需要的内容；具体失败案例留在evaluation，花卉特例只在花卉分支使用。
 
@@ -56,6 +59,8 @@ metadata:
 S-ID表示镜头，C-ID表示生成任务；一个C-ID可含多个镜头/场景。每段独立说明身份、附件、动作、节奏、切镜、文案和声音，不写“同上”或让用户拼词。秒段是导演预算，复杂动作按事件顺序与相对节奏表达，不承诺模型精确按时点执行。
 
 用户2026-10-31说明的入口是Seedance 2.0 Mini/全能参考/单次15秒。可用设置按实际入口核实，不从更贵型号、API或源片标题推定。优先整片，超实际上限才拆前后两段；两段仍容不下时弹窗决定，不默默增段。保留轻音乐、无旁白与简短英文文案的已选偏好，具体项目可改。**两次独立生成相同音乐词连同旋律也不能保证**；每段写自足风格目标，同一连续音轨的后期方案留在说明书，不假定模型记得前段，不默认新增音频交付。
+
+使用2.0/2.5能力、素材引用或多宫格时读[官方手册适配](references/jimeng-model-adaptation.md)：采用实际附件绑定、明确切点与格间动作；模型能力上限不覆盖九图约定，同S-ID多状态也不改成一格一镜。规划写实AI人物或交接发布文件时读[Amazon人物元数据](references/amazon-synthetic-performer.md)；适用标签写入最终媒体，不放进画面提示词，不把纯商品AI图全部标为人物。
 
 ## 花卉专用偏好
 

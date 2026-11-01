@@ -34,6 +34,8 @@
 
 图片内容按[商品与镜头保真](reference-and-shot-fidelity.md)逐张核对；共用计划/相同镜号不能证明构图、轨迹和动作状态一致。TXT按镜头记录重新组织简洁执行句，不机械拼接details字段。
 
+蒙太奇的播放顺序、叙事线返回和切点按[镜间组织](montage-for-product-video.md#落到现有交付不加字段或文件)映射到scene/states/transition等现有字段。返回同场景是新的镜头出现，使用不同S-ID；start/key/end仍只属于同一镜头。多宫格输入按[即梦适配](jimeng-model-adaptation.md#多宫格怎么迁移)说明已用槽和状态组，不另增字段。
+
 三维变化与连续交互按[三维场景演绎](volumetric-scene-direction.md)落实到现有字段，不扩展脚本结构。格下文字只描述该帧可见状态，持续过程写入表/TXT；不得用同图裁切缩放伪造start/key/end。
 
 内部可另设顶层或每shot的`planning_notes`（临时计划字段，不是交付文件）记证据/模板来源/疑问，排版器只渲染上述白名单字段和frames.summary，不画planning_notes。字段存在不代表内容已净化；人工检查details/summary不得混入内部信息。CSV中仍可保留事实与研究来源，但与上传用reference分列。

@@ -14,7 +14,7 @@ A collection of three Agent Skills, with a [Chinese guide](README.zh-CN.md): ind
 
 The image skills support real and artificial plant merchandise. The video skill supports product video preproduction, including botanical products. The image strategy skill produces plans and prompts for the user to execute in Lovart.
 
-## Amazon 通用商品视频前期制作 · v6.6.0
+## Amazon 通用商品视频前期制作 · v6.7.0
 
 调用 `$amazon-video-generation`，源码见[SKILL.md](skills/amazon_video_generation/SKILL.md)。面向各类Amazon商品，按用途、结构、可动部件和交互任务策划视频；花卉与草木保留专门路线，花卉初始用例不再限制整个技能范围。接受产品原图、部分成图或已选最终套图，不要求先凑11张。
 
@@ -35,6 +35,8 @@ v6.4在回退后的v6.2基础上新增[三维场景演绎](skills/amazon_video_g
 v6.5针对真实回归新增[商品与镜头保真](skills/amazon_video_generation/references/reference-and-shot-fidelity.md)：保留细节的部件定位与原有任务；逐张排除身份/状态/场景图结构冲突；检查每一步操作能否达到下一态；已选环绕与主体摆动不静默替换为微横移。TXT合并字段重复，终态落实轮廓、局部覆盖与落位关系。调查证据与未证实原因见[回归记录](skills/amazon_video_generation/evaluation/v65-regression-findings.md)，不是已完成视频修复的声明。
 
 v6.6清理草木、版位及其引用模板中的旧分段与额外交付要求；将实体连续性、终态步骤、机位光影分工维护。按镜头任务验收：商品阅读镜可静止，空间/动作镜检查相应变化，已选动态保留。继续保留v6.5四项有效规则、15字段接口、十列表、九槽九图和精简目录；TXT合并重复表达，不为填字段制造运动。101项既有测试及独立文字试用通过，尚未验证即梦成片效果。
+
+v6.7在本地`meng`分支加入[商品蒙太奇](skills/amazon_video_generation/references/montage-for-product-video.md)，覆盖顺叙、交叉、平行、重复、时间压缩和匹配接切，以商品信息、实际状态与时空关系选用。直接读取两份官方手册并加入[即梦2.0/2.5适配](skills/amazon_video_generation/references/jimeng-model-adaptation.md)：绑定实际素材、补齐格间动作、区分普通生成/延长/编辑，能力升级不覆盖九图与同镜多状态约定。核实[Amazon写实AI人物元数据](skills/amazon_video_generation/references/amazon-synthetic-performer.md)，标签适用于相应最终发布图片/视频，不泛化到所有AI商品图，也不混入画面提示词。默认服务欧美商品详情页，保留精简交付。101项测试、技能校验及独立文字试用通过；未生成即梦成片或实际改写发布文件元数据。
 
 每个明确版本独立本地提交并附中文说明，详见[版本历史与回滚索引](docs/AMAZON-VIDEO-VERSION-HISTORY.zh-CN.md)。示例：使用 $amazon-video-generation，为我的家具、器具、穿戴或花卉商品设计两段视频方案，先确认真实结构和用途，再交精简分段包。
 
