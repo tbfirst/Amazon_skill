@@ -1,0 +1,64 @@
+# 花卉分镜板、分析说明书与交付
+
+## 两种图片，各有职责
+
+**给即梦：`storyboard/jimeng-board.png`。** 使用实际商品画面，每格是一个明确瞬间，按时间顺序排；镜号与秒段放画面外。多镜板用于全能参考中的叙事/构图参考，不默认设成首帧。提示词明确逐镜输出全屏，不生成宫格视频、边框、运镜箭头或导演说明。每格取景尽量对应视频画幅，商品应可辨，不以小格承担唯一身份参考；同时上传精选清楚产品图。
+
+**给人看：`storyboard/director-sheet-01.png` 等。** 同一S-ID、同一时间线和关键画面，附时间、景别/角度、运镜起终点、动作、英文文案与转场；复杂信息拆多页，不把长表缩成不可读的一张图。PNG不能替代完整MD/CSV，图片中简写的内容应能在表里查全。运镜箭头可放导演说明区；上传版默认不叠箭头。
+
+Mini两段时额外生成C01/C02各自的视觉板，标局部时间，保留稳定S-ID；全片板用于总览，上传清单明确每段用哪张板。不把另一段的画面误绑成本段首帧。
+
+## 复用→补帧→排版→目视检查
+
+1. 先查看所有拟使用的最终图，确认SKU版本、图内文字和主体可用区域。已有图能表达该镜关键状态则复用；单纯改变摄影景别不必全部重画。
+2. 列每镜缺口。环绕/旋转可用起态＋终态；分组展开可用起态＋分组关键态＋终态；插入至少明确握枝靠近与落位状态。不是强制每镜三帧，按动作复杂度选。
+3. 需要新照片式画面或精修时读取 `imagegen`，调用内置图像生成/编辑工具，实际附上已查看的商品参考。说明目标S-ID、动作状态、不能改变的商品特征、可变构图和背景。工具失败不能声称已补图，也不能悄悄换付费API。只缺画面且事实充分时直接在已授权范围补，不重复询问是否允许正常生图。
+4. 保存真实输出到项目 `storyboard/frames/`，不只引用工具临时默认目录。记录来源/输入角色/生成词、对应镜头和版本；生成的新视角标视觉推演，核对商品外观，不以它补事实。
+5. 用现有 `scripts/assemble_storyboard.py` 对真实帧进行排版。程序只做几何排版和标签，不生成商品。图片像素编辑仍走图像工具；这里排版是已选画面的文档组装。
+6. 目视检查两种PNG的顺序、排格、商品特征、动作状态、文字可读性、边界/留白和截断警告。错的面板定向改，其他面板检查是否漂移。不能以脚本通过代替看图。
+
+每帧状态：`reused-reviewed / generated-reviewed / needs-revision / pending / stale`。无产品图时仍可交研究和文字结构草案，但视觉板状态必须pending，不能拿参考片产品冒充用户商品。
+
+## 现有排版工具的最小输入
+
+`board-plan.json` 使用 `title`、`revision`、`aspect_ratio`、`total_duration_s`、`shots`。每shot有 `id`、`start_s`、`duration_s`、`frames`，每frame为 `state: start/key/end` 和项目相对 `file`。同镜多状态依start→key→end排序，时间仍只计该镜一次。
+
+导演版shot还可加 `caption`：`purpose`、`shot_size`、`camera`、`action`、`copy`、`notes`。给即梦的版本不填长caption，只保留镜号/秒段。两份排版输入应从同一镜头表导出，画面/ID/时间一致。
+
+```sh
+python scripts/assemble_storyboard.py PROJECT/board-plan.json --output PROJECT/storyboard/jimeng-board.png --columns 3 --cell-width 640 --manifest PROJECT/storyboard/jimeng-board-manifest.json
+python scripts/assemble_storyboard.py PROJECT/director-plan.json --output PROJECT/storyboard/director-sheet.png --columns 2 --cell-width 960 --page-size 6 --font CJK_FONT --manifest PROJECT/storyboard/director-sheet-manifest.json
+```
+
+`PROJECT`和`CJK_FONT`替换实际路径；新版本用新文件名。需要Python3和Pillow，中文字体须实际存在且能显示中文。导演caption出现截断警告就增加空间、减少单页镜数或精简显示，完整细节保留MD，不允许悄悄丢必要信息。现有编辑网页为旧项目可选，不作为新流程必交。
+
+## 项目输出
+
+默认 `outputs/amazon-video/<sku>/<revision>/`，核心文件：
+
+|文件|内容|
+|---|---|
+|`jimeng-full-prompt.txt`|整片自足中文提示词，包含顺序、引用角色、字和声音；说明它是本入口执行词还是总脚本|
+|`analysis-manual.md`|中文分析说明书：片长选择、模块理由、卖点依据、用图原因、每镜任务、风格/转场、入口操作、接缝、错字修正、验片重点|
+|`storyboard/jimeng-board.png`|真实画面的顺序分镜板|
+|`storyboard/director-sheet-01.png`等|可读的详细分镜表图片；单页时可无页码|
+|`shot-list.md`、`shot-list.csv`|完整详细导演表，CSV使用UTF-8 BOM|
+|`input-map.md`、`video-brief.md`|素材事实与最终版本、弹窗决定、未决项|
+|`jimeng-upload/`、`jimeng-upload-manifest.json`|精选实际附件与有序角色映射，不要求用户自行从11张里猜|
+|`overlay-copy.csv`|准确英文、数字/单位、来源、S-ID、时间和位置|
+|`README.md`|按操作顺序链接实际文件，当前可执行状态、应复制哪条词、上传哪些图|
+
+分段才增加：`jimeng-prompts/C01.txt`、`C02.txt`、对应分镜板、`continuity.md`；总脚本保留。必要事实或附件未齐的执行词用 `.draft.txt` 并列具体依赖，不能在可复制终稿中残留花型/数字/引用占位符。
+
+导演表至少含：顺序、S-ID、C-ID、场景ID、全局起止、局部起止、出镜时长、生成任务长度、景别/角度、主运镜/起终点/速度、主体动作与状态、灯光、信息目的、事实来源、参考文件、图内文字、声音、转场和状态。字段可按可读性分组，不必将整条提示词塞进超宽表格；在表后附对应执行词块，与TXT逐字一致。
+
+上传清单每附件包含实际文件、角色、顺序、来源版本与SHA-256；每C-ID包含执行词路径、所用分镜板、目标/生成/保留长度、附件、已核入口和pending依赖。已过时图片不仍标最终；将旧版归历史，不覆盖原文件。
+
+## 交付前检查
+
+- 时间从0连续到选定总长，无重叠/空洞；局部时间与全局偏移一致。每C-ID生成长度≤实际上限，保留合计不超生成长度。
+- 主提示词含全片，分段词自足，C02无“同上”；图、表、词的镜号/顺序/文案/引用一致。
+- 每个卖点与尺寸可追到本SKU；附加花器/配景不暗示随货；自动展开是陈列还是实际结构已明确。
+- 图片实际存在、已查看、商品一致；输入图不等于唯一首帧；分镜板的说明不会被计划为成片文字。
+- 字与数字正确、音乐衔接有计划；静态图合格不等于动态动作合格。
+- 检查脚本通过只证明它覆盖的运镜/时长规则。若还没在即梦生成，清楚说“前期包完成，视频未生成/未动态验收”。

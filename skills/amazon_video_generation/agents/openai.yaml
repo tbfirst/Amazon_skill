@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 花卉与草木视频导演"
+  short_description: "最终套图转花卉展示视频方案：多轮弹窗、完整即梦词、分析说明书与两种分镜图"
+  default_prompt: "使用 $amazon-video-generation，将我的最终花卉套图通过多轮弹窗转为25–30秒综合展示方案，交完整中文即梦提示词、分析说明书、画面分镜板和详细分镜表图片，并按实际入口提供必要的前后两段执行词与衔接说明。"
