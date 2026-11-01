@@ -2,7 +2,7 @@
 name: amazon-video-generation
 description: "Plan Jimeng showcase videos for Amazon products across categories, from product photos or selected image campaigns. Direct scenes, camera paths, mechanisms, human interactions and prop continuity; retain dedicated flower and foliage workflows. Deliver only C01/C02 folders with self-contained Chinese draft prompts and all upload images, plus an analysis Markdown, README and shot CSV. Each segment has at most nine upload images; storyboard pages have fixed 3x3 slots and tables use ten director columns. Upload images are preferably square, at least 350 px high, with width/height between 0.6 and 1.6. Reuse selected images and generate missing storyboard states when needed. Does not submit or generate videos automatically."
 metadata:
-  version: "6.2.0"
+  version: "6.3.0"
 ---
 
 # Amazon Video Generation
@@ -17,13 +17,15 @@ metadata:
 - **flowers 花卉**：鲜切/干花/仿真花枝、花束、固定插花追加[花卉整片工作流](references/flower-showcase-workflow.md)与[花卉动态导演](references/dynamic-flower-direction.md)。保留用户已选F07、优先25–30秒综合主线和动作偏好，仅在本分支应用。
 - **foliage 草木**：绿植、盆栽、树/圣诞树追加[草木路线](references/foliage-video-workflow.md)，保留展示、整形、安装和灯效，不强加花卉插入动作。花盆/容器为售卖主角时按该SKU任务进入general。
 
-接受实际选定的最终套图、产品原图或部分素材。可承接`amazon-ordinary-generation`或`amazon-plant-image-strategy`，但计划/提示词不等于成图已存在；不要求启动前重新做11张，也不把资产数当作镜头数。同SKU多角度/状态绑定同一物件，不从竞品继承结构与功能。
+接受实际选定的最终套图、产品原图或部分素材。可承接`amazon-ordinary-generation`或`amazon-plant-image-strategy`，但计划/提示词不等于成图已存在；不要求启动前重新做11张，也不把资产数当作镜头数。同SKU多角度/状态绑定同一物件，不从竞品继承结构与功能。参考图按[选图规则](references/product-reference-selection.md)采用清晰主图＋本段必要的视角/状态；不固定凑三视图，不用AI猜测隐藏结构。
 
 ## 干净场景与画内微动作
 
 商品实拍仅提取身份/结构，默认重建干净用途场景或按配色选[文字展台库](references/display-background-library.md)，不沿用杂乱实拍背景；用户明确选定的干净最终场景可复用。尺寸展示优先洁白影棚/白色无缝空间，保持轮廓、承重与尺度，不让白底抹掉白色商品边缘。
 
-生活场景优先一个与用途相关的细微画内事件，并写可见响应：如动物自然抬头/眨眼、手指按键带来相应屏幕变化、柔性部分随轻风微动。按已选主体及材质设计，不硬塞人物/动物，不让刚性商品为动而动；固定机位也可真实，单纯静图横移不作为生活场景默认。具体取舍见[真实运动](references/terminal-state-and-motion.md)。
+用途明确且资料足够时，默认保留一处实际使用关系：使用者/承载物真正与商品交互，不以站在商品旁边代替使用。宠物休息空间优先呈现体型相配的动物在内部自然休息，依据内腔/开口及真实尺度，不缩小动物或放大商品来凑适配。装饰品以真实布置完成态体现用途，不强加操作。
+
+静态图驱动的生活镜优先配合低幅度可达机位轨迹与贯穿镜头的自然微动作，写清持续过程、自然间歇及收束；一次眨眼或抬头定格不足以覆盖整镜。复杂接触可固定机位，持续不等于每帧不停晃动。因果联动明确谁触发、谁响应、何时发生、停止后如何变化；如打字期间屏幕内容随输入逐步出现，停手后输入停止，不能仅独立闪屏。按用途安排主体，不违背已定无人/无动物偏好。具体规则见[真实运动](references/terminal-state-and-motion.md)。
 
 ## 按决定推进的弹窗
 
@@ -39,6 +41,8 @@ metadata:
 ## 身份、空间与动作的通用约束
 
 从本SKU参考确认关键实体身份、数量、固定/可动关系与允许变化。每镜分开写相机路径、主体/部件动作、环境响应；相机位移不是主体自转。固定的是世界中的结构与落点，透视投影随视角合理变化：斜视梯形不必然是错误；正面读形节点须明确机位条件。角落环绕先检查相机是否会穿墙或暴露无参考的面，再决定可达弧段或匹配剪辑。
+
+相邻镜头先比对前镜终态与后镜起态；连续过程有差异时补自然桥接动作，再换机位或在动作中匹配切镜，不靠叠化掩盖状态跳变。明确时间省略/独立用途场景可以切换，但须与连续动作区别。
 
 操作明确初态→接触/支撑→移动→结果，同一个活动件持续保持身份及真实连接。道具也需管理：柔性绳/带允许弯曲与松垂，但已核端点、环、扣具与归属不能凭空变化。遮挡后的再现是同一物件；真正切分/倒出/装入等已核变化按动作记录，不能机械禁止一切数量变化。
 
