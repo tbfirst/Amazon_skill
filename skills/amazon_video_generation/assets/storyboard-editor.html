@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>故事板审阅与修改</title>
+<style>
+:root{font-family:system-ui,'Microsoft YaHei',sans-serif;color:#20392f;background:#f3f3ed;font-size:15px}*{box-sizing:border-box}body{margin:0}header{padding:28px 5vw 18px;background:#e4eadf;border-bottom:1px solid #cbd5c7}h1{font-size:28px;margin:6px 0 12px}p{line-height:1.7;margin:8px 0}.eyebrow{font-size:12px;letter-spacing:2px;color:#526d58}.meta{color:#526d58;font-size:13px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 6px}button,.import{border:1px solid #b7c8b5;background:#fff;color:#254534;padding:10px 14px;border-radius:8px;cursor:pointer;font:inherit}button.primary{background:#24513c;color:white;border-color:#24513c}button:hover,.import:hover{filter:brightness(.95)}button:focus-visible,input:focus,textarea:focus{outline:3px solid #89aa70;outline-offset:2px}main{padding:24px 5vw 60px;max-width:1800px;margin:auto}.layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:24px}.board{width:100%;max-height:650px;object-fit:contain;background:#e4e7df;border-radius:10px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.card{padding:0;text-align:left;overflow:hidden}.card.active{outline:3px solid #426c46}.card img{display:block;width:100%;height:130px;object-fit:contain;background:#e7eae2}.card .label{display:block;padding:10px}.card .small{font-size:12px;color:#687665}.card.changed:after{content:'有修改待应用';display:block;font-size:12px;background:#fff0c5;padding:6px 10px}aside{background:white;padding:20px;border:1px solid #d4ddcf;border-radius:12px;align-self:start;position:sticky;top:16px}h2{font-size:20px;margin:0 0 8px}label.field{display:block;font-size:13px;margin:16px 0 5px}input,textarea{display:block;width:100%;font:inherit;border:1px solid #c5d0bf;border-radius:6px;padding:9px;background:#fcfcf9;color:#243c30}textarea{resize:vertical;min-height:74px}details{margin:16px 0}summary{cursor:pointer;font-weight:600}.notice{padding:12px;background:#fff5d8;border-radius:8px;font-size:13px}.toast{min-height:24px;color:#734d0d}#copybox{min-height:160px}#import{display:none}.empty{padding:16px;color:#6e756b;font-size:13px}.lock{white-space:pre-wrap;font-size:13px;line-height:1.6}.tag{display:inline-block;padding:3px 8px;border-radius:5px;background:#edf0e7;font-size:12px}@media(max-width:1000px){.layout{grid-template-columns:1fr}aside{position:static}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:550px){h1{font-size:23px}.cards{grid-template-columns:1fr}main{padding:16px}.card img{height:200px}}
+</style></head><body>
+<header><div class="eyebrow">AMAZON VIDEO · STORYBOARD</div><h1 id="title"></h1><p id="meta" class="meta"></p>
+<p>点选镜头 → 编辑说明或填写画面修改要求 → 导出修改单交给 Codex → 更新画面与三段提示词。</p>
+<div class="toolbar"><button class="primary" id="download">导出修改单 JSON</button><button id="copy">复制给 Codex</button><label class="import" for="import">导入修改单</label><input type="file" id="import" accept="application/json,.json"><button id="reset">清空本页修改</button></div>
+<p id="toast" class="toast" role="status" aria-live="polite"></p></header>
+<main><p id="source" class="meta"></p><div class="layout"><section><img id="board" class="board" alt="当前版本的实际故事板总览"><div class="cards" id="cards"></div>
+<details><summary>已锁定的商品与连续性</summary><pre class="lock" id="lock"></pre></details>
+<details id="copyfallback"><summary>修改单文字（也可从这里手动复制）</summary><textarea id="copybox" readonly></textarea></details></section>
+<aside><span class="tag" id="clip"></span><h2 id="shotTitle"></h2><p id="shotTime" class="meta"></p><div class="notice">这些修改尚未应用到图片或最终提示词。图像重绘由 Codex 调用内置 image 工具完成。</div><div id="fields"></div><label class="field" for="request">画面修改要求 / 调序与时长要求</label><textarea id="request" placeholder="例如：保持产品形状和数量，只把背景改为同场景更近的取景。"></textarea><p class="meta">时间与顺序由 Codex 一并检查，避免破坏每段15秒及跨段衔接。原始文件不会被本页覆盖。</p></aside></div></main>
+<script id="storyboard-data" type="application/json">__STORYBOARD_DATA__</script>
+<script>
+'use strict';
+const data=JSON.parse(document.getElementById('storyboard-data').textContent);
+const $=id=>document.getElementById(id);
+const names={purpose:'镜头目的',scene_id:'场景编号',action:'主体动作与完成状态',camera:'相机与运镜',notes:'说明与连续性'};
+const key='amazon-storyboard-edits:'+data.plan_sha256;
+let edits={},selected=data.shots[0].id;
+function message(text){$('toast').textContent=text;}
+function validate(doc){
+ if(!doc||doc.schema_version!==1||doc.base_plan_sha256!==data.plan_sha256||doc.base_revision!==data.revision||JSON.stringify(doc.base_image_hashes)!==JSON.stringify(data.image_hashes)||!Array.isArray(doc.shot_changes))throw Error('修改单与当前分镜/图像版本不一致。请交由 Codex 比对，不能自动覆盖。');
+ const next={};
+ for(const item of doc.shot_changes){
+  if(!data.shots.some(s=>s.id===item.id)||Object.hasOwn(next,item.id))throw Error('镜号缺失或重复');
+  if(!item.fields||typeof item.fields!=='object'||Array.isArray(item.fields)||typeof item.request!=='string')throw Error('修改单字段格式无效');
+  for(const [k,v] of Object.entries(item.fields))if(!Object.hasOwn(names,k)||typeof v!=='string')throw Error('修改单包含无效字段');
+  next[item.id]={fields:{...item.fields},request:item.request};
+ }
+ return next;
+}
+function pack(){return {schema_version:1,kind:'storyboard-change-request',base_revision:data.revision,base_plan_sha256:data.plan_sha256,base_image_hashes:data.image_hashes,shot_changes:data.shots.filter(s=>edits[s.id]).map(s=>({id:s.id,clip_id:s.clip_id,...edits[s.id]}))};}
+function textRequest(){return '请按以下修改单更新故事板与对应视频提示词。先核对原分镜及图像哈希；保留商品事实、稳定镜号，检查受影响的跨段接缝和每段时长。网页中的修改尚未重绘图片。\n\n'+JSON.stringify(pack(),null,2);}
+function save(){try{localStorage.setItem(key,JSON.stringify(pack()));}catch{message('浏览器不支持本地暂存，请导出修改单以保留修改。');}$('copybox').value=textRequest();document.querySelectorAll('.card').forEach(el=>el.classList.toggle('changed',!!edits[el.dataset.id]));}
+function update(sid,k,value){const shot=data.shots.find(s=>s.id===sid);const item=edits[sid]||{fields:{},request:''};if(k==='request')item.request=value;else if(value===shot.fields[k])delete item.fields[k];else item.fields[k]=value;if(!Object.keys(item.fields).length&&!item.request)delete edits[sid];else edits[sid]=item;save();}
+function choose(sid){selected=sid;const s=data.shots.find(s=>s.id===sid);$('clip').textContent=s.clip_id;$('shotTitle').textContent=s.id+' · 镜头修改';$('shotTime').textContent=`全片 ${s.start_s}–${s.start_s+s.duration_s}s · 段内 ${s.local_start_s}–${s.local_start_s+s.duration_s}s · ${s.status}`;$('fields').replaceChildren();
+ for(const [k,title] of Object.entries(names)){const label=document.createElement('label');label.className='field';label.htmlFor='field-'+k;label.textContent=title;const input=document.createElement(k==='scene_id'?'input':'textarea');input.id='field-'+k;input.value=edits[sid]?.fields[k]??s.fields[k];input.addEventListener('input',()=>update(sid,k,input.value));$('fields').append(label,input);}
+ $('request').value=edits[sid]?.request||'';document.querySelectorAll('.card').forEach(el=>el.classList.toggle('active',el.dataset.id===sid));}
+$('title').textContent=data.title;$('meta').textContent=`${data.revision} · ${data.clips.length} 段 · ${data.total_duration_s} 秒 · ${data.shots.length} 镜`;$('source').textContent=data.source_note;$('lock').textContent=typeof data.identity_lock==='string'?data.identity_lock:JSON.stringify(data.identity_lock,null,2);
+if(data.board)$('board').src=data.board;else $('board').hidden=true;
+for(const shot of data.shots){const card=document.createElement('button');card.className='card';card.dataset.id=shot.id;card.setAttribute('aria-label','编辑 '+shot.id);if(shot.image){const img=document.createElement('img');img.src=shot.image;img.alt=shot.id+' 当前画面';card.append(img);}else{const msg=document.createElement('div');msg.className='empty';msg.textContent='面板范围未标定，请对照上方总览';card.append(msg);}const label=document.createElement('span');label.className='label';label.textContent=`${shot.id} · ${shot.clip_id} · ${shot.duration_s}s`;const subtitle=document.createElement('span');subtitle.className='label small';subtitle.textContent=shot.fields.purpose;card.append(label,subtitle);card.addEventListener('click',()=>choose(shot.id));$('cards').append(card);}
+try{const cached=localStorage.getItem(key);if(cached){edits=validate(JSON.parse(cached));message('已恢复此版本的本地修改草稿；请导出以保留。');}}catch{message('本地草稿不可用。可导入已导出的修改单。');}
+$('request').addEventListener('input',()=>update(selected,'request',$('request').value));
+$('download').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(pack(),null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='storyboard-edits-'+data.revision.replace(/[^a-zA-Z0-9_-]/g,'_')+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);message('修改单已交浏览器下载。请把该文件交给 Codex 应用修改。');});
+$('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(textRequest());message('已复制，可粘贴给 Codex。');}catch{$('copyfallback').open=true;$('copybox').focus();$('copybox').select();message('此浏览器不允许自动复制，请复制已选中的修改单文字。');}});
+$('import').addEventListener('change',async(event)=>{const file=event.target.files[0];if(!file)return;try{const incoming=validate(JSON.parse(await file.text()));edits={...edits,...incoming};choose(selected);save();message('已导入同版本修改单；画面仍等待 Codex 更新。');}catch(error){message(error.message);}event.target.value='';});
+$('reset').addEventListener('click',()=>{if(confirm('清空此版本全部尚未应用的修改？原始图像与分镜保持不变。')){edits={};save();choose(selected);message('已清空本页修改。');}});
+window.addEventListener('beforeunload',e=>{if(Object.keys(edits).length){e.preventDefault();e.returnValue='';}});
+choose(selected);save();
+</script></body></html>

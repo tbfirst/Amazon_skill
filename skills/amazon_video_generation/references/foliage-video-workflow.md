@@ -14,3 +14,5 @@ AI操作优先，同SKU用户明确说明可用于确认步骤；未知连接/�
 
 
 草木执行时读取[素材承接与弹窗](image-campaign-handoff.md)、[详细分镜](storyboard-and-continuity.md)、[输出包](output-package.md)、[交付检查](deliverables.md)；这些文件的旧版流程仅对草木与旧项目保留，新花卉不走此入口。
+
+2026-11-01起，新草木项目也交详细分镜表PNG、带格下说明的宫格故事板PNG、整段/分段TXT和分析说明书；表与板都作即梦参考。统一S-ID、同源排版与分段上传规范按[分镜输出包](flower-storyboard-package.md)，此交付要求优先于旧输出文档，不改变草木摄影路线。
