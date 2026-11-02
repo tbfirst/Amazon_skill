@@ -83,3 +83,7 @@ S-ID表示镜头，C-ID表示生成任务；一个C-ID可含多个镜头/场景�
 运行`python3 scripts/check_camera_plan.py shot-list.csv --profile general --max-generation-seconds 15 --strict`；flowers显式改为`--profile flowers --flower-format F07`，草木用foliage，实际入口更长时才改上限。另运行`python3 scripts/check_delivery_package.py 交付目录`检查层级与所有上传图。脚本不核实商品真实性、几何/道具连续性或音乐匹配，不代替实际视频验收。
 
 修改技能后运行技能校验及受影响测试，源码与`.agents/skills/amazon-video-generation`同步；每次可见版本独立本地提交、中文说明并加版本标签。
+
+## 公开竞品访问恢复
+
+涉及Amazon竞品页面、图库、A+或评论采集且访问失败时，先读[公开页访问诊断与恢复](references/public-amazon-access.md)，区分宿主网络权限、工具失败与网站登录门槛；优先复用有效项目缓存。此节不为原本无需竞品研究的任务新增采集要求。
