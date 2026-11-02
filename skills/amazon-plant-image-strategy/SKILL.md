@@ -148,3 +148,7 @@ Also audit the copy-input and font popups, submitted blank versus unanswered sta
 Check segment proportions and container fit in addition to total scale: body length, visible bare stem, insertion/support point, any trimmed state and each container's contents must agree across decisions, briefs and prompts. Unanswered composition or indispensable geometry questions remain blocked for the affected assets; no preselected popup answer, color averaging, automatic variant mixing or duplicated full packs may fill the gap.
 
 For maintenance checks, see [behavioral cases](evaluation/CASES.md). For provenance and current-policy entry points, see [sources](references/sources.md).
+
+## 公开竞品访问恢复
+
+涉及Amazon竞品页面、图库、A+或评论采集且访问失败时，先读[公开页访问诊断与恢复](references/public-amazon-access.md)，区分宿主网络权限、工具失败与网站登录门槛；优先复用有效项目缓存。此节不为原本无需竞品研究的任务新增采集要求。

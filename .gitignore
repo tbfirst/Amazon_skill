@@ -19,8 +19,7 @@ __pycache__/
 /online.md
 /future.md
 
-# workbuddy的文件
+# 其余文件
+*.mp4
 .workbuddy/
 
-# 其余mp4文件
-*.mp4
