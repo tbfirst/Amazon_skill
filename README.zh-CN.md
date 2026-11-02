@@ -1,11 +1,18 @@
 # Amazon 商品视觉 Skill 集合
 
-当前包含三个独立 skill：**lovart-plant-product-images** 负责植株单图制作；**amazon-plant-image-strategy** 负责整套 Amazon 植株图片策略与 Lovart 提示词；**amazon-video-generation** 负责产品视频的需求澄清、详细分镜表和即梦提示词。均支持中文大白话输入。
+当前包含四个独立 skill：**lovart-plant-product-images** 负责植株单图制作；**amazon-plant-image-strategy** 负责整套 Amazon 植株图片策略与 Lovart 提示词；**amazon-ordinary-generation** 负责非绿植商品套图策略与提示词；**amazon-video-generation** 负责产品视频的需求澄清、详细分镜表和即梦提示词。均支持中文大白话输入。
 
 本目录是独立的本地 Git 仓库，日期为 2026-10-14。第一版本纳入本地初始提交，后续由你配置远程仓库并推送；许可证按你的决定暂缓。生成的 dist/ 压缩包保留在本地，不重复纳入 Git。
 
-## Amazon 通用商品视频前期制作 · v6.6.0
+## 非绿植商品套图 · v1.1.0
 
+源码目录为 `skills/amazon_ordinary_generation/`，调用名为 `$amazon-ordinary-generation`，入口见 [SKILL.md](skills/amazon_ordinary_generation/SKILL.md)。接收产品主图、尺寸图、细节图与竞品ASIN，主动研究Amazon图库/A+/评论，以及TikTok、YouTube相关使用内容，交付中文策略与独立英文Lovart提示词。默认1张尺寸＋1张细节＋4张场景＋5张A+；旧套图按实际更新范围处理，不自动生图或制作视频。
+
+覆盖各类非绿植实体商品，相框、挂钩、卡套、狗笼仅是例子。先建[商品画像](skills/amazon_ordinary_generation/references/product-profile.md)，按用途、形态、规格/适配、内容物、状态与买家问题选择研究和构图，不为所有商品强加安装/承重问卷。软体、穿戴、电子、耗材、包装等可组合属性按需启用；未列类目也直接适配。商品事实与竞品灵感分开，社交文字与实际视频观察分开。附[研究种子与反推示例](skills/amazon_ordinary_generation/references/research-seeds.md)、[行为案例](skills/amazon_ordinary_generation/evaluation/CASES.md)和提示词合集校验脚本；该skill自包含，不复用植物素材库。
+
+示例：使用 $amazon-ordinary-generation。我的产品是卡套，以下是主图、尺寸图、细节图与竞品ASIN。请研究三个平台的相关商品和使用内容，逐图讨论布局，输出套图策略与完整英文提示词。
+
+## Amazon 通用商品视频前期制作 · v6.7.0
 调用 `$amazon-video-generation`，源码见[SKILL.md](skills/amazon_video_generation/SKILL.md)。面向各类Amazon商品，按用途、结构、可动部件和交互任务策划视频；花卉与草木保留专门路线，花卉初始用例不再限制整个技能范围。接受产品原图、部分成图或已选最终套图，不要求先凑11张。
 
 [通用主流程](skills/amazon_video_generation/references/product-video-workflow.md)与[物理连续性](skills/amazon_video_generation/references/physical-continuity.md)区分相机运动、主体运动和部件操作：先核空间可达性与真实连接，再设计接触、受力、移动、遮挡与结果。合理透视收缩不是结构变形；刚性结构、同一活动件和柔性道具的连接关系分别验收，不把所有商品锁成静止。
