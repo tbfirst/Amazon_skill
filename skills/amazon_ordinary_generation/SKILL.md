@@ -2,7 +2,7 @@
 name: amazon-ordinary-generation
 description: Plan Amazon image campaigns for non-botanical physical products with the plant-strategy workflow adapted to the actual SKU. Research ordered competitor galleries, A+ and reviews; use iterative dialogue to select competitor-derived, built-in or hybrid references and resolve every asset's layout, scenes, copy and typography. Includes 200 ordinary-product planning templates and ordered campaign recipes, Amazon/TikTok/YouTube research, Chinese strategy and independent English Lovart prompts. New sets default to 11 assets; refreshes preserve agreed scope. Excludes botanical campaigns, direct image generation and video production.
 metadata:
-  version: "2.2.2"
+  version: "2.2.3"
 ---
 
 ## 竞品采集与存储
@@ -59,6 +59,8 @@ metadata:
 先确认售卖的是什么、买家用它完成什么、销售单元/变体和实际可见外观，再按画像选择需核对的尺寸/规格、材料、包装/附件、接触与操作状态。索取3–6个不同竞品ASIN或链接；不足时用已知商品信息自行检索补充，并标注用户指定/自主发现。尚无足够身份信息时不能凭宽泛名称擅自选细分类。未列类目无需用户替我们补一套类目规则。
 
 事实不明就在影响决策时实际调用提问工具弹窗问清，遵循 [弹窗执行机制](references/discovery-layout.md#弹窗执行机制)，不能只写待确认清单代替工具。文字输入弹窗只收文字，补图在聊天请求。按实际可用工具提问，通常每批1–2题；已有回答与明确委托直接沿用，未答/预选不算同意。继续不受缺口影响的研究与资产。总体风格选择不自动委托每张图的布局、文字与像素；明确“全部你决定”则覆盖设计选择，但不能补造事实。
+
+上传图无法唯一确定拟展示外观，或拟采用未证实的新视角时，先读[外观歧义与视角证据确认](references/appearance-evidence.md)：区分本体关系、状态与二维投影，对影响成图的数量、排列、朝向或面间关系直接弹窗问最小事实。三视图/六视图按需检查，文字能解决就不强索全套照片；确认关系写入身份锁与相关独立prompt。
 
 涉及多张实拍差异时，先按 [产品状态确认](references/product-states.md) 建立状态映射；任何身份、结构或功能疑问直接弹窗确认。建立商品身份锁与设计风格锁，分别保存。材料名称不能推导不可见微观纹理；尺寸图的包装尺寸不当成实物尺寸；竞品、视频口播和生成图片不能证明本SKU功能。按资产记录缺口依赖：不适用的事实标not-applicable，有用但非必要的资料记optional，只有该图不可缺的事实记required。缺少关键背面/内部/动作照片时，仅阻塞依赖该视角或动作的图，或选择已有证据支持的替代方案；不把缺任一尺寸当成全套暂停理由。
 
