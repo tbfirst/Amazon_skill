@@ -18,3 +18,7 @@ __pycache__/
 # 本地上线/迭代说明，不纳入版本控制
 /online.md
 /future.md
+
+# 其余文件
+*.mp4
+.workbuddy/

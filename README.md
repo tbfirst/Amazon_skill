@@ -1,6 +1,6 @@
 # Amazon Product Visual Skills
 
-A collection of three Agent Skills, with a [Chinese guide](README.zh-CN.md): individual Lovart plant imagery, Amazon plant image strategy, and product video preproduction for Jimeng.
+A collection of four Agent Skills, with a [Chinese guide](README.zh-CN.md): individual Lovart plant imagery, Amazon plant image strategy, non-botanical Amazon image campaigns, and product video preproduction for Jimeng.
 
 **Status:** local source collection, updated 2026-10-27. Strategy skill v1.22.0 adds finished-set refresh: analyze competitor sets/reviews, map old images to new layouts and styling, and request clear same-SKU details when needed. New sets default to 11 assets; refreshes use an explicit scope. Text uses intact scene surfaces or deliberate editorial panels rather than automatic blurred white mats. The 200 independent templates and 138 bundled images remain available. See the [validation scope](docs/AMAZON-STRATEGY.zh-CN.md); image generation remains unverified.
 
@@ -10,9 +10,10 @@ A collection of three Agent Skills, with a [Chinese guide](README.zh-CN.md): ind
 | --- | --- |
 | [lovart-plant-product-images](skills/lovart-plant-product-images/SKILL.md) | Turn everyday requests and product references into faithful Lovart plant imagery: preparation, integration, scenes, composition, refinement, lighting, individual information images, and review |
 | [amazon-plant-image-strategy](skills/amazon-plant-image-strategy/SKILL.md) | Parallel research of 3–6 competitors; 1 dimension + 1 detail + 4 lifestyle + 5 A+ image plans; Chinese design-strategy and independent English Lovart prompts with layout, lighting and shadows |
-| [amazon-video-generation](skills/amazon_video_generation/SKILL.md) | Four connected 10-second Chinese Jimeng prompts in 21:9, detailed text shot tables and clean closing space for later copy |
+| [amazon-ordinary-generation](skills/amazon_ordinary_generation/SKILL.md) | Image campaigns across non-botanical product categories, driven by each SKU's use, form, fit, contents and supported functions; Amazon/TikTok/YouTube research, observed-layout reverse prompting, 11-asset campaigns or scoped refreshes, Chinese strategy and independent English Lovart prompts |
+| [amazon-video-generation](skills/amazon_video_generation/SKILL.md) | Flower showcase packages: complete Jimeng prompt, analysis manual, visual and detailed storyboard PNGs, with whole-film or two-part execution |
 
-The image skills support real and artificial plant merchandise. The video skill supports product video preproduction, including botanical products. The image strategy skill produces plans and prompts for the user to execute in Lovart.
+The plant image skills support real and artificial botanical merchandise. The ordinary-generation skill handles non-botanical product campaigns independently, with source files in `skills/amazon_ordinary_generation/` and invocation `$amazon-ordinary-generation`. Image strategy skills produce plans and prompts for the user to execute in Lovart; social video sources are research inputs, not a request to produce videos. The video skill handles its own video preproduction workflow.
 
 ## Amazon 通用商品视频前期制作 · v6.7.0
 
