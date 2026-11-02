@@ -2,7 +2,7 @@
 name: amazon-video-generation
 description: "Plan Jimeng showcase videos for Amazon products across categories, from product photos or selected image campaigns. Direct scenes, camera paths, mechanisms, human interactions and prop continuity; retain dedicated flower and foliage workflows. Deliver only C01/C02 folders with self-contained Chinese draft prompts and all upload images, plus an analysis Markdown, README and shot CSV. Each segment has at most nine upload images; storyboard pages have fixed 3x3 slots and tables use ten director columns. Upload images are preferably square, at least 350 px high, with width/height between 0.6 and 1.6. Reuse selected images and generate missing storyboard states when needed. Does not submit or generate videos automatically."
 metadata:
-  version: "6.7.0"
+  version: "6.8.0"
 ---
 
 # Amazon Video Generation
@@ -25,7 +25,7 @@ metadata:
 
 商品实拍仅提取身份/结构，默认重建干净用途场景或按配色选[文字展台库](references/display-background-library.md)，不沿用杂乱实拍背景；用户明确选定的干净最终场景可复用。尺寸展示优先洁白影棚/白色无缝空间，保持轮廓、承重与尺度，不让白底抹掉白色商品边缘。
 
-按[镜头任务](references/volumetric-scene-direction.md)选择商品阅读、空间展示或动作展示：阅读镜允许清晰静止停留，生活场景优先适合主体的微动作；已选环绕、摆动等动态要求继续保留。
+按[镜头任务](references/volumetric-scene-direction.md)选择商品阅读、空间展示或动作展示：本技能用户偏好为每镜都要动，包括商品阅读、尺寸、细节与收尾镜。每镜设计可辨认的真实相机运动，或固定机位下商品/人物/相关环境的真实动作与响应；不采用整镜纯定格。运动须服务展示信息，生活场景优先适合主体的微动作；已选环绕、摆动等动态要求继续保留。
 
 ## 按决定推进的弹窗
 
